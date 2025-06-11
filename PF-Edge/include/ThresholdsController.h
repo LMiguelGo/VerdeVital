@@ -1,25 +1,41 @@
+/**
+ * @file ThresholdsController.h
+ * @brief Clase para manejar los umbrales y alertas del sistema.
+ * 
+ * Esta clase evalúa los datos de los sensores en función de los umbrales definidos, activa alertas y controla el estado de los actuadores.
+ */
 #ifndef THRESHOLDS_CONTROLLER_H
 #define THRESHOLDS_CONTROLLER_H
 
+// Librerías
 #include "dataSensor.h"
 #include "dataActuator.h"
 #include <Arduino.h>
 
+/**
+ * @class Thresholds
+ * @brief Clase para gestionar los umbrales, alertas y estados de los actuadores.
+ * 
+ * Proporciona métodos para evaluar los datos de los sensores, activar alertas, controlar actuadores y generar mensajes de estado.
+ */
 class Thresholds {
 private:
-    float minSoilMoisture = 45.0;
-    float maxSoilMoisture = 70.0; 
-    float minTemperature = 24.0;
-    float maxTemperature = 28.0;
-    float maxCO2 = 800.0;
-    int minLight = 300;
-    float minVoltage = 6.0;
-    int minRSSI = -70;
+    float minSoilMoisture = 45.0; ///< Umbral mínimo de humedad del suelo (%).
+    float maxSoilMoisture = 70.0; ///< Umbral máximo de humedad del suelo (%).
+    float minTemperature = 24.0; ///< Umbral mínimo de temperatura (°C).
+    float maxTemperature = 28.0; ///< Umbral máximo de temperatura (°C).
+    float maxCO2 = 800.0; ///< Umbral máximo de CO2 (ppm).
+    int minLight = 300; ///< Umbral mínimo de luz.
+    float minVoltage = 6.0; ///< Umbral mínimo de voltaje (V).
+    int minRSSI = -70; ///< Umbral mínimo de intensidad de señal WiFi (RSSI).
 
 public:
+    /**
+     * @brief Constructor de la clase Thresholds.
+     */
     Thresholds() {}
     // RSSI Sensor y WiFi
-    int RSSIWiFi = 0; // Valor por defecto para RSSI del WiFi
+    int RSSIWiFi = 0; ///< Valor por defecto para RSSI del WiFi
 
     // Alert flags
     bool alertLowSoilMoisture = false;
@@ -45,7 +61,10 @@ public:
     bool prevAlertESPActuator = false;
     bool prevAlertWifi = false;
 
-    // Llama esta función después de evaluar los sensores para detectar cambios en los flags
+    /**
+     * @brief Verifica si alguna alerta ha cambiado desde la última evaluación.
+     * @return true si alguna alerta ha cambiado, false en caso contrario.
+     */
     bool hasAlertChanged() {
         bool changed = 
             (alertLowSoilMoisture != prevAlertLowSoilMoisture) ||
@@ -74,6 +93,10 @@ public:
         return changed;
     }
 
+    /**
+     * @brief Verifica si alguna alerta de sensor está activa.
+     * @return true si alguna alerta de sensor está activa, false en caso contrario.
+     */
     bool anySensorAlertActive() const {
         return alertLowSoilMoisture ||
                alertHighSoilMoisture ||
@@ -84,11 +107,26 @@ public:
                alertVoltage;
     }
 
+    /**
+     * @brief Verifica si hay una falla crítica en el sistema.
+     * 
+     * Una falla crítica ocurre si hay pérdida de conexión con nodos o voltaje bajo.
+     * 
+     * @return true si hay una falla crítica, false en caso contrario.
+     */
     bool hasCriticalFailure() const {
         // Considera fallo crítico si hay pérdida de conexión con nodos o voltaje bajo
         return alertESPSensor || alertESPActuator || alertVoltage;
     }
 
+    /**
+     * @brief Evalúa los datos de los sensores y actualiza el estado de los actuadores.
+     * 
+     * Activa o desactiva los actuadores en función de los valores de los sensores y los umbrales definidos.
+     * 
+     * @param data Datos de los sensores.
+     * @return Estado actualizado de los actuadores.
+     */
     ActuatorState evaluate(const SensorData& data) {
         ActuatorState state;
         state.waterPump = 0;
@@ -155,6 +193,14 @@ public:
         }
     }
 
+    /**
+     * @brief Genera un mensaje con las alertas activas.
+     * 
+     * Incluye alertas críticas y de sensores, junto con recomendaciones de acción.
+     * 
+     * @param data Datos de los sensores.
+     * @return Cadena con el mensaje de alertas.
+     */
     String returnAlarm(const SensorData& data) {
         String msg = "";
         
@@ -217,6 +263,10 @@ public:
         return msg; // Si está vacío, todo está normal
     }
 
+    /**
+     * @brief Obtiene el estado actual de los umbrales configurados.
+     * @return Cadena con los valores de los umbrales actuales.
+     */
     String getStatus() const {
         String status = "📐 Umbrales actuales:\n";
         status += "🌱 Hum. Suelo: " + String(minSoilMoisture) + " % - " + String(maxSoilMoisture) + " %\n";
@@ -228,6 +278,15 @@ public:
         return status;
     }
 
+    /**
+     * @brief Actualiza los umbrales en función de un comando recibido.
+     * 
+     * El comando debe tener el formato "comando tipo valor", donde:
+     * - `tipo` es el umbral a modificar (por ejemplo, "suelo_min").
+     * - `valor` es el nuevo valor del umbral.
+     * 
+     * @param cmd Comando recibido.
+     */
     void updateFromCommand(const String& cmd) {
         int firstSpace = cmd.indexOf(' ');
         int secondSpace = cmd.indexOf(' ', firstSpace + 1);
@@ -246,6 +305,12 @@ public:
         else if (tipo == "rssi_min") minRSSI = (int)valor;
     }
 
+    /**
+     * @brief Formatea los datos de los sensores en una cadena legible.
+     * 
+     * @param d Datos de los sensores.
+     * @return Cadena con los datos formateados.
+     */
     String formatSensorData(const SensorData& d) const {
         String msg = "";
         msg += "🌡️ Temp: " + String(d.temperature, 1) + " °C\n";
@@ -258,6 +323,12 @@ public:
         return msg;
     }
 
+    /**
+     * @brief Formatea el estado de los actuadores en una cadena legible.
+     * 
+     * @param state Estado de los actuadores.
+     * @return Cadena con el estado formateado.
+     */
     String formatActuatorState(const ActuatorState& state) const {
         String s = "";
         s += "💧 Bomba: " + String(state.waterPump ? "ON" : "OFF") + "\n";

@@ -1,20 +1,46 @@
+/**
+ * @file TelegramBot.h
+ * @brief Clase para interactuar con la API de Telegram mediante un bot.
+ * 
+ * Esta clase permite enviar mensajes y recibir actualizaciones (mensajes nuevos) desde un bot de Telegram.
+ */
 #ifndef TELEGRAM_BOT_H
 #define TELEGRAM_BOT_H
 
+// Librerías
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
 
+/**
+ * @class TelegramBot
+ * @brief Clase para manejar la comunicación con la API de Telegram.
+ * 
+ * Proporciona métodos para enviar mensajes y obtener mensajes nuevos utilizando un bot de Telegram.
+ */
 class TelegramBot {
 private:
-    String botToken;
-    String chatId;
-    String apiHost = "https://api.telegram.org";
+    String botToken; ///< Token del bot de Telegram.
+    String chatId; ///< ID del chat al que se enviarán los mensajes.
+    String apiHost = "https://api.telegram.org"; ///< URL base de la API de Telegram.
+
 
 public:
+    /**
+     * @brief Constructor de la clase TelegramBot.
+     * @param token Token del bot de Telegram.
+     * @param chat_id ID del chat al que se enviarán los mensajes.
+     */
     TelegramBot(const String& token, const String& chat_id)
         : botToken(token), chatId(chat_id) {}
 
-    // Solo se encarga de enviar mensaje
+    /**
+     * @brief Envía un mensaje al chat configurado.
+     * 
+     * Este método utiliza la API de Telegram para enviar un mensaje al chat especificado.
+     * 
+     * @param message Mensaje a enviar.
+     * @return true si el mensaje se envió correctamente, false en caso de error.
+     */
     bool sendMessage(const String& message) {
         if (WiFi.status() != WL_CONNECTED) return false;
 
@@ -35,7 +61,14 @@ public:
         return httpCode == 200;
     }
 
-    // Solo obtiene mensajes nuevos (con offset)
+    /**
+     * @brief Obtiene el siguiente mensaje nuevo del chat.
+     * 
+     * Este método utiliza la API de Telegram para obtener mensajes nuevos desde el bot.
+     * 
+     * @param lastUpdateId ID de la última actualización procesada. Se actualiza con el ID del último mensaje recibido.
+     * @return Texto del mensaje recibido o una cadena vacía si no hay mensajes nuevos.
+     */
     String getNextMessage(int &lastUpdateId) {
         if (WiFi.status() != WL_CONNECTED) return "";
 
@@ -78,7 +111,14 @@ public:
     }
 
 private:
-    // Función básica de urlencode para textos simples
+    /**
+     * @brief Codifica una cadena en formato URL.
+     * 
+     * Este método convierte caracteres especiales en su representación codificada para ser utilizada en URLs.
+     * 
+     * @param str Cadena a codificar.
+     * @return Cadena codificada en formato URL.
+     */
     String urlencode(const String& str) {
         String encoded = "";
         char c;
@@ -100,4 +140,4 @@ private:
     }
 };
 
-#endif
+#endif // TELEGRAM_BOT_H

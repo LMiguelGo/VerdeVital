@@ -1,39 +1,58 @@
+/**
+ * @file DisplayManager.h
+ * @brief Este archivo define la clase DisplayManager para manejar la pantalla OLED del invernadero.
+ */
+
 #ifndef DISPLAY_MANAGER_H
 #define DISPLAY_MANAGER_H
 
+// Librerías
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include "dataSensor.h"
 #include "dataActuator.h"
 
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
-#define OLED_ADDR 0x3C
+// Definiciones
+#define SCREEN_WIDTH 128 ///< Ancho de la pantalla OLED en píxeles
+#define SCREEN_HEIGHT 64 ///< Alto de la pantalla OLED en píxeles
+#define OLED_ADDR 0x3C ///< Dirección I2C de la pantalla OLED
 
+/**
+ * @class DisplayManager
+ * @brief Clase para manejar la pantalla OLED del invernadero.
+ * Esta clase permite mostrar información del sistema, datos de sensores, estado de actuadores, comandos de Telegram y alertas.
+ */
 class DisplayManager {
 private:
-    Adafruit_SSD1306 display;
-    unsigned long lastPageChange = 0;
-    uint8_t currentPage = 0;
-    const uint8_t totalPages = 5;
-    unsigned long interval = 3000; // Tiempo entre páginas automáticas (ms)
-    bool autoChange = false;
+    Adafruit_SSD1306 display; ///< Objeto de la pantalla OLED
+    unsigned long lastPageChange = 0; ///< Marca de tiempo del último cambio de página
+    uint8_t currentPage = 0; ///< Página actual que se está mostrando
+    const uint8_t totalPages = 5; ///< Total de páginas disponibles
+    unsigned long interval = 3000; ///< Intervalo de tiempo entre cambios de página
+    bool autoChange = false; ///< Indica si el cambio de página es automático
 
     // Datos simulados / reales (pueden ser actualizados desde fuera)
-    String wifiStatus = "OK";
-    String hora = "00:00:00";
-    String fecha = "01-01-2023";
-    String sensorData = "T:-- H:--";
-    String actuadorEstado = "Luces: OFF";
-    String telegramCmd = "/start";
-    String alerta = "";
+    String wifiStatus = "OK"; ///< Estado de la conexión WiFi
+    String hora = "00:00:00"; ///< Hora actual
+    String fecha = "01-01-2023"; ///< Fecha actual
+    String sensorData = "T:-- H:--"; ///< Datos de los sensores
+    String actuadorEstado = "Luces: OFF"; ///< Estado de los actuadores
+    String telegramCmd = "/start"; ///< Último comando de Telegram
+    String alerta = ""; ///< Mensaje de alerta
 
 public:
-    // Constructor sin botón
+    /**
+     * @brief Constructor de la clase DisplayManager.
+     * @param autoMode Indica si el cambio de página es automático (por defecto es false).
+     */
     DisplayManager(bool autoMode = false)
         : display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1), autoChange(autoMode) {}
 
+    /**
+     * @brief Inicializa la pantalla OLED.
+     * @return true si la inicialización fue exitosa, false en caso contrario.
+     */
     bool begin() {
         if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
             Serial.println(F("❌ No se encontró la pantalla OLED"));
@@ -46,13 +65,29 @@ public:
         return true;
     }
 
-    // Métodos para actualizar datos externos
+    /**
+     * @brief Actualiza el estado de la conexión WiFi.
+     * @param status Estado actual del WiFi.
+     */
     void setWifiStatus(const String& status) { wifiStatus = status; }
 
+    /**
+     * @brief Actualiza la hora mostrada en la pantalla.
+     * @param h Hora en formato de cadena.
+     */
     void setHora(const String& h) { hora = h; }
 
+    /**
+     * @brief Actualiza la fecha mostrada en la pantalla.
+     * @param f Fecha en formato de cadena.
+     */
     void setFecha(const String& f) { fecha = f; }
 
+    /**
+     * @brief Actualiza los datos de los sensores mostrados en la pantalla.
+     * @param data Estructura con los datos de los sensores.
+     * @param rssiWifi (Opcional) Intensidad de la señal WiFi en dBm.
+     */
     void setSensorData(const SensorData& data, const String& rssiWifi = "") {
         sensorData = "";
         sensorData += "Temp:  " + String(data.temperature, 1) + " C\n";
@@ -64,6 +99,10 @@ public:
         sensorData += "RSSI:  " + rssiWifi + " dBm\n";
     }
 
+    /**
+     * @brief Actualiza el estado de los actuadores mostrado en la pantalla.
+     * @param state Estructura con el estado de los actuadores.
+     */
     void setActuadorEstado(const ActuatorState& state) {
         actuadorEstado = "";
         actuadorEstado += "Bomba: " + String(state.waterPump ? "ON" : "OFF") + "\n";
@@ -71,10 +110,28 @@ public:
         actuadorEstado += "Luces: " + String(state.leds ? "ON" : "OFF");
     }
 
+    /**
+     * @brief Actualiza el último comando de Telegram mostrado en la pantalla.
+     * @param cmd Comando recibido de Telegram.
+     */
     void setTelegramCmd(const String& cmd) {
         telegramCmd = cmd;
     }
 
+    /**
+     * @brief Actualiza los mensajes de alerta mostrados en la pantalla.
+     * @param criticState Indica si hay una falla crítica.
+     * @param lsoilM Indica si la humedad del suelo es baja.
+     * @param hsoilM Indica si la humedad del suelo es alta.
+     * @param lTemp Indica si la temperatura es baja.
+     * @param hTemp Indica si la temperatura es alta.
+     * @param co2 Indica si el nivel de CO2 es alto.
+     * @param light Indica si la luz es insuficiente.
+     * @param voltage Indica si el voltaje es bajo.
+     * @param rssi Indica si la conexión WiFi es débil.
+     * @param espsensor Indica si el ESP de sensores no está conectado.
+     * @param espactuator Indica si el ESP de actuadores no está conectado.
+     */
     void setAlerta(bool criticState, bool lsoilM, bool hsoilM, bool lTemp, bool hTemp, bool co2, bool light, bool voltage, bool rssi, bool espsensor, bool espactuator) {
         alerta = "";
         if (criticState) alerta += "FALLA CRITICA!\n";
@@ -90,6 +147,9 @@ public:
         if (rssi) alerta += "Conexión WiFi débil\n";
     }
 
+    /**
+     * @brief Muestra la página actual en la pantalla OLED.
+     */
     void mostrarPagina() {
         display.clearDisplay();
         display.setTextSize(1);
@@ -133,6 +193,9 @@ public:
         display.display();
     }
 
+    /**
+     * @brief Actualiza la pantalla, cambiando de página automáticamente si está habilitado.
+     */
     void actualizar() {
         unsigned long now = millis();
 
@@ -144,11 +207,18 @@ public:
         }
     }
 
+    /**
+     * @brief Cambia manualmente a la siguiente página.
+     */
     void cambiarPagina() {
         currentPage = (currentPage + 1) % totalPages;
         mostrarPagina();
     }
 
+    /**
+     * @brief Muestra un mensaje rápido en la pantalla OLED.
+     * @param msg Mensaje a mostrar.
+     */
     void mostrarMensajeRapido(const String& msg) {
         display.clearDisplay();
         display.setCursor(0, 0);
@@ -159,4 +229,4 @@ public:
     }
 };
 
-#endif
+#endif // DISPLAY_MANAGER_H

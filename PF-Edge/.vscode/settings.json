@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "*.embeddedhtml": "html",
+        "*.php": "php",
+        "*.js": "javascript",
+        "*.html": "html",
+        "*.scss": "scss",
+        "*.py": "python",
+        "*.arff": "csv",
+        "random": "cpp",
+        "system_error": "cpp"
+    }
+}

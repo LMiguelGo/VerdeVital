@@ -1,3 +1,20 @@
+/**
+ * @file main.cpp
+ * @brief Programa principal para el sistema de monitoreo y control de invernadero
+ * @details Este programa utiliza ESP-NOW para recibir datos de sensores, controla actuadores,
+ *          se comunica con un bot de Telegram y registra datos en una tarjeta SD.
+ *         Utiliza FreeRTOS para manejar múltiples tareas concurrentes.
+ * @author
+ *          Valentina Muñoz Arcos
+ *          Luis Miguel Gómez Muñoz
+ *          David Alejandro Ortega Flórez
+ * 
+ * @version 4.0
+ * @date 2025-06-16
+ * 
+ */
+
+// Librerías
 #include <Arduino.h>
 #include "WiFiConnector.h"
 #include "ESPNowReceiver.h"
@@ -11,44 +28,48 @@
 #include "DisplayManager.h"
 #include <time.h>
 
+// Constantes y variables globales
 // 📡 WiFi
-const char* ssid = "Jose";
-const char* password = "Viani1992";
-WiFiConnector wifi(ssid, password);
+const char* ssid = "Jose"; ///< Nombre de la red WiFi
+const char* password = "Viani1992"; ///< Contraseña de la red WiFi
+WiFiConnector wifi(ssid, password); ///< Conexión WiFi
 
 // 🤖 Telegram
-const String botToken = "7801122874:AAFSDyTc5P3iAw8Z5msvaTbN2O_DJXYEAlw";
-const String chatId = "5152788448";
-TelegramBot bot(botToken, chatId);
-int lastUpdateId = 0;
+const String botToken = "7801122874:AAFSDyTc5P3iAw8Z5msvaTbN2O_DJXYEAlw"; ///< Token del bot de Telegram
+const String chatId = "5152788448"; ///< ID del chat de Telegram
+TelegramBot bot(botToken, chatId); ///< Instancia del bot de Telegram
+int lastUpdateId = 0; ///< ID de la última actualización del bot
 
 // 🧠 RTC y SD
-RtcDS1302Helper rtc(15, 14, 2);
-SDLogger logger(5);
+RtcDS1302Helper rtc(15, 14, 2); ///< Instancia del RTC DS1302
+SDLogger logger(5); ///< Instancia del logger de SD
 
 // 🌡️ Datos compartidos
-SensorData lastReceivedData;
-ActuatorState actuatorState;
-bool hasData = false;
+SensorData lastReceivedData; ///< Últimos datos recibidos de sensores
+ActuatorState actuatorState; ///< Estado de los actuadores
+bool hasData = false; ///< Indica si se han recibido datos
 
 // Protecciones contra acceso concurrente
-portMUX_TYPE dataMux = portMUX_INITIALIZER_UNLOCKED;
+portMUX_TYPE dataMux = portMUX_INITIALIZER_UNLOCKED; ///< Mutex para proteger acceso a datos compartidos
 
 // 📥 ESP-NOW
-ESPNowReceiver receiver(2);
+ESPNowReceiver receiver(2); ///< Receptor ESP-NOW en el canal 2
 
 // 🟢 Actuadores
-const uint8_t actuatorMAC[] = {0xEC, 0xE3, 0x34, 0x8A, 0x55, 0xA0};
-ESPNowActuatorSender actuatorSender(actuatorMAC, 2);
+const uint8_t actuatorMAC[] = {0xEC, 0xE3, 0x34, 0x8A, 0x55, 0xA0}; ///< Dirección MAC del actuador
+ESPNowActuatorSender actuatorSender(actuatorMAC, 2); ///< Instancia del sender ESP-NOW para actuadores
 
 // Control de pantalla OLED
-#define BUTTON_PIN 27
-DisplayManager display(false);
+#define BUTTON_PIN 27 ///< Pin del botón para cambiar páginas
+DisplayManager display(false); ///< Instancia del manejador de pantalla
 
 // 🔢 Umbrales
-Thresholds thresholds;
+Thresholds thresholds; ///< Instancia del controlador de umbrales
 
-// ⏰ NTP
+/**
+ * @brief Sincroniza el RTC con un servidor NTP
+ * @details Configura la hora del RTC utilizando un servidor NTP (Reloj Global).
+ */
 void syncRtcWithNTP() {
     configTime(-5 * 3600, 0, "pool.ntp.org");
     struct tm timeinfo;
@@ -62,7 +83,10 @@ void syncRtcWithNTP() {
     }
 }
 
-// Actualiza la pantalla OLED con los datos actuales
+/**
+ * @brief Actualiza la pantalla OLED con los datos más recientes
+ * @details Muestra los datos de los sensores y el estado de los actuadores en la pantalla OLED.
+ */
 void actualizarDisplay() {
     portENTER_CRITICAL(&dataMux);
     SensorData copy = lastReceivedData;
@@ -90,7 +114,10 @@ void actualizarDisplay() {
     display.setActuadorEstado(actuatorState);
 }
 
-// 🔁 Callback al recibir datos
+/**
+ * @brief Callback para recibir datos de sensores
+ * @param data Datos del sensor recibidos
+ */
 void onSensorDataReceived(const SensorData& data) {
     portENTER_CRITICAL(&dataMux);
     lastReceivedData = data;
@@ -105,7 +132,10 @@ void onSensorDataReceived(const SensorData& data) {
     Serial.println(thresholds.formatSensorData(data));
 }
 
-// Tarea 1: recibir datos de sensores
+/**
+ * @brief Tarea para recibir datos de sensores a través de ESP-NOW
+ * @details Callback para manejar la recepción de datos de sensores.
+ */
 void ReceiveDataTask(void* pvParameters) {
     receiver.onReceive(onSensorDataReceived);
 
@@ -114,7 +144,11 @@ void ReceiveDataTask(void* pvParameters) {
     }
 }
 
-// Tarea 2: comandos Telegram
+/**
+ * @brief Tarea para manejar el bot de Telegram
+ * @details Esta tarea se encarga de recibir comandos del bot de Telegram y enviar respuestas.
+ *          También verifica los umbrales y envía alertas si es necesario.
+ */
 void TelegramReceiverTask(void* pvParameters) {
     // Mostrar mensaje de inicio
     bot.sendMessage("✅ Bot de Telegram iniciado. Usa /guia para ver comandos disponibles.");
@@ -205,7 +239,10 @@ void TelegramReceiverTask(void* pvParameters) {
     }
 }
 
-// Tarea 3: guardar en SD
+/**
+ * @brief Tarea para registrar datos en la tarjeta SD
+ * @details Esta tarea registra los datos de sensores y el estado del sistema en la tarjeta SD cada 10 segundos.
+ */
 void SDLoggerTask(void* pvParameters) {
     int systemState = 0; // Estado del sistema (0: Todo OK, 1: Fallo conectividad, 2: Sensor desbordado, 3: Falla crítica)
     while (true) {
@@ -237,7 +274,10 @@ void SDLoggerTask(void* pvParameters) {
     }
 }
 
-// Tarea 4: actualizar RTC
+/**
+ * @brief Tarea para actualizar el RTC con NTP cada 30 minutos
+ * @details Esta tarea sincroniza el RTC con un servidor NTP cada 30 minutos.
+ */
 void RTCUpdateTask(void* pvParameters) {
     while (true) {
         syncRtcWithNTP();
@@ -245,7 +285,10 @@ void RTCUpdateTask(void* pvParameters) {
     }
 }
 
-// Tarea 5: verificar fecha y hora
+/**
+ * @brief Tarea para verificar la hora del RTC y sincronizarla si es inválida
+ * @details Esta tarea comprueba la hora del RTC cada minuto y la sincroniza con NTP si es inválida.
+ */
 void checkRtcTime(void* pvParameters) {
     while (true) {
         int year = rtc.getYear();
@@ -266,7 +309,10 @@ void checkRtcTime(void* pvParameters) {
     }
 }
 
-// Tarea 6: actualizar pantalla OLED
+/**
+ * @brief Tarea para manejar la pantalla OLED
+ * @details Esta tarea actualiza la pantalla OLED y permite cambiar de página con un botón.
+ */
 void DisplayTask(void* pvParameters) {
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     unsigned long lastPress = 0;
@@ -284,6 +330,11 @@ void DisplayTask(void* pvParameters) {
     }
 }
 
+/**
+ * @brief Configuración inicial del sistema
+ * @details Inicializa la conexión WiFi, el RTC, el logger de SD, los receptores y emisores
+ * ESP-NOW y las tareas de FreeRTOS.
+ */
 void setup() {
     Serial.begin(115200);
     delay(1000);
