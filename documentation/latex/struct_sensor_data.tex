@@ -1,0 +1,53 @@
+\doxysection{Referencia de la estructura Sensor\+Data}
+\hypertarget{struct_sensor_data}{}\label{struct_sensor_data}\index{SensorData@{SensorData}}
+
+
+Estructura para almacenar datos de sensores. Esta estructura contiene campos para temperatura, humedad, luz, CO2, humedad del suelo y voltaje.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+Data.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_sensor_data_a0a1593ad64f79756c14d208ce7b17adb}\label{struct_sensor_data_a0a1593ad64f79756c14d208ce7b17adb} 
+float {\bfseries temperature} = 0.\+0f
+\item 
+\Hypertarget{struct_sensor_data_a29ce8f1d86589b1c5af915ec961742f2}\label{struct_sensor_data_a29ce8f1d86589b1c5af915ec961742f2} 
+float {\bfseries humidity} = 0.\+0f
+\item 
+\Hypertarget{struct_sensor_data_ae4e60f0c2cb3149079e9d8e38ea923f6}\label{struct_sensor_data_ae4e60f0c2cb3149079e9d8e38ea923f6} 
+uint16\+\_\+t {\bfseries light} = 0
+\item 
+\Hypertarget{struct_sensor_data_abedbf0d087ae1f897de0ad39bfe54c33}\label{struct_sensor_data_abedbf0d087ae1f897de0ad39bfe54c33} 
+float {\bfseries co2ppm} = 0.\+0f
+\item 
+\Hypertarget{struct_sensor_data_a2006b09d9dad1bfacf3a9d5072c0b694}\label{struct_sensor_data_a2006b09d9dad1bfacf3a9d5072c0b694} 
+float {\bfseries soil\+Moisture} = 0.\+0f
+\item 
+\Hypertarget{struct_sensor_data_a52470063e7a12aa53d1912361ba54ea8}\label{struct_sensor_data_a52470063e7a12aa53d1912361ba54ea8} 
+float {\bfseries voltage} = 0.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Estructura para almacenar datos de sensores. Esta estructura contiene campos para temperatura, humedad, luz, CO2, humedad del suelo y voltaje. 
+
+Estructura para almacenar los datos de los sensores del invernadero.
+
+
+\begin{DoxyItemize}
+\item temperature\+: Temperatura en grados Celsius.
+\item humidity\+: Humedad relativa en porcentaje.
+\item light\+: Valor de luz (0-\/65535).
+\item co2ppm\+: Concentración de CO2 en partes por millón (ppm).
+\item soil\+Moisture\+: Humedad del suelo en porcentaje.
+\item voltage\+: Voltaje medido por el sensor. 
+\end{DoxyItemize}
+
+La documentación de esta estructura está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor_data_8h}{sensor\+Data.\+h}}\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{data_sensor_8h}{data\+Sensor.\+h}}\end{DoxyCompactItemize}

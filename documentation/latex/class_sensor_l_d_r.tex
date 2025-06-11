@@ -1,0 +1,72 @@
+\doxysection{Referencia de la clase Sensor\+LDR}
+\hypertarget{class_sensor_l_d_r}{}\label{class_sensor_l_d_r}\index{SensorLDR@{SensorLDR}}
+
+
+Clase para manejar sensores LDR (Light Dependent Resistor). Esta clase permite leer el valor de luz de un sensor LDR conectado a un pin analógico.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+\+LDR.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_l_d_r_abbeb88df68c0e766802d2355cc6a7206}{Sensor\+LDR}} (uint8\+\_\+t ldr\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_sensor_l_d_r}{Sensor\+LDR}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_l_d_r_ab1b9722aa71f6cb0409ca673ff373007}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el sensor LDR. \end{DoxyCompactList}\item 
+unsigned short \mbox{\hyperlink{class_sensor_l_d_r_adc1695881e181275b454d8aefdd2431f}{read\+Light}} ()
+\begin{DoxyCompactList}\small\item\em Lee el valor de luz del sensor LDR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar sensores LDR (Light Dependent Resistor). Esta clase permite leer el valor de luz de un sensor LDR conectado a un pin analógico. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_sensor_l_d_r_abbeb88df68c0e766802d2355cc6a7206}\index{SensorLDR@{SensorLDR}!SensorLDR@{SensorLDR}}
+\index{SensorLDR@{SensorLDR}!SensorLDR@{SensorLDR}}
+\doxysubsubsection{\texorpdfstring{SensorLDR()}{SensorLDR()}}
+{\footnotesize\ttfamily \label{class_sensor_l_d_r_abbeb88df68c0e766802d2355cc6a7206} 
+Sensor\+LDR\+::\+Sensor\+LDR (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ldr\+Pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_sensor_l_d_r}{Sensor\+LDR}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ldr\+Pin} & Pin al que está conectado el sensor LDR. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_sensor_l_d_r_ab1b9722aa71f6cb0409ca673ff373007}\index{SensorLDR@{SensorLDR}!begin@{begin}}
+\index{begin@{begin}!SensorLDR@{SensorLDR}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_sensor_l_d_r_ab1b9722aa71f6cb0409ca673ff373007} 
+void Sensor\+LDR\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el sensor LDR. 
+
+Debe ser llamado antes de leer datos del sensor. \Hypertarget{class_sensor_l_d_r_adc1695881e181275b454d8aefdd2431f}\index{SensorLDR@{SensorLDR}!readLight@{readLight}}
+\index{readLight@{readLight}!SensorLDR@{SensorLDR}}
+\doxysubsubsection{\texorpdfstring{readLight()}{readLight()}}
+{\footnotesize\ttfamily \label{class_sensor_l_d_r_adc1695881e181275b454d8aefdd2431f} 
+unsigned short Sensor\+LDR\+::read\+Light (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee el valor de luz del sensor LDR. 
+
+\begin{DoxyReturn}{Devuelve}
+Último valor de luz leído (0-\/1023).
+\end{DoxyReturn}
+Si la lectura falla, devuelve el último valor válido. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor___l_d_r_8h}{sensor\+\_\+\+LDR.\+h}}\end{DoxyCompactItemize}

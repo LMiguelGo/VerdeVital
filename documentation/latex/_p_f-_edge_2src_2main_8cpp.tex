@@ -1,0 +1,231 @@
+\doxysection{Referencia del archivo PF-\/\+Edge/src/main.cpp}
+\hypertarget{_p_f-_edge_2src_2main_8cpp}{}\label{_p_f-_edge_2src_2main_8cpp}\index{PF-\/Edge/src/main.cpp@{PF-\/Edge/src/main.cpp}}
+
+
+Programa principal para el sistema de monitoreo y control de invernadero.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}Wi\+Fi\+Connector.\+h"{}}\newline
+{\ttfamily \#include "{}ESPNow\+Receiver.\+h"{}}\newline
+{\ttfamily \#include "{}ESPNow\+Sender.\+h"{}}\newline
+{\ttfamily \#include "{}Telegram\+Bot.\+h"{}}\newline
+{\ttfamily \#include "{}Thresholds\+Controller.\+h"{}}\newline
+{\ttfamily \#include "{}data\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}data\+Actuator.\+h"{}}\newline
+{\ttfamily \#include "{}SDLogger.\+h"{}}\newline
+{\ttfamily \#include "{}Rtc\+DS1302\+Helper.\+h"{}}\newline
+{\ttfamily \#include "{}Display\+Manager.\+h"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_abc2ad14f0789907024ac765711ffd3da}\label{_p_f-_edge_2src_2main_8cpp_abc2ad14f0789907024ac765711ffd3da} 
+\#define {\bfseries BUTTON\+\_\+\+PIN}~27
+\begin{DoxyCompactList}\small\item\em Pin del botón para cambiar páginas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a4a27c94e7a82a5fcc558a79dc503edcc}{sync\+Rtc\+With\+NTP}} ()
+\begin{DoxyCompactList}\small\item\em Sincroniza el RTC con un servidor NTP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a04b3b47bb517f5686df6c7145ed2e347}{actualizar\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza la pantalla OLED con los datos más recientes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a56422a448357254a6ac3240b674d7e9e}{on\+Sensor\+Data\+Received}} (const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&data)
+\begin{DoxyCompactList}\small\item\em Callback para recibir datos de sensores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_abd67c5124a4dbeb4a331851431a351b8}{Receive\+Data\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para recibir datos de sensores a través de ESP-\/\+NOW. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a7538caa9c4fc0c29585be7432a1b3b19}{Telegram\+Receiver\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para manejar el bot de Telegram. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a4762f67866ef1a40eafc34ddcf740420}{SDLogger\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para registrar datos en la tarjeta SD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_aee23d7efd0ecf6c8705ba8166cdba419}{RTCUpdate\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para actualizar el RTC con NTP cada 30 minutos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_af876f714a02f228542ef96a4ed95a185}{check\+Rtc\+Time}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para verificar la hora del RTC y sincronizarla si es inválida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_acb7e73a57ebf85a6ffa2ab663419812b}{Display\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Tarea para manejar la pantalla OLED. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Configuración inicial del sistema. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{_p_f-_edge_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a587ba0cb07f02913598610049a3bbb79}\label{_p_f-_edge_2src_2main_8cpp_a587ba0cb07f02913598610049a3bbb79} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries ssid} = "{}Jose"{}
+\begin{DoxyCompactList}\small\item\em Nombre de la red Wi\+Fi. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_aa4a2ebcb494493f648ae1e6975672575}\label{_p_f-_edge_2src_2main_8cpp_aa4a2ebcb494493f648ae1e6975672575} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries password} = "{}Viani1992"{}
+\begin{DoxyCompactList}\small\item\em Contraseña de la red Wi\+Fi. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a3f65cc2514010ba6c826d3ea8ec6ed9e}\label{_p_f-_edge_2src_2main_8cpp_a3f65cc2514010ba6c826d3ea8ec6ed9e} 
+\mbox{\hyperlink{class_wi_fi_connector}{Wi\+Fi\+Connector}} {\bfseries wifi} (\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a587ba0cb07f02913598610049a3bbb79}{ssid}}, \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_aa4a2ebcb494493f648ae1e6975672575}{password}})
+\begin{DoxyCompactList}\small\item\em Conexión Wi\+Fi. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a7de3f35a43119f21e26e35c28f005bdd}\label{_p_f-_edge_2src_2main_8cpp_a7de3f35a43119f21e26e35c28f005bdd} 
+const String {\bfseries bot\+Token} = "{}7801122874\+:AAFSDy\+Tc5\+P3i\+Aw8\+Z5msva\+Tb\+N2\+O\+\_\+\+DJXYEAlw"{}
+\begin{DoxyCompactList}\small\item\em Token del bot de Telegram. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a3d419226c7a853ee04680b73fbf9ec0a}\label{_p_f-_edge_2src_2main_8cpp_a3d419226c7a853ee04680b73fbf9ec0a} 
+const String {\bfseries chat\+Id} = "{}5152788448"{}
+\begin{DoxyCompactList}\small\item\em ID del chat de Telegram. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_aa64e588e5eba3d3dd1a524440d0bc138}\label{_p_f-_edge_2src_2main_8cpp_aa64e588e5eba3d3dd1a524440d0bc138} 
+\mbox{\hyperlink{class_telegram_bot}{Telegram\+Bot}} {\bfseries bot} (\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a7de3f35a43119f21e26e35c28f005bdd}{bot\+Token}}, \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a3d419226c7a853ee04680b73fbf9ec0a}{chat\+Id}})
+\begin{DoxyCompactList}\small\item\em Instancia del bot de Telegram. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56}\label{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56} 
+int {\bfseries last\+Update\+Id} = 0
+\begin{DoxyCompactList}\small\item\em ID de la última actualización del bot. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a0aee5db68b4f669974b7fc8627be78a1}\label{_p_f-_edge_2src_2main_8cpp_a0aee5db68b4f669974b7fc8627be78a1} 
+\mbox{\hyperlink{class_rtc_d_s1302_helper}{Rtc\+DS1302\+Helper}} {\bfseries rtc} (15, 14, 2)
+\begin{DoxyCompactList}\small\item\em Instancia del RTC DS1302. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_aff6572fa3d20e8c2e67bfe9dd53aad0a}\label{_p_f-_edge_2src_2main_8cpp_aff6572fa3d20e8c2e67bfe9dd53aad0a} 
+\mbox{\hyperlink{class_s_d_logger}{SDLogger}} {\bfseries logger} (5)
+\begin{DoxyCompactList}\small\item\em Instancia del logger de SD. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a6c7a276d75f5a923bfaac3000c1444e8}\label{_p_f-_edge_2src_2main_8cpp_a6c7a276d75f5a923bfaac3000c1444e8} 
+\mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} {\bfseries last\+Received\+Data}
+\begin{DoxyCompactList}\small\item\em Últimos datos recibidos de sensores. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a59ddd9feadd301eaaed0579bae694b97}\label{_p_f-_edge_2src_2main_8cpp_a59ddd9feadd301eaaed0579bae694b97} 
+\mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} {\bfseries actuator\+State}
+\begin{DoxyCompactList}\small\item\em Estado de los actuadores. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_ac1a0b0bc43fc961fca46b36695489f0e}\label{_p_f-_edge_2src_2main_8cpp_ac1a0b0bc43fc961fca46b36695489f0e} 
+bool {\bfseries has\+Data} = false
+\begin{DoxyCompactList}\small\item\em Indica si se han recibido datos. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a9c2830762f29f949ecdda8220f224878}\label{_p_f-_edge_2src_2main_8cpp_a9c2830762f29f949ecdda8220f224878} 
+port\+MUX\+\_\+\+TYPE {\bfseries data\+Mux} = port\+MUX\+\_\+\+INITIALIZER\+\_\+\+UNLOCKED
+\begin{DoxyCompactList}\small\item\em Mutex para proteger acceso a datos compartidos. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a60e483dcbe3b416a0b36ecf4976e2189}\label{_p_f-_edge_2src_2main_8cpp_a60e483dcbe3b416a0b36ecf4976e2189} 
+\mbox{\hyperlink{class_e_s_p_now_receiver}{ESPNow\+Receiver}} {\bfseries receiver} (2)
+\begin{DoxyCompactList}\small\item\em Receptor ESP-\/\+NOW en el canal 2. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a1419e04c5a55c0383db71bf82958a0ab}\label{_p_f-_edge_2src_2main_8cpp_a1419e04c5a55c0383db71bf82958a0ab} 
+const uint8\+\_\+t {\bfseries actuator\+MAC} \mbox{[}$\,$\mbox{]} = \{0x\+EC, 0x\+E3, 0x34, 0x8A, 0x55, 0x\+A0\}
+\begin{DoxyCompactList}\small\item\em Dirección MAC del actuador. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_abc3743d46492d7c3a4359182f90ff217}\label{_p_f-_edge_2src_2main_8cpp_abc3743d46492d7c3a4359182f90ff217} 
+\mbox{\hyperlink{class_e_s_p_now_actuator_sender}{ESPNow\+Actuator\+Sender}} {\bfseries actuator\+Sender} (\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a1419e04c5a55c0383db71bf82958a0ab}{actuator\+MAC}}, 2)
+\begin{DoxyCompactList}\small\item\em Instancia del sender ESP-\/\+NOW para actuadores. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_aab3d4bf17681f0d9db10686e39cd5050}\label{_p_f-_edge_2src_2main_8cpp_aab3d4bf17681f0d9db10686e39cd5050} 
+\mbox{\hyperlink{class_display_manager}{Display\+Manager}} {\bfseries display} (false)
+\begin{DoxyCompactList}\small\item\em Instancia del manejador de pantalla. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a20aaf93d95ea62fcd41c710c7a8391fe}\label{_p_f-_edge_2src_2main_8cpp_a20aaf93d95ea62fcd41c710c7a8391fe} 
+\mbox{\hyperlink{class_thresholds}{Thresholds}} {\bfseries thresholds}
+\begin{DoxyCompactList}\small\item\em Instancia del controlador de umbrales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Programa principal para el sistema de monitoreo y control de invernadero. 
+
+Este programa utiliza ESP-\/\+NOW para recibir datos de sensores, controla actuadores, se comunica con un bot de Telegram y registra datos en una tarjeta SD. Utiliza Free\+RTOS para manejar múltiples tareas concurrentes. \begin{DoxyAuthor}{Autor}
+Valentina Muñoz Arcos Luis Miguel Gómez Muñoz David Alejandro Ortega Flórez
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+4.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2025-\/06-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_a04b3b47bb517f5686df6c7145ed2e347}\index{main.cpp@{main.cpp}!actualizarDisplay@{actualizarDisplay}}
+\index{actualizarDisplay@{actualizarDisplay}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{actualizarDisplay()}{actualizarDisplay()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a04b3b47bb517f5686df6c7145ed2e347} 
+void actualizar\+Display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza la pantalla OLED con los datos más recientes. 
+
+Muestra los datos de los sensores y el estado de los actuadores en la pantalla OLED. \Hypertarget{_p_f-_edge_2src_2main_8cpp_af876f714a02f228542ef96a4ed95a185}\index{main.cpp@{main.cpp}!checkRtcTime@{checkRtcTime}}
+\index{checkRtcTime@{checkRtcTime}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{checkRtcTime()}{checkRtcTime()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_af876f714a02f228542ef96a4ed95a185} 
+void check\+Rtc\+Time (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para verificar la hora del RTC y sincronizarla si es inválida. 
+
+Esta tarea comprueba la hora del RTC cada minuto y la sincroniza con NTP si es inválida. \Hypertarget{_p_f-_edge_2src_2main_8cpp_acb7e73a57ebf85a6ffa2ab663419812b}\index{main.cpp@{main.cpp}!DisplayTask@{DisplayTask}}
+\index{DisplayTask@{DisplayTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DisplayTask()}{DisplayTask()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_acb7e73a57ebf85a6ffa2ab663419812b} 
+void Display\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para manejar la pantalla OLED. 
+
+Esta tarea actualiza la pantalla OLED y permite cambiar de página con un botón. \Hypertarget{_p_f-_edge_2src_2main_8cpp_a56422a448357254a6ac3240b674d7e9e}\index{main.cpp@{main.cpp}!onSensorDataReceived@{onSensorDataReceived}}
+\index{onSensorDataReceived@{onSensorDataReceived}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{onSensorDataReceived()}{onSensorDataReceived()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a56422a448357254a6ac3240b674d7e9e} 
+void on\+Sensor\+Data\+Received (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Callback para recibir datos de sensores. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Datos del sensor recibidos \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_p_f-_edge_2src_2main_8cpp_abd67c5124a4dbeb4a331851431a351b8}\index{main.cpp@{main.cpp}!ReceiveDataTask@{ReceiveDataTask}}
+\index{ReceiveDataTask@{ReceiveDataTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ReceiveDataTask()}{ReceiveDataTask()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_abd67c5124a4dbeb4a331851431a351b8} 
+void Receive\+Data\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para recibir datos de sensores a través de ESP-\/\+NOW. 
+
+Callback para manejar la recepción de datos de sensores. \Hypertarget{_p_f-_edge_2src_2main_8cpp_aee23d7efd0ecf6c8705ba8166cdba419}\index{main.cpp@{main.cpp}!RTCUpdateTask@{RTCUpdateTask}}
+\index{RTCUpdateTask@{RTCUpdateTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{RTCUpdateTask()}{RTCUpdateTask()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_aee23d7efd0ecf6c8705ba8166cdba419} 
+void RTCUpdate\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para actualizar el RTC con NTP cada 30 minutos. 
+
+Esta tarea sincroniza el RTC con un servidor NTP cada 30 minutos. \Hypertarget{_p_f-_edge_2src_2main_8cpp_a4762f67866ef1a40eafc34ddcf740420}\index{main.cpp@{main.cpp}!SDLoggerTask@{SDLoggerTask}}
+\index{SDLoggerTask@{SDLoggerTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SDLoggerTask()}{SDLoggerTask()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a4762f67866ef1a40eafc34ddcf740420} 
+void SDLogger\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para registrar datos en la tarjeta SD. 
+
+Esta tarea registra los datos de sensores y el estado del sistema en la tarjeta SD cada 10 segundos. \Hypertarget{_p_f-_edge_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configuración inicial del sistema. 
+
+Inicializa la conexión Wi\+Fi, el RTC, el logger de SD, los receptores y emisores ESP-\/\+NOW y las tareas de Free\+RTOS. \Hypertarget{_p_f-_edge_2src_2main_8cpp_a4a27c94e7a82a5fcc558a79dc503edcc}\index{main.cpp@{main.cpp}!syncRtcWithNTP@{syncRtcWithNTP}}
+\index{syncRtcWithNTP@{syncRtcWithNTP}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{syncRtcWithNTP()}{syncRtcWithNTP()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a4a27c94e7a82a5fcc558a79dc503edcc} 
+void sync\+Rtc\+With\+NTP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sincroniza el RTC con un servidor NTP. 
+
+Configura la hora del RTC utilizando un servidor NTP (Reloj Global). \Hypertarget{_p_f-_edge_2src_2main_8cpp_a7538caa9c4fc0c29585be7432a1b3b19}\index{main.cpp@{main.cpp}!TelegramReceiverTask@{TelegramReceiverTask}}
+\index{TelegramReceiverTask@{TelegramReceiverTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TelegramReceiverTask()}{TelegramReceiverTask()}}
+{\footnotesize\ttfamily \label{_p_f-_edge_2src_2main_8cpp_a7538caa9c4fc0c29585be7432a1b3b19} 
+void Telegram\+Receiver\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Tarea para manejar el bot de Telegram. 
+
+Esta tarea se encarga de recibir comandos del bot de Telegram y enviar respuestas. También verifica los umbrales y envía alertas si es necesario. 

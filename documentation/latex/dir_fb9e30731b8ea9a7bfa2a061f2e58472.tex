@@ -1,0 +1,128 @@
+\doxysection{Referencia del directorio PF-\/\+Actuadores}
+\hypertarget{dir_fb9e30731b8ea9a7bfa2a061f2e58472}{}\label{dir_fb9e30731b8ea9a7bfa2a061f2e58472}\index{Referencia del directorio PF-\/Actuadores@{Referencia del directorio PF-\/Actuadores}}
+\doxysubsubsection*{Directorios}
+\begin{DoxyCompactItemize}
+\item 
+directorio \mbox{\hyperlink{dir_7b427a0182784d0a22537a161b1974e4}{include}}
+\item 
+directorio \mbox{\hyperlink{dir_c6c12a29cc43e234897773a3db5f508e}{src}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Este repositorio contiene el código fuente de {\bfseries{PF-\/\+Actuadores}}, uno de los tres proyectos fundamentales del sistema integral {\bfseries{Verde\+Vital}}. Este proyecto se encarga de controlar los actuadores (bomba de agua, ventilador y LEDs RGB) de manera remota mediante el protocolo ESP-\/\+NOW, comunicándose con el dispositivo central {\bfseries{PF-\/\+Edge}}.\hypertarget{README.md_autotoc_md1}{}\doxysubsection{\texorpdfstring{Arquitectura del Sistema}{Arquitectura del Sistema}}\label{README.md_autotoc_md1}
+El sistema {\bfseries{Verde\+Vital}} se compone de tres proyectos principales\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{PF-\/\+Sensores\+:}} Captura datos ambientales y los envía al dispositivo central.
+\item {\bfseries{PF-\/\+Edge\+:}} Recibe la información de los sensores, procesa los datos y envía comandos a los actuadores.
+\item {\bfseries{PF-\/\+Actuadores\+:}} Este proyecto, que recibe los comandos de PF-\/\+Edge y controla físicamente los dispositivos (bomba, ventilador, LEDs).
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md2}{}\doxysubsection{\texorpdfstring{Funcionamiento General}{Funcionamiento General}}\label{README.md_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{Inicialización\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Configuración de los pines del ESP32 para cada actuador.
+\item Inicialización del sistema ESP-\/\+NOW para la comunicación inalámbrica.
+\end{DoxyItemize}
+\item {\bfseries{Recepción de Comandos\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item El receptor ESP-\/\+NOW escucha los mensajes enviados por PF-\/\+Edge.
+\item La función {\ttfamily on\+Actuator\+State\+Received} es invocada con la información del estado de cada actuador.
+\end{DoxyItemize}
+\item {\bfseries{Control de Actuadores\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Se actualizan los estados de la bomba, ventilador y LEDs según los comandos recibidos.
+\item Los pines de salida se configuran para encender o apagar los dispositivos de acuerdo a la señal.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md3}{}\doxysubsection{\texorpdfstring{Componentes Clave del Código}{Componentes Clave del Código}}\label{README.md_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily src/main.\+cpp}\+:}} ~\newline
+ Archivo principal que implementa la lógica del sistema\+:
+\begin{DoxyItemize}
+\item {\bfseries{Definición de Pines\+:}} ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_BOMBA\ \ \ \ \ \ 25\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_VENTILADOR\ 26\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_LED\_1\ \ \ \ \ \ 14\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_LED\_2\ \ \ \ \ \ 27\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_LED\_3\ \ \ \ \ \ 33\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PIN\_LED\_4\ \ \ \ \ \ 32\ }}
+
+\end{DoxyCode}
+
+\item {\bfseries{Inicialización de Actuadores\+:}} ~\newline
+ Se crea una instancia para cada actuador utilizando las clases {\ttfamily \doxylink{class_rele}{Rele}} y {\ttfamily \doxylink{class_led_r_g_b}{Led\+RGB}}.
+\item {\bfseries{Callback ({\ttfamily on\+Actuator\+State\+Received})\+:}} ~\newline
+ Función que procesa los datos recibidos y actualiza el estado de los actuadores.
+\item {\bfseries{Configuración del ESP-\/\+NOW\+:}} ~\newline
+ Se inicia el receptor en un canal específico y se asocia el callback.
+\end{DoxyItemize}
+\item {\bfseries{Clases de Actuadores y Comunicación\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{class_e_s_p_now_actuator_receiver}{ESPNow\+Actuator\+Receiver}\+:}} Encargada de la comunicación ESP-\/\+NOW.
+\item {\bfseries{\doxylink{class_rele}{Rele}\+:}} Maneja el control de la bomba de agua y el ventilador.
+\item {\bfseries{\doxylink{class_led_r_g_b}{Led\+RGB}\+:}} Controla los LEDs RGB.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md4}{}\doxysubsection{\texorpdfstring{Requisitos}{Requisitos}}\label{README.md_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Hardware\+:}}
+\begin{DoxyItemize}
+\item ESP32.
+\item Actuadores físicos\+: bomba de agua, ventilador y LEDs RGB.
+\end{DoxyItemize}
+\item {\bfseries{Software\+:}}
+\begin{DoxyItemize}
+\item Arduino IDE con soporte para ESP32.
+\item Librerías requeridas\+: {\ttfamily \doxylink{class_e_s_p_now_receiver}{ESPNow\+Receiver}}, {\ttfamily \doxylink{class_rele}{Rele}}, y {\ttfamily \doxylink{class_led_r_g_b}{Led\+RGB}} (asegúrese de instalarlas a través del Administrador de Librerías).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5}{}\doxysubsection{\texorpdfstring{Instalación y Configuración}{Instalación y Configuración}}\label{README.md_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Configurar el ESP32 en el Arduino IDE\+:}} ~\newline
+ Instale y configure el soporte para ESP32 según las \href{https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html}{\texttt{ instrucciones oficiales}}.
+\item {\bfseries{Instalar Librerías Necesarias\+:}} ~\newline
+ Utilice el Administrador de Librerías del Arduino IDE para instalar las dependencias.
+\item {\bfseries{Cargar el Código\+:}} ~\newline
+ Abra \href{http://_vscodecontentref_/0}{\texttt{ main.\+cpp}}, seleccione el puerto y placa correctos para su ESP32 y cargue el proyecto.
+\item {\bfseries{Conectar los Actuadores\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Asigne el hardware a los pines indicados\+:
+\begin{DoxyItemize}
+\item Bomba de agua\+: Pin 25.
+\item Ventilador\+: Pin 26.
+\item LEDs RGB\+: Pines 14, 27, 33 y 32.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\bfseries{Verificar la Comunicación\+:}} ~\newline
+ Asegúrese de que el canal configurado para ESP-\/\+NOW en el PF-\/\+Edge coincide con el definido en este proyecto.
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md6}{}\doxysubsection{\texorpdfstring{Consideraciones}{Consideraciones}}\label{README.md_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Compatibilidad de Canales\+:}} ~\newline
+ Verificar que el canal ESP-\/\+NOW usado por el dispositivo Edge esté correctamente configurado en el ESP32 de los actuadores.
+\item {\bfseries{Conexiones Físicas\+:}} ~\newline
+ Revise las conexiones de hardware para garantizar un correcto funcionamiento de los actuadores.
+\item {\bfseries{Integración\+:}} ~\newline
+ Este proyecto forma parte de un sistema mayor. La correcta interacción entre PF-\/\+Sensores, PF-\/\+Edge y PF-\/\+Actuadores es esencial para el funcionamiento integral.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md7}{}\doxysubsection{\texorpdfstring{Próximos Pasos y Potenciales Mejoras}{Próximos Pasos y Potenciales Mejoras}}\label{README.md_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Ampliar el control de los LEDs para incluir variaciones de color y brillo.
+\item Incorporar más actuadores conforme sea necesario.
+\item Implementar un sistema de registro/log para facilitar la depuración.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Disfruta programando y mejorando el sistema Verde\+Vital. 

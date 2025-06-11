@@ -1,0 +1,105 @@
+\doxysection{Referencia del archivo PF-\/\+Sensores/src/main.cpp}
+\hypertarget{_p_f-_sensores_2src_2main_8cpp}{}\label{_p_f-_sensores_2src_2main_8cpp}\index{PF-\/Sensores/src/main.cpp@{PF-\/Sensores/src/main.cpp}}
+
+
+Programa principal para leer sensores y enviar datos usando ESP-\/\+NOW. Este programa lee datos de varios sensores (DHT, LDR, MQ135, YL69, voltaje) y envía los datos a través de ESP-\/\+NOW a un dispositivo receptor específico. El programa utiliza Free\+RTOS para ejecutar la lectura y envío de datos en una tarea separada.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}sensor\+\_\+\+DHT.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+\_\+\+LDR.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+\_\+\+MQ135.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+\_\+\+YL69.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+\_\+\+Voltage.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+Data.\+h"{}}\newline
+{\ttfamily \#include "{}ESPNow\+Sender.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}\label{_p_f-_sensores_2src_2main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e} 
+\#define {\bfseries DHT\+\_\+\+PIN}~4
+\begin{DoxyCompactList}\small\item\em Pin al que está conectado el sensor DHT. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_abfae246a91df54e807874aa8680beccb}\label{_p_f-_sensores_2src_2main_8cpp_abfae246a91df54e807874aa8680beccb} 
+\#define {\bfseries DHT\+\_\+\+TYPE}~DHT11
+\begin{DoxyCompactList}\small\item\em Tipo de sensor DHT (DHT11, DHT22, etc.) \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a51fd859df7f54aaa2ef64c36c97b548a}\label{_p_f-_sensores_2src_2main_8cpp_a51fd859df7f54aaa2ef64c36c97b548a} 
+\#define {\bfseries LDR\+\_\+\+PIN}~34
+\begin{DoxyCompactList}\small\item\em Pin al que está conectado el sensor LDR. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_ad56ab96e8e854bd726e5391d22eb19f4}\label{_p_f-_sensores_2src_2main_8cpp_ad56ab96e8e854bd726e5391d22eb19f4} 
+\#define {\bfseries MQ135\+\_\+\+PIN}~35
+\begin{DoxyCompactList}\small\item\em Pin al que está conectado el sensor MQ135. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a0d89b357276058b20a1b8088d8186745}\label{_p_f-_sensores_2src_2main_8cpp_a0d89b357276058b20a1b8088d8186745} 
+\#define {\bfseries YL69\+\_\+\+PIN}~32
+\begin{DoxyCompactList}\small\item\em Pin al que está conectado el sensor YL-\/69. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a54f09983e16c8655e9d2409609992757}\label{_p_f-_sensores_2src_2main_8cpp_a54f09983e16c8655e9d2409609992757} 
+\#define {\bfseries VOLTAGE\+\_\+\+PIN}~33
+\begin{DoxyCompactList}\small\item\em Pin al que está conectado el sensor de voltaje. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_ace6a11e892466500d47d1f45f042bc53}\label{_p_f-_sensores_2src_2main_8cpp_ace6a11e892466500d47d1f45f042bc53} 
+\#define {\bfseries CHANNEL}~2
+\begin{DoxyCompactList}\small\item\em Canal de comunicación para ESP-\/\+NOW (1-\/14) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_a990a66430978de69f412b977c5af22e8}{task\+Read\+And\+Send}} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em Tarea que lee los sensores y envía los datos a través de ESP-\/\+NOW. Esta tarea se ejecuta en un bucle infinito, leyendo los sensores cada 3 segundos y enviando los datos al dispositivo receptor. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{_p_f-_sensores_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void {\bfseries setup} ()
+\begin{DoxyCompactList}\small\item\em Configuración inicial del programa. Esta función se ejecuta una vez al inicio del programa. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{_p_f-_sensores_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_adafb0087100a6c1fe375a15d7a507d6a}\label{_p_f-_sensores_2src_2main_8cpp_adafb0087100a6c1fe375a15d7a507d6a} 
+uint8\+\_\+t {\bfseries receiver\+Mac} \mbox{[}$\,$\mbox{]} = \{0x\+E8, 0x6B, 0x\+EA, 0x\+DF, 0x21, 0x0C\}
+\begin{DoxyCompactList}\small\item\em Dirección MAC del dispositivo receptor (6 bytes) \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a13af80289607c955be6c9b85ea27e699}\label{_p_f-_sensores_2src_2main_8cpp_a13af80289607c955be6c9b85ea27e699} 
+\mbox{\hyperlink{class_sensor_d_h_t}{Sensor\+DHT}} {\bfseries dht\+Sensor} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}{DHT\+\_\+\+PIN}}, \mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_abfae246a91df54e807874aa8680beccb}{DHT\+\_\+\+TYPE}})
+\begin{DoxyCompactList}\small\item\em Sensor DHT para temperatura y humedad. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a10e8189508a844383111a449d301b446}\label{_p_f-_sensores_2src_2main_8cpp_a10e8189508a844383111a449d301b446} 
+\mbox{\hyperlink{class_sensor_l_d_r}{Sensor\+LDR}} {\bfseries ldr\+Sensor} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_a51fd859df7f54aaa2ef64c36c97b548a}{LDR\+\_\+\+PIN}})
+\begin{DoxyCompactList}\small\item\em Sensor LDR para medir luz ambiental. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a53957756a3be49fd711f4268f6da1a04}\label{_p_f-_sensores_2src_2main_8cpp_a53957756a3be49fd711f4268f6da1a04} 
+\mbox{\hyperlink{class_sensor_m_q135}{Sensor\+MQ135}} {\bfseries mq135\+Sensor} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_ad56ab96e8e854bd726e5391d22eb19f4}{MQ135\+\_\+\+PIN}})
+\begin{DoxyCompactList}\small\item\em Sensor MQ135 para medir calidad del aire (CO2) \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a253100b6f9b80d53ff5df73695c159f0}\label{_p_f-_sensores_2src_2main_8cpp_a253100b6f9b80d53ff5df73695c159f0} 
+\mbox{\hyperlink{class_sensor_y_l69}{Sensor\+YL69}} {\bfseries yl69\+Sensor} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_a0d89b357276058b20a1b8088d8186745}{YL69\+\_\+\+PIN}})
+\begin{DoxyCompactList}\small\item\em Sensor YL69 para medir humedad del suelo. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a84967db0fec825538b865a2ba9105ec0}\label{_p_f-_sensores_2src_2main_8cpp_a84967db0fec825538b865a2ba9105ec0} 
+\mbox{\hyperlink{class_voltage_sensor}{Voltage\+Sensor}} {\bfseries voltage\+Sensor} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_a54f09983e16c8655e9d2409609992757}{VOLTAGE\+\_\+\+PIN}})
+\begin{DoxyCompactList}\small\item\em Sensor de voltaje. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a32eb7faece101c2cb63fbf6f2e5ba21c}\label{_p_f-_sensores_2src_2main_8cpp_a32eb7faece101c2cb63fbf6f2e5ba21c} 
+\mbox{\hyperlink{class_e_s_p_now_sender}{ESPNow\+Sender}} {\bfseries esp\+Now\+Sender} (\mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_adafb0087100a6c1fe375a15d7a507d6a}{receiver\+Mac}}, \mbox{\hyperlink{_p_f-_sensores_2src_2main_8cpp_ace6a11e892466500d47d1f45f042bc53}{CHANNEL}})
+\begin{DoxyCompactList}\small\item\em Sender ESP-\/\+NOW. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Programa principal para leer sensores y enviar datos usando ESP-\/\+NOW. Este programa lee datos de varios sensores (DHT, LDR, MQ135, YL69, voltaje) y envía los datos a través de ESP-\/\+NOW a un dispositivo receptor específico. El programa utiliza Free\+RTOS para ejecutar la lectura y envío de datos en una tarea separada. 
+
+
+\begin{DoxyItemize}
+\item Utiliza la biblioteca DHT para leer temperatura y humedad.
+\item Utiliza un LDR para medir la luz ambiental.
+\item Utiliza un sensor MQ135 para medir la calidad del aire (CO2).
+\item Utiliza un sensor YL69 para medir la humedad del suelo.
+\item Utiliza un divisor de voltaje para medir el voltaje de entrada.
+\item Envía los datos a través de ESP-\/\+NOW a un dispositivo con una dirección MAC específica. 
+\end{DoxyItemize}
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{_p_f-_sensores_2src_2main_8cpp_a990a66430978de69f412b977c5af22e8}\index{main.cpp@{main.cpp}!taskReadAndSend@{taskReadAndSend}}
+\index{taskReadAndSend@{taskReadAndSend}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{taskReadAndSend()}{taskReadAndSend()}}
+{\footnotesize\ttfamily \label{_p_f-_sensores_2src_2main_8cpp_a990a66430978de69f412b977c5af22e8} 
+void task\+Read\+And\+Send (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{parameter}{}\end{DoxyParamCaption})}
+
+
+
+Tarea que lee los sensores y envía los datos a través de ESP-\/\+NOW. Esta tarea se ejecuta en un bucle infinito, leyendo los sensores cada 3 segundos y enviando los datos al dispositivo receptor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parameter} & Parámetro de entrada (no utilizado). \\
+\hline
+\end{DoxyParams}

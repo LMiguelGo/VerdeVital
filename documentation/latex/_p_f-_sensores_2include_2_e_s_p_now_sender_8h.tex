@@ -1,0 +1,30 @@
+\doxysection{Referencia del archivo PF-\/\+Sensores/include/\+ESPNow\+Sender.h}
+\hypertarget{_p_f-_sensores_2include_2_e_s_p_now_sender_8h}{}\label{_p_f-_sensores_2include_2_e_s_p_now_sender_8h}\index{PF-\/Sensores/include/ESPNowSender.h@{PF-\/Sensores/include/ESPNowSender.h}}
+
+
+Clase para enviar datos usando ESP-\/\+NOW en ESP32. Esta clase permite enviar datos de sensores a través de ESP-\/\+NOW. La estructura de datos enviada es idéntica a \doxylink{struct_sensor_data}{Sensor\+Data}.  
+
+
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+now.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+wifi.\+h$>$}\newline
+{\ttfamily \#include "{}sensor\+Data.\+h"{}}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_e_s_p_now_sender}{ESPNow\+Sender}}
+\begin{DoxyCompactList}\small\item\em Clase para enviar datos de sensores usando ESP-\/\+NOW. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_f-_sensores_2include_2_e_s_p_now_sender_8h_ad84dc0f9f050dea47380736f459fbbd8}\label{_p_f-_sensores_2include_2_e_s_p_now_sender_8h_ad84dc0f9f050dea47380736f459fbbd8} 
+typedef \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} {\bfseries struct\+\_\+message}
+\begin{DoxyCompactList}\small\item\em Alias para la estructura \doxylink{struct_actuator_state}{Actuator\+State} que se enviará por ESP-\/\+NOW. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para enviar datos usando ESP-\/\+NOW en ESP32. Esta clase permite enviar datos de sensores a través de ESP-\/\+NOW. La estructura de datos enviada es idéntica a \doxylink{struct_sensor_data}{Sensor\+Data}. 
+
+\begin{DoxyNote}{Nota}
+Asegúrate de incluir la estructura \doxylink{struct_sensor_data}{Sensor\+Data} en tu proyecto. Esta clase está diseñada para ser utilizada en un entorno ESP32. 
+\end{DoxyNote}

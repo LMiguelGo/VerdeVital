@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: Archivo de código fuente PF-Edge/include/RtcDS1302Helper.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_rtc_d_s1302_helper_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RtcDS1302Helper.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_rtc_d_s1302_helper_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef RTC_DS1302_HELPER_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define RTC_DS1302_HELPER_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Librerías</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;ThreeWire.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;RtcDS1302.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html">   20</a></span><span class="keyword">class </span><a class="code hl_function" href="class_rtc_d_s1302_helper.html#a185482cff2ea3ce22eab3ad888ed8f97">RtcDS1302Helper</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a185482cff2ea3ce22eab3ad888ed8f97">   28</a></span>    <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a185482cff2ea3ce22eab3ad888ed8f97">RtcDS1302Helper</a>(uint8_t ioPin, uint8_t sclkPin, uint8_t cePin)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        : _wire(ioPin, sclkPin, cePin), _rtc(_wire) {}</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a4397ac561ca2d81d2f62669e3648cdee">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a4397ac561ca2d81d2f62669e3648cdee">begin</a>() {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        _rtc.Begin();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span> (_rtc.GetIsWriteProtected()) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            _rtc.SetIsWriteProtected(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (!_rtc.GetIsRunning()) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            _rtc.SetIsRunning(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (!_rtc.IsDateTimeValid()) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_function" href="class_rtc_d_s1302_helper.html#aab3737bc8b69034ee329fa5187a49c64">updateFromCompileTime</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#af1f72bfe97f4c84245260154fc5da5e6">   57</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#af1f72bfe97f4c84245260154fc5da5e6">getYear</a>() {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> now.Year();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a470c70bd063ed21f445f9f1f0f6d6a89">   66</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a470c70bd063ed21f445f9f1f0f6d6a89">getMonth</a>() {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span> now.Month();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a74f0ba53e28a9de90054ee190edb5441">   75</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a74f0ba53e28a9de90054ee190edb5441">getDay</a>() {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> now.Day();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a0f09e359f5ac2f467c42750c9217b8e1">   84</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a0f09e359f5ac2f467c42750c9217b8e1">getHour</a>() {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> now.Hour();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a7a55336749a837ccb7888005ddab7736">   93</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a7a55336749a837ccb7888005ddab7736">getMinute</a>() {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> now.Minute();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#ad8cf28bc2fb1bad6edc2caaf4afe2063">  102</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#ad8cf28bc2fb1bad6edc2caaf4afe2063">getSecond</a>() {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> now.Second();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span></div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#aab3737bc8b69034ee329fa5187a49c64">  113</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#aab3737bc8b69034ee329fa5187a49c64">updateFromCompileTime</a>() {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        RtcDateTime compiled(__DATE__, __TIME__);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">if</span> (!now.IsValid() || now &lt; compiled) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            _rtc.SetDateTime(compiled);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a44490c4029b4255fb2d0dd069431e84d">  131</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a44490c4029b4255fb2d0dd069431e84d">updateFromNTP</a>(<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day, <span class="keywordtype">int</span> hour, <span class="keywordtype">int</span> minute, <span class="keywordtype">int</span> second) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        RtcDateTime dt(year, month, day, hour, minute, second);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        _rtc.SetDateTime(dt);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span></div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a54773e2ad3c5331b0ea9774db7ee1c74">  140</a></span>    String <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a54773e2ad3c5331b0ea9774db7ee1c74">getTimestamp</a>() {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a7878f4992471fa5acf0fd08e79724212">getDate</a>() + <span class="stringliteral">&quot; &quot;</span> + <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a06bc719cb8396d111a929e90aa51a7aa">getTime</a>();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span></div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a7878f4992471fa5acf0fd08e79724212">  149</a></span>    String <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a7878f4992471fa5acf0fd08e79724212">getDate</a>() {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> String(now.Year()) + <span class="stringliteral">&quot;-&quot;</span> + padZero(now.Month()) + <span class="stringliteral">&quot;-&quot;</span> + padZero(now.Day());</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span></div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="class_rtc_d_s1302_helper.html#a06bc719cb8396d111a929e90aa51a7aa">  158</a></span>    String <a class="code hl_function" href="class_rtc_d_s1302_helper.html#a06bc719cb8396d111a929e90aa51a7aa">getTime</a>() {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        RtcDateTime now = _rtc.GetDateTime();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">return</span> padZero(now.Hour()) + <span class="stringliteral">&quot;:&quot;</span> + padZero(now.Minute()) + <span class="stringliteral">&quot;:&quot;</span> + padZero(now.Second());</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    ThreeWire _wire; </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    RtcDS1302&lt;ThreeWire&gt; _rtc; </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    String padZero(<span class="keywordtype">int</span> number) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">return</span> (number &lt; 10 ? <span class="stringliteral">&quot;0&quot;</span> : <span class="stringliteral">&quot;&quot;</span>) + String(number);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>};</div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#endif </span><span class="comment">// RTC_DS1302_HELPER_H</span></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a06bc719cb8396d111a929e90aa51a7aa"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a06bc719cb8396d111a929e90aa51a7aa">RtcDS1302Helper::getTime</a></div><div class="ttdeci">String getTime()</div><div class="ttdoc">Obtiene la hora actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:158</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a0f09e359f5ac2f467c42750c9217b8e1"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a0f09e359f5ac2f467c42750c9217b8e1">RtcDS1302Helper::getHour</a></div><div class="ttdeci">int getHour()</div><div class="ttdoc">Obtiene la hora actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:84</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a185482cff2ea3ce22eab3ad888ed8f97"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a185482cff2ea3ce22eab3ad888ed8f97">RtcDS1302Helper::RtcDS1302Helper</a></div><div class="ttdeci">RtcDS1302Helper(uint8_t ioPin, uint8_t sclkPin, uint8_t cePin)</div><div class="ttdoc">Constructor de la clase RtcDS1302Helper.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:28</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a4397ac561ca2d81d2f62669e3648cdee"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a4397ac561ca2d81d2f62669e3648cdee">RtcDS1302Helper::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Inicializa el módulo RTC DS1302.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:37</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a44490c4029b4255fb2d0dd069431e84d"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a44490c4029b4255fb2d0dd069431e84d">RtcDS1302Helper::updateFromNTP</a></div><div class="ttdeci">void updateFromNTP(int year, int month, int day, int hour, int minute, int second)</div><div class="ttdoc">Actualiza la fecha y hora del RTC con valores proporcionados.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:131</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a470c70bd063ed21f445f9f1f0f6d6a89"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a470c70bd063ed21f445f9f1f0f6d6a89">RtcDS1302Helper::getMonth</a></div><div class="ttdeci">int getMonth()</div><div class="ttdoc">Obtiene el mes actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:66</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a54773e2ad3c5331b0ea9774db7ee1c74"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a54773e2ad3c5331b0ea9774db7ee1c74">RtcDS1302Helper::getTimestamp</a></div><div class="ttdeci">String getTimestamp()</div><div class="ttdoc">Obtiene una marca de tiempo completa (fecha y hora) del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:140</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a74f0ba53e28a9de90054ee190edb5441"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a74f0ba53e28a9de90054ee190edb5441">RtcDS1302Helper::getDay</a></div><div class="ttdeci">int getDay()</div><div class="ttdoc">Obtiene el día actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:75</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a7878f4992471fa5acf0fd08e79724212"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a7878f4992471fa5acf0fd08e79724212">RtcDS1302Helper::getDate</a></div><div class="ttdeci">String getDate()</div><div class="ttdoc">Obtiene la fecha actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:149</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_a7a55336749a837ccb7888005ddab7736"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#a7a55336749a837ccb7888005ddab7736">RtcDS1302Helper::getMinute</a></div><div class="ttdeci">int getMinute()</div><div class="ttdoc">Obtiene el minuto actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:93</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_aab3737bc8b69034ee329fa5187a49c64"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#aab3737bc8b69034ee329fa5187a49c64">RtcDS1302Helper::updateFromCompileTime</a></div><div class="ttdeci">void updateFromCompileTime()</div><div class="ttdoc">Actualiza la fecha y hora del RTC con la fecha y hora de compilación.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:113</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_ad8cf28bc2fb1bad6edc2caaf4afe2063"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#ad8cf28bc2fb1bad6edc2caaf4afe2063">RtcDS1302Helper::getSecond</a></div><div class="ttdeci">int getSecond()</div><div class="ttdoc">Obtiene el segundo actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:102</div></div>
+<div class="ttc" id="aclass_rtc_d_s1302_helper_html_af1f72bfe97f4c84245260154fc5da5e6"><div class="ttname"><a href="class_rtc_d_s1302_helper.html#af1f72bfe97f4c84245260154fc5da5e6">RtcDS1302Helper::getYear</a></div><div class="ttdeci">int getYear()</div><div class="ttdoc">Obtiene el año actual del RTC.</div><div class="ttdef"><b>Definition</b> RtcDS1302Helper.h:57</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_dad86263abbbad7f4658eaca3d71a85e.html">PF-Edge</a></li><li class="navelem"><a class="el" href="dir_c8c7dcf043a234dc71217368deedbf14.html">include</a></li><li class="navelem"><a class="el" href="_rtc_d_s1302_helper_8h.html">RtcDS1302Helper.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

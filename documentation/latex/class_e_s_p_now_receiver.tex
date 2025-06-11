@@ -1,0 +1,103 @@
+\doxysection{Referencia de la clase ESPNow\+Receiver}
+\hypertarget{class_e_s_p_now_receiver}{}\label{class_e_s_p_now_receiver}\index{ESPNowReceiver@{ESPNowReceiver}}
+
+
+Clase para manejar la recepción de datos mediante ESP-\/\+NOW.  
+
+
+
+
+{\ttfamily \#include $<$ESPNow\+Receiver.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_s_p_now_receiver_ad13938255b12dce853fb8d8b89ef9bde}{ESPNow\+Receiver}} (uint8\+\_\+t channel=1)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_e_s_p_now_receiver}{ESPNow\+Receiver}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_receiver_a73b845142d85067cd73239f44d569cc7}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa ESP-\/\+NOW y configura el receptor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_receiver_a71e6dd964656d036d1c38611377bc7a1}{on\+Receive}} (void(\texorpdfstring{$\ast$}{*}callback)(const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&))
+\begin{DoxyCompactList}\small\item\em Registra un callback para procesar los datos recibidos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_receiver_a5e2469ce3050943fbc9cf8888a5430f6}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza el estado de la conexión. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_e_s_p_now_receiver_a91f87802204670f9236bb689f999b1c3}{is\+Connected}} () const
+\begin{DoxyCompactList}\small\item\em Verifica si el nodo está conectado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar la recepción de datos mediante ESP-\/\+NOW. 
+
+Esta clase permite inicializar ESP-\/\+NOW, registrar un callback para procesar los datos recibidos y gestionar el estado de la conexión. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_e_s_p_now_receiver_ad13938255b12dce853fb8d8b89ef9bde}\index{ESPNowReceiver@{ESPNowReceiver}!ESPNowReceiver@{ESPNowReceiver}}
+\index{ESPNowReceiver@{ESPNowReceiver}!ESPNowReceiver@{ESPNowReceiver}}
+\doxysubsubsection{\texorpdfstring{ESPNowReceiver()}{ESPNowReceiver()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_receiver_ad13938255b12dce853fb8d8b89ef9bde} 
+ESPNow\+Receiver\+::\+ESPNow\+Receiver (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_e_s_p_now_receiver}{ESPNow\+Receiver}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Canal de comunicación ESP-\/\+NOW (por defecto es 1). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_e_s_p_now_receiver_a73b845142d85067cd73239f44d569cc7}\index{ESPNowReceiver@{ESPNowReceiver}!begin@{begin}}
+\index{begin@{begin}!ESPNowReceiver@{ESPNowReceiver}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_receiver_a73b845142d85067cd73239f44d569cc7} 
+void ESPNow\+Receiver\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa ESP-\/\+NOW y configura el receptor. 
+
+Configura el modo Wi\+Fi en STA, establece el canal de comunicación y registra el callback para recibir datos. \Hypertarget{class_e_s_p_now_receiver_a91f87802204670f9236bb689f999b1c3}\index{ESPNowReceiver@{ESPNowReceiver}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!ESPNowReceiver@{ESPNowReceiver}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_receiver_a91f87802204670f9236bb689f999b1c3} 
+bool ESPNow\+Receiver\+::is\+Connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el nodo está conectado. 
+
+\begin{DoxyReturn}{Devuelve}
+true si el nodo está conectado, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_e_s_p_now_receiver_a71e6dd964656d036d1c38611377bc7a1}\index{ESPNowReceiver@{ESPNowReceiver}!onReceive@{onReceive}}
+\index{onReceive@{onReceive}!ESPNowReceiver@{ESPNowReceiver}}
+\doxysubsubsection{\texorpdfstring{onReceive()}{onReceive()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_receiver_a71e6dd964656d036d1c38611377bc7a1} 
+void ESPNow\+Receiver\+::on\+Receive (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&)}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registra un callback para procesar los datos recibidos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em callback} & Función a ejecutar cuando se reciben datos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_e_s_p_now_receiver_a5e2469ce3050943fbc9cf8888a5430f6}\index{ESPNowReceiver@{ESPNowReceiver}!update@{update}}
+\index{update@{update}!ESPNowReceiver@{ESPNowReceiver}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_receiver_a5e2469ce3050943fbc9cf8888a5430f6} 
+void ESPNow\+Receiver\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Actualiza el estado de la conexión. 
+
+Verifica si el nodo ha dejado de enviar datos durante un tiempo mayor al definido en {\ttfamily TIMEOUT\+\_\+\+MS}. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{_p_f-_edge_2include_2_e_s_p_now_receiver_8h}{ESPNow\+Receiver.\+h}}\end{DoxyCompactItemize}

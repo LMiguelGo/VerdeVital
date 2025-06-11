@@ -1,0 +1,33 @@
+\doxysection{sensor\+\_\+\+LDR.\+h}
+\hypertarget{sensor___l_d_r_8h_source}{}\label{sensor___l_d_r_8h_source}\index{PF-\/Sensores/include/sensor\_LDR.h@{PF-\/Sensores/include/sensor\_LDR.h}}
+\mbox{\hyperlink{sensor___l_d_r_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_LDR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SENSOR\_LDR\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sensor_l_d_r_abbeb88df68c0e766802d2355cc6a7206}{SensorLDR}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ uint8\_t\ pin;\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ lastLight;\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_sensor_l_d_r_abbeb88df68c0e766802d2355cc6a7206}{SensorLDR}}(uint8\_t\ ldrPin)\ :\ pin(ldrPin),\ lastLight(0)\ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sensor_l_d_r_ab1b9722aa71f6cb0409ca673ff373007}{begin}}()\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ pinMode(pin,\ INPUT);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{class_sensor_l_d_r_adc1695881e181275b454d8aefdd2431f}{readLight}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ lastLight\ =\ analogRead(pin);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lastLight;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SENSOR\_LDR\_H}}
+
+\end{DoxyCode}

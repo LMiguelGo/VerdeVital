@@ -8,7 +8,7 @@ PF-Sensores es uno de los tres módulos principales del ecosistema VerdeVital. E
   Se capturan datos de:
   - **DHT:** Medición de temperatura y humedad (por ejemplo, DHT11).
   - **LDR:** Detección de intensidad lumínica (valor analógico entre 0 y 1023).
-  - **MQ135:** Evaluación de la calidad del aire mediante la medición de CO₂ (ppm).
+  - **MQ135:** Evaluación de la calidad del aire mediante la medición de CO2 (ppm).
   - **YL-69:** Medición de la humedad del suelo, convertida a un valor porcentual.
   - **Sensor de Voltaje:** Lectura del voltaje presente en un divisor de voltaje.
 
@@ -17,7 +17,7 @@ PF-Sensores es uno de los tres módulos principales del ecosistema VerdeVital. E
   - Temperatura (ºC)
   - Humedad (%)
   - Luz
-  - CO₂ (ppm)
+  - CO2 (ppm)
   - Humedad del suelo (%)
   - Voltaje
 

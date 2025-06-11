@@ -1,0 +1,125 @@
+\doxysection{Referencia del directorio PF-\/\+Sensores}
+\hypertarget{dir_2b76b6ef97d2afe29f33e79358492db2}{}\label{dir_2b76b6ef97d2afe29f33e79358492db2}\index{Referencia del directorio PF-\/Sensores@{Referencia del directorio PF-\/Sensores}}
+\doxysubsubsection*{Directorios}
+\begin{DoxyCompactItemize}
+\item 
+directorio \mbox{\hyperlink{dir_f5f7c6a42b668ce7686a9bba9bff9a58}{include}}
+\item 
+directorio \mbox{\hyperlink{dir_0c0f9b91f3bbfcc0b77c460e533d0395}{src}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+PF-\/\+Sensores es uno de los tres módulos principales del ecosistema Verde\+Vital. Este proyecto se encarga de la adquisición de datos de múltiples sensores ambientales mediante un ESP32, utilizando Free\+RTOS para gestionar tareas concurrentes y ESP-\/\+NOW para transmitir datos de manera inalámbrica. La información recogida se integra con los módulos PF-\/\+Actuadores y PF-\/\+Edge para ofrecer una solución integral de monitoreo y control ambiental.\hypertarget{README.md_autotoc_md10}{}\doxysubsection{\texorpdfstring{Características}{Características}}\label{README.md_autotoc_md10}
+
+\begin{DoxyItemize}
+\item {\bfseries{Lectura de Sensores Ambientales}} ~\newline
+ Se capturan datos de\+:
+\begin{DoxyItemize}
+\item {\bfseries{DHT\+:}} Medición de temperatura y humedad (por ejemplo, DHT11).
+\item {\bfseries{LDR\+:}} Detección de intensidad lumínica (valor analógico entre 0 y 1023).
+\item {\bfseries{MQ135\+:}} Evaluación de la calidad del aire mediante la medición de CO2 (ppm).
+\item {\bfseries{YL-\/69\+:}} Medición de la humedad del suelo, convertida a un valor porcentual.
+\item {\bfseries{Sensor de Voltaje\+:}} Lectura del voltaje presente en un divisor de voltaje.
+\end{DoxyItemize}
+\item {\bfseries{Estructura de Datos Unificada}} ~\newline
+ Todos los valores se agrupan en la estructura definida en {\ttfamily \doxylink{sensor_data_8h}{sensor\+Data.\+h}}, que almacena\+:
+\begin{DoxyItemize}
+\item Temperatura (ºC)
+\item Humedad (\%)
+\item Luz
+\item CO2 (ppm)
+\item Humedad del suelo (\%)
+\item Voltaje
+\end{DoxyItemize}
+\item {\bfseries{Comunicación Inalámbrica con ESP-\/\+NOW}} ~\newline
+ La clase {\ttfamily \doxylink{class_e_s_p_now_sender}{ESPNow\+Sender}} (en {\ttfamily ESPNow\+Sender.\+h}) gestiona la configuración y el envío de los datos mediante ESP-\/\+NOW, estableciendo el modo Wi\+Fi en STA, configurando el canal de comunicación y registrando callbacks para el monitoreo del estado de envío.
+\item {\bfseries{Multitarea con Free\+RTOS}} ~\newline
+ Se ejecuta una tarea periódica (cada 3 segundos) que\+:
+\begin{DoxyItemize}
+\item Lee los datos de cada sensor.
+\item Los almacena en la estructura {\ttfamily \doxylink{struct_sensor_data}{Sensor\+Data}}.
+\item Envía la información al nodo receptor configurado.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md11}{}\doxysubsection{\texorpdfstring{Tecnologías y Plataforma}{Tecnologías y Plataforma}}\label{README.md_autotoc_md11}
+
+\begin{DoxyItemize}
+\item {\bfseries{Microcontrolador\+:}} ESP32
+\item {\bfseries{Lenguaje\+:}} C/\+C++
+\item {\bfseries{Sistema Operativo en Tiempo Real\+:}} Free\+RTOS
+\item {\bfseries{Comunicación Inalámbrica\+:}} ESP-\/\+NOW
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md12}{}\doxysubsection{\texorpdfstring{Configuración y Pines}{Configuración y Pines}}\label{README.md_autotoc_md12}
+El firmware se configura en {\ttfamily src/main.\+cpp} con los siguientes pines\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Sensor DHT\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Pin\+: {\ttfamily 4} ~\newline
+
+\item Tipo\+: {\ttfamily DHT11}
+\end{DoxyItemize}
+\item {\bfseries{Sensor LDR\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Pin\+: {\ttfamily 34}
+\end{DoxyItemize}
+\item {\bfseries{Sensor MQ135\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Pin\+: {\ttfamily 35}
+\end{DoxyItemize}
+\item {\bfseries{Sensor YL-\/69\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Pin\+: {\ttfamily 32}
+\end{DoxyItemize}
+\item {\bfseries{Sensor de Voltaje\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item Pin\+: {\ttfamily 33}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Además, se define la dirección MAC del receptor y el canal de comunicación para ESP-\/\+NOW\+:
+\begin{DoxyItemize}
+\item Dirección MAC\+: {\ttfamily \{0x\+E8, 0x6B, 0x\+EA, 0x\+DF, 0x21, 0x0C\}}
+\item Canal\+: {\ttfamily 2}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md13}{}\doxysubsection{\texorpdfstring{Implantación y Uso}{Implantación y Uso}}\label{README.md_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Instalación del Entorno\+:}}
+\begin{DoxyItemize}
+\item Clona el repositorio
+\item Abre el proyecto en \href{https://platformio.org/}{\texttt{ Platform\+IO}}.
+\item Instala las dependencias necesarias (bibliotecas para el manejo de sensores y ESP-\/\+NOW).
+\end{DoxyItemize}
+\item {\bfseries{Configuración del Hardware\+:}}
+\begin{DoxyItemize}
+\item Conecta el ESP32 y los sensores de acuerdo con los pines especificados en \href{http://_vscodecontentref_/2}{\texttt{ main.\+cpp}}.
+\item Verifica que las conexiones y la alimentación sean correctas.
+\end{DoxyItemize}
+\item {\bfseries{Compilación y Subida\+:}}
+\begin{DoxyItemize}
+\item Compila el firmware mediante Platform\+IO.
+\item Sube el firmware al ESP32.
+\end{DoxyItemize}
+\item {\bfseries{Ejecución\+:}}
+\begin{DoxyItemize}
+\item El ESP32 inicializa los sensores, configura la comunicación ESP-\/\+NOW y arranca la tarea Free\+RTOS que lee y transmite los datos periódicamente.
+\item Los datos transmitidos se integran con PF-\/\+Actuadores y PF-\/\+Edge para ofrecer control y visualización en tiempo real.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md14}{}\doxysubsection{\texorpdfstring{Integración con el Ecosistema Verde\+Vital}{Integración con el Ecosistema Verde\+Vital}}\label{README.md_autotoc_md14}
+PF-\/\+Sensores se integra con\+:
+\begin{DoxyItemize}
+\item {\bfseries{PF-\/\+Actuadores\+:}} Recibe los datos sensoriales y controla dispositivos (bombas, ventiladores, LEDs, etc.).
+\item {\bfseries{PF-\/\+Edge\+:}} Proporciona visualización en tiempo real, almacenamiento histórico y notificaciones (por ejemplo, mediante interfaces web o aplicaciones móviles).
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md15}{}\doxysubsection{\texorpdfstring{Contribuciones}{Contribuciones}}\label{README.md_autotoc_md15}
+Las contribuciones son bienvenidas. Si deseas proponer mejoras o reportar problemas, abre un issue o envía un pull request.\hypertarget{README.md_autotoc_md16}{}\doxysubsection{\texorpdfstring{Licencia}{Licencia}}\label{README.md_autotoc_md16}
+Este proyecto se distribuye bajo la Licencia MIT.
+
+\DoxyHorRuler{0}
+
+
+Desarrollado por el equipo de Verde\+Vital. 

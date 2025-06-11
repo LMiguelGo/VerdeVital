@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: Archivo de código fuente PF-Edge/include/DisplayManager.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_display_manager_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DisplayManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_display_manager_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DISPLAY_MANAGER_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DISPLAY_MANAGER_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Librerías</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;Adafruit_GFX.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;Adafruit_SSD1306.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="data_sensor_8h.html">dataSensor.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_p_f-_edge_2include_2data_actuator_8h.html">dataActuator.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Definiciones</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_display_manager_8h.html#a2cd109632a6dcccaa80b43561b1ab700">   17</a></span><span class="preprocessor">#define SCREEN_WIDTH 128 </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_display_manager_8h.html#a6974d08a74da681b3957b2fead2608b8">   18</a></span><span class="preprocessor">#define SCREEN_HEIGHT 64 </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_display_manager_8h.html#a7dfa2c4cfbfcba36416046052e7943e8">   19</a></span><span class="preprocessor">#define OLED_ADDR 0x3C </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_display_manager.html">   26</a></span><span class="keyword">class </span><a class="code hl_function" href="class_display_manager.html#a7e82249b7037a4887f5ded4064eff7aa">DisplayManager</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    Adafruit_SSD1306 display; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastPageChange = 0; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    uint8_t currentPage = 0; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> uint8_t totalPages = 5; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> interval = 3000; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> autoChange = <span class="keyword">false</span>; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Datos simulados / reales (pueden ser actualizados desde fuera)</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    String wifiStatus = <span class="stringliteral">&quot;OK&quot;</span>; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    String hora = <span class="stringliteral">&quot;00:00:00&quot;</span>; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    String fecha = <span class="stringliteral">&quot;01-01-2023&quot;</span>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    String sensorData = <span class="stringliteral">&quot;T:-- H:--&quot;</span>; </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    String actuadorEstado = <span class="stringliteral">&quot;Luces: OFF&quot;</span>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    String telegramCmd = <span class="stringliteral">&quot;/start&quot;</span>; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    String alerta = <span class="stringliteral">&quot;&quot;</span>; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_display_manager.html#a7e82249b7037a4887f5ded4064eff7aa">   49</a></span>    <a class="code hl_function" href="class_display_manager.html#a7e82249b7037a4887f5ded4064eff7aa">DisplayManager</a>(<span class="keywordtype">bool</span> autoMode = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        : display(<a class="code hl_define" href="_display_manager_8h.html#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a>, <a class="code hl_define" href="_display_manager_8h.html#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a>, &amp;Wire, -1), autoChange(autoMode) {}</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_display_manager.html#a059554ac33949a168b63c7b63a3d70a1">   56</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_display_manager.html#a059554ac33949a168b63c7b63a3d70a1">begin</a>() {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">if</span> (!display.begin(SSD1306_SWITCHCAPVCC, <a class="code hl_define" href="_display_manager_8h.html#a7dfa2c4cfbfcba36416046052e7943e8">OLED_ADDR</a>)) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            Serial.println(F(<span class="stringliteral">&quot;❌ No se encontró la pantalla OLED&quot;</span>));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        display.clearDisplay();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        display.display();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        Serial.println(<span class="stringliteral">&quot;✅ Pantalla OLED inicializada&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_display_manager.html#affce67b0f92225e81e4df4420e8a081f">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#affce67b0f92225e81e4df4420e8a081f">setWifiStatus</a>(<span class="keyword">const</span> String&amp; status) { wifiStatus = status; }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_display_manager.html#aced97ecda1fe75a95b2ac6e4e01a9a6e">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#aced97ecda1fe75a95b2ac6e4e01a9a6e">setHora</a>(<span class="keyword">const</span> String&amp; h) { hora = h; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_display_manager.html#a1f0891862050023c70d6f8c4a8485361">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a1f0891862050023c70d6f8c4a8485361">setFecha</a>(<span class="keyword">const</span> String&amp; f) { fecha = f; }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_display_manager.html#a23be8e8de3c2f91368250246c402e0c0">   91</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a23be8e8de3c2f91368250246c402e0c0">setSensorData</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_sensor_data.html">SensorData</a>&amp; data, <span class="keyword">const</span> String&amp; rssiWifi = <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        sensorData = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        sensorData += <span class="stringliteral">&quot;Temp:  &quot;</span> + String(data.temperature, 1) + <span class="stringliteral">&quot; C\n&quot;</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        sensorData += <span class="stringliteral">&quot;Hum:   &quot;</span> + String(data.humidity, 1) + <span class="stringliteral">&quot; %\n&quot;</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        sensorData += <span class="stringliteral">&quot;Luz:   &quot;</span> + String(data.light) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        sensorData += <span class="stringliteral">&quot;CO2:   &quot;</span> + String(data.co2ppm) + <span class="stringliteral">&quot; ppm\n&quot;</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        sensorData += <span class="stringliteral">&quot;Suelo: &quot;</span> + String(data.soilMoisture, 1) + <span class="stringliteral">&quot; %\n&quot;</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        sensorData += <span class="stringliteral">&quot;Volt:  &quot;</span> + String(data.voltage, 2) + <span class="stringliteral">&quot; V\n&quot;</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        sensorData += <span class="stringliteral">&quot;RSSI:  &quot;</span> + rssiWifi + <span class="stringliteral">&quot; dBm\n&quot;</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_display_manager.html#adea5a3650f5fb29e0b1e3dac53f5949a">  106</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#adea5a3650f5fb29e0b1e3dac53f5949a">setActuadorEstado</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_actuator_state.html">ActuatorState</a>&amp; state) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        actuadorEstado = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        actuadorEstado += <span class="stringliteral">&quot;Bomba: &quot;</span> + String(state.<a class="code hl_variable" href="struct_actuator_state.html#a2e6e71e1b72f5f7df11eb03a1b48b99e">waterPump</a> ? <span class="stringliteral">&quot;ON&quot;</span> : <span class="stringliteral">&quot;OFF&quot;</span>) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        actuadorEstado += <span class="stringliteral">&quot;Vent:  &quot;</span> + String(state.<a class="code hl_variable" href="struct_actuator_state.html#a1cfe9ff4489556ce5b58d5a30a42f1ca">fan</a> ? <span class="stringliteral">&quot;ON&quot;</span> : <span class="stringliteral">&quot;OFF&quot;</span>) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        actuadorEstado += <span class="stringliteral">&quot;Luces: &quot;</span> + String(state.<a class="code hl_variable" href="struct_actuator_state.html#ab1f44635e84e731fcc0aae40c678a9ef">leds</a> ? <span class="stringliteral">&quot;ON&quot;</span> : <span class="stringliteral">&quot;OFF&quot;</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_display_manager.html#ae03b04bcd68b499df272d2d36bdb4c85">  117</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#ae03b04bcd68b499df272d2d36bdb4c85">setTelegramCmd</a>(<span class="keyword">const</span> String&amp; cmd) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        telegramCmd = cmd;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_display_manager.html#a773114279d1011cf93be1128e06fe944">  135</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a773114279d1011cf93be1128e06fe944">setAlerta</a>(<span class="keywordtype">bool</span> criticState, <span class="keywordtype">bool</span> lsoilM, <span class="keywordtype">bool</span> hsoilM, <span class="keywordtype">bool</span> lTemp, <span class="keywordtype">bool</span> hTemp, <span class="keywordtype">bool</span> co2, <span class="keywordtype">bool</span> light, <span class="keywordtype">bool</span> voltage, <span class="keywordtype">bool</span> rssi, <span class="keywordtype">bool</span> espsensor, <span class="keywordtype">bool</span> espactuator) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        alerta = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">if</span> (criticState) alerta += <span class="stringliteral">&quot;FALLA CRITICA!\n&quot;</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">if</span> (voltage) alerta += <span class="stringliteral">&quot; - Voltaje bajo\n&quot;</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">if</span> (espsensor) alerta += <span class="stringliteral">&quot; - Sensor ESP N.C.\n&quot;</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">if</span> (espactuator) alerta += <span class="stringliteral">&quot; - Actuador ESP N.C.\n&quot;</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">if</span> (lsoilM) alerta += <span class="stringliteral">&quot;Hum. Suelo baja\n&quot;</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">if</span> (hsoilM) alerta += <span class="stringliteral">&quot;Hum. Suelo alta\n&quot;</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">if</span> (lTemp) alerta += <span class="stringliteral">&quot;Temp. baja\n&quot;</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">if</span> (hTemp) alerta += <span class="stringliteral">&quot;Temp. alta\n&quot;</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span> (co2) alerta += <span class="stringliteral">&quot;CO2 alto\n&quot;</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">if</span> (light) alerta += <span class="stringliteral">&quot;Luz insuficiente\n&quot;</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span> (rssi) alerta += <span class="stringliteral">&quot;Conexión WiFi débil\n&quot;</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
+</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="class_display_manager.html#a0c4186f207f6550de013ad6b64e1e086">  153</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a0c4186f207f6550de013ad6b64e1e086">mostrarPagina</a>() {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        display.clearDisplay();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        display.setTextSize(1);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        display.setTextColor(SSD1306_WHITE);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        display.setCursor(0, 0);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">switch</span> (currentPage) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                display.println(<span class="stringliteral">&quot;Sistema activo&quot;</span>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                display.print(<span class="stringliteral">&quot;WiFi: &quot;</span>); display.println(wifiStatus);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                display.print(<span class="stringliteral">&quot;Fecha: &quot;</span>); display.println(fecha);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                display.print(<span class="stringliteral">&quot;Hora: &quot;</span>); display.println(hora);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                display.println(<span class="stringliteral">&quot;Ultimas mediciones:&quot;</span>);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                display.println(sensorData);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                display.println(<span class="stringliteral">&quot;Actuadores:&quot;</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                display.println(actuadorEstado);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                display.println(<span class="stringliteral">&quot;Telegram: OK&quot;</span>);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                display.print(<span class="stringliteral">&quot;Ultimo comando: \n&quot;</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                display.println(telegramCmd);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                display.println(<span class="stringliteral">&quot;ALERTAS:&quot;</span>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <span class="keywordflow">if</span> (alerta.length() &gt; 0) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                    display.println(alerta);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                    display.println(<span class="stringliteral">&quot;No hay alertas activas&quot;</span>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        display.display();</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span></div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_display_manager.html#a271792e22b1cdd2c99f91afffa63633f">  199</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a271792e22b1cdd2c99f91afffa63633f">actualizar</a>() {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> now = millis();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="comment">// ✅ Cambio automático si está habilitado</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">if</span> (autoChange &amp;&amp; now - lastPageChange &gt;= interval) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            currentPage = (currentPage + 1) % totalPages;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            <a class="code hl_function" href="class_display_manager.html#a0c4186f207f6550de013ad6b64e1e086">mostrarPagina</a>();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            lastPageChange = now;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span></div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="class_display_manager.html#aa61a1b10f016b72c29e94e0cff08c6ed">  213</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#aa61a1b10f016b72c29e94e0cff08c6ed">cambiarPagina</a>() {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        currentPage = (currentPage + 1) % totalPages;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <a class="code hl_function" href="class_display_manager.html#a0c4186f207f6550de013ad6b64e1e086">mostrarPagina</a>();</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span></div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_display_manager.html#a33be13dd0675736cf365c081380acb4e">  222</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_display_manager.html#a33be13dd0675736cf365c081380acb4e">mostrarMensajeRapido</a>(<span class="keyword">const</span> String&amp; msg) {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        display.clearDisplay();</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        display.setCursor(0, 0);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        display.setTextSize(1);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        display.setTextColor(SSD1306_WHITE);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        display.println(msg);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        display.display();</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
+</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif </span><span class="comment">// DISPLAY_MANAGER_H</span></div>
+<div class="ttc" id="a_display_manager_8h_html_a2cd109632a6dcccaa80b43561b1ab700"><div class="ttname"><a href="_display_manager_8h.html#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a></div><div class="ttdeci">#define SCREEN_WIDTH</div><div class="ttdoc">Ancho de la pantalla OLED en píxeles.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:17</div></div>
+<div class="ttc" id="a_display_manager_8h_html_a6974d08a74da681b3957b2fead2608b8"><div class="ttname"><a href="_display_manager_8h.html#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a></div><div class="ttdeci">#define SCREEN_HEIGHT</div><div class="ttdoc">Alto de la pantalla OLED en píxeles.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:18</div></div>
+<div class="ttc" id="a_display_manager_8h_html_a7dfa2c4cfbfcba36416046052e7943e8"><div class="ttname"><a href="_display_manager_8h.html#a7dfa2c4cfbfcba36416046052e7943e8">OLED_ADDR</a></div><div class="ttdeci">#define OLED_ADDR</div><div class="ttdoc">Dirección I2C de la pantalla OLED.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:19</div></div>
+<div class="ttc" id="a_p_f-_edge_2include_2data_actuator_8h_html"><div class="ttname"><a href="_p_f-_edge_2include_2data_actuator_8h.html">dataActuator.h</a></div><div class="ttdoc">Este archivo.</div></div>
+<div class="ttc" id="aclass_display_manager_html_a059554ac33949a168b63c7b63a3d70a1"><div class="ttname"><a href="class_display_manager.html#a059554ac33949a168b63c7b63a3d70a1">DisplayManager::begin</a></div><div class="ttdeci">bool begin()</div><div class="ttdoc">Inicializa la pantalla OLED.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:56</div></div>
+<div class="ttc" id="aclass_display_manager_html_a0c4186f207f6550de013ad6b64e1e086"><div class="ttname"><a href="class_display_manager.html#a0c4186f207f6550de013ad6b64e1e086">DisplayManager::mostrarPagina</a></div><div class="ttdeci">void mostrarPagina()</div><div class="ttdoc">Muestra la página actual en la pantalla OLED.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:153</div></div>
+<div class="ttc" id="aclass_display_manager_html_a1f0891862050023c70d6f8c4a8485361"><div class="ttname"><a href="class_display_manager.html#a1f0891862050023c70d6f8c4a8485361">DisplayManager::setFecha</a></div><div class="ttdeci">void setFecha(const String &amp;f)</div><div class="ttdoc">Actualiza la fecha mostrada en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:84</div></div>
+<div class="ttc" id="aclass_display_manager_html_a23be8e8de3c2f91368250246c402e0c0"><div class="ttname"><a href="class_display_manager.html#a23be8e8de3c2f91368250246c402e0c0">DisplayManager::setSensorData</a></div><div class="ttdeci">void setSensorData(const SensorData &amp;data, const String &amp;rssiWifi=&quot;&quot;)</div><div class="ttdoc">Actualiza los datos de los sensores mostrados en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:91</div></div>
+<div class="ttc" id="aclass_display_manager_html_a271792e22b1cdd2c99f91afffa63633f"><div class="ttname"><a href="class_display_manager.html#a271792e22b1cdd2c99f91afffa63633f">DisplayManager::actualizar</a></div><div class="ttdeci">void actualizar()</div><div class="ttdoc">Actualiza la pantalla, cambiando de página automáticamente si está habilitado.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:199</div></div>
+<div class="ttc" id="aclass_display_manager_html_a33be13dd0675736cf365c081380acb4e"><div class="ttname"><a href="class_display_manager.html#a33be13dd0675736cf365c081380acb4e">DisplayManager::mostrarMensajeRapido</a></div><div class="ttdeci">void mostrarMensajeRapido(const String &amp;msg)</div><div class="ttdoc">Muestra un mensaje rápido en la pantalla OLED.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:222</div></div>
+<div class="ttc" id="aclass_display_manager_html_a773114279d1011cf93be1128e06fe944"><div class="ttname"><a href="class_display_manager.html#a773114279d1011cf93be1128e06fe944">DisplayManager::setAlerta</a></div><div class="ttdeci">void setAlerta(bool criticState, bool lsoilM, bool hsoilM, bool lTemp, bool hTemp, bool co2, bool light, bool voltage, bool rssi, bool espsensor, bool espactuator)</div><div class="ttdoc">Actualiza los mensajes de alerta mostrados en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:135</div></div>
+<div class="ttc" id="aclass_display_manager_html_a7e82249b7037a4887f5ded4064eff7aa"><div class="ttname"><a href="class_display_manager.html#a7e82249b7037a4887f5ded4064eff7aa">DisplayManager::DisplayManager</a></div><div class="ttdeci">DisplayManager(bool autoMode=false)</div><div class="ttdoc">Constructor de la clase DisplayManager.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:49</div></div>
+<div class="ttc" id="aclass_display_manager_html_aa61a1b10f016b72c29e94e0cff08c6ed"><div class="ttname"><a href="class_display_manager.html#aa61a1b10f016b72c29e94e0cff08c6ed">DisplayManager::cambiarPagina</a></div><div class="ttdeci">void cambiarPagina()</div><div class="ttdoc">Cambia manualmente a la siguiente página.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:213</div></div>
+<div class="ttc" id="aclass_display_manager_html_aced97ecda1fe75a95b2ac6e4e01a9a6e"><div class="ttname"><a href="class_display_manager.html#aced97ecda1fe75a95b2ac6e4e01a9a6e">DisplayManager::setHora</a></div><div class="ttdeci">void setHora(const String &amp;h)</div><div class="ttdoc">Actualiza la hora mostrada en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:78</div></div>
+<div class="ttc" id="aclass_display_manager_html_adea5a3650f5fb29e0b1e3dac53f5949a"><div class="ttname"><a href="class_display_manager.html#adea5a3650f5fb29e0b1e3dac53f5949a">DisplayManager::setActuadorEstado</a></div><div class="ttdeci">void setActuadorEstado(const ActuatorState &amp;state)</div><div class="ttdoc">Actualiza el estado de los actuadores mostrado en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:106</div></div>
+<div class="ttc" id="aclass_display_manager_html_ae03b04bcd68b499df272d2d36bdb4c85"><div class="ttname"><a href="class_display_manager.html#ae03b04bcd68b499df272d2d36bdb4c85">DisplayManager::setTelegramCmd</a></div><div class="ttdeci">void setTelegramCmd(const String &amp;cmd)</div><div class="ttdoc">Actualiza el último comando de Telegram mostrado en la pantalla.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:117</div></div>
+<div class="ttc" id="aclass_display_manager_html_affce67b0f92225e81e4df4420e8a081f"><div class="ttname"><a href="class_display_manager.html#affce67b0f92225e81e4df4420e8a081f">DisplayManager::setWifiStatus</a></div><div class="ttdeci">void setWifiStatus(const String &amp;status)</div><div class="ttdoc">Actualiza el estado de la conexión WiFi.</div><div class="ttdef"><b>Definition</b> DisplayManager.h:72</div></div>
+<div class="ttc" id="adata_sensor_8h_html"><div class="ttname"><a href="data_sensor_8h.html">dataSensor.h</a></div><div class="ttdoc">Este archivo define la estructura para almacenar los datos de los sensores del invernadero.</div></div>
+<div class="ttc" id="astruct_actuator_state_html"><div class="ttname"><a href="struct_actuator_state.html">ActuatorState</a></div><div class="ttdoc">Estructura para representar el estado de los actuadores.</div><div class="ttdef"><b>Definition</b> dataActuator.h:22</div></div>
+<div class="ttc" id="astruct_actuator_state_html_a1cfe9ff4489556ce5b58d5a30a42f1ca"><div class="ttname"><a href="struct_actuator_state.html#a1cfe9ff4489556ce5b58d5a30a42f1ca">ActuatorState::fan</a></div><div class="ttdeci">uint8_t fan</div><div class="ttdoc">Estado del ventilador (0: apagado, 1: encendido)</div><div class="ttdef"><b>Definition</b> dataActuator.h:24</div></div>
+<div class="ttc" id="astruct_actuator_state_html_a2e6e71e1b72f5f7df11eb03a1b48b99e"><div class="ttname"><a href="struct_actuator_state.html#a2e6e71e1b72f5f7df11eb03a1b48b99e">ActuatorState::waterPump</a></div><div class="ttdeci">uint8_t waterPump</div><div class="ttdoc">Estado de la bomba de agua (0: apagada, 1: encendida)</div><div class="ttdef"><b>Definition</b> dataActuator.h:23</div></div>
+<div class="ttc" id="astruct_actuator_state_html_ab1f44635e84e731fcc0aae40c678a9ef"><div class="ttname"><a href="struct_actuator_state.html#ab1f44635e84e731fcc0aae40c678a9ef">ActuatorState::leds</a></div><div class="ttdeci">uint8_t leds</div><div class="ttdoc">Estado de los LEDs (0: apagados, 1: encendidos)</div><div class="ttdef"><b>Definition</b> dataActuator.h:25</div></div>
+<div class="ttc" id="astruct_sensor_data_html"><div class="ttname"><a href="struct_sensor_data.html">SensorData</a></div><div class="ttdoc">Estructura para almacenar datos de sensores. Esta estructura contiene campos para temperatura,...</div><div class="ttdef"><b>Definition</b> sensorData.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_dad86263abbbad7f4658eaca3d71a85e.html">PF-Edge</a></li><li class="navelem"><a class="el" href="dir_c8c7dcf043a234dc71217368deedbf14.html">include</a></li><li class="navelem"><a class="el" href="_display_manager_8h.html">DisplayManager.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

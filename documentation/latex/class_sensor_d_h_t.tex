@@ -1,0 +1,91 @@
+\doxysection{Referencia de la clase Sensor\+DHT}
+\hypertarget{class_sensor_d_h_t}{}\label{class_sensor_d_h_t}\index{SensorDHT@{SensorDHT}}
+
+
+Clase para manejar sensores DHT (temperatura y humedad). Esta clase utiliza la biblioteca DHT para leer datos de temperatura y humedad.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+\+DHT.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_d_h_t_a94926134cf3c5292dc6571c191f3a984}{Sensor\+DHT}} (uint8\+\_\+t pin, uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_sensor_d_h_t}{Sensor\+DHT}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_d_h_t_a1f3274f491963de740f3805c42671698}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el sensor DHT. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_d_h_t_adc27701622fd9d7eaa70b707b16d097d}{read\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Lee la temperatura del sensor DHT. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_d_h_t_aa08438903d4948cc098d18c1f0f5ff55}{read\+Humidity}} ()
+\begin{DoxyCompactList}\small\item\em Lee la humedad del sensor DHT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar sensores DHT (temperatura y humedad). Esta clase utiliza la biblioteca DHT para leer datos de temperatura y humedad. 
+
+La clase \doxylink{class_sensor_d_h_t}{Sensor\+DHT} encapsula la funcionalidad de un sensor DHT, permitiendo inicializar el sensor, leer la temperatura y la humedad, y manejar los valores leídos. Los valores de temperatura y humedad se almacenan en variables privadas y se pueden acceder a través de métodos públicos. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_sensor_d_h_t_a94926134cf3c5292dc6571c191f3a984}\index{SensorDHT@{SensorDHT}!SensorDHT@{SensorDHT}}
+\index{SensorDHT@{SensorDHT}!SensorDHT@{SensorDHT}}
+\doxysubsubsection{\texorpdfstring{SensorDHT()}{SensorDHT()}}
+{\footnotesize\ttfamily \label{class_sensor_d_h_t_a94926134cf3c5292dc6571c191f3a984} 
+Sensor\+DHT\+::\+Sensor\+DHT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_sensor_d_h_t}{Sensor\+DHT}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & Pin al que está conectado el sensor DHT. \\
+\hline
+{\em type} & Tipo de sensor DHT (DHT11, DHT22, etc.). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_sensor_d_h_t_a1f3274f491963de740f3805c42671698}\index{SensorDHT@{SensorDHT}!begin@{begin}}
+\index{begin@{begin}!SensorDHT@{SensorDHT}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_sensor_d_h_t_a1f3274f491963de740f3805c42671698} 
+void Sensor\+DHT\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el sensor DHT. 
+
+Debe ser llamado antes de leer datos del sensor. \Hypertarget{class_sensor_d_h_t_aa08438903d4948cc098d18c1f0f5ff55}\index{SensorDHT@{SensorDHT}!readHumidity@{readHumidity}}
+\index{readHumidity@{readHumidity}!SensorDHT@{SensorDHT}}
+\doxysubsubsection{\texorpdfstring{readHumidity()}{readHumidity()}}
+{\footnotesize\ttfamily \label{class_sensor_d_h_t_aa08438903d4948cc098d18c1f0f5ff55} 
+float Sensor\+DHT\+::read\+Humidity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee la humedad del sensor DHT. 
+
+\begin{DoxyReturn}{Devuelve}
+Última humedad leída en porcentaje.
+\end{DoxyReturn}
+Si la lectura falla, devuelve el último valor válido. \Hypertarget{class_sensor_d_h_t_adc27701622fd9d7eaa70b707b16d097d}\index{SensorDHT@{SensorDHT}!readTemperature@{readTemperature}}
+\index{readTemperature@{readTemperature}!SensorDHT@{SensorDHT}}
+\doxysubsubsection{\texorpdfstring{readTemperature()}{readTemperature()}}
+{\footnotesize\ttfamily \label{class_sensor_d_h_t_adc27701622fd9d7eaa70b707b16d097d} 
+float Sensor\+DHT\+::read\+Temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee la temperatura del sensor DHT. 
+
+\begin{DoxyReturn}{Devuelve}
+Última temperatura leída en grados Celsius.
+\end{DoxyReturn}
+Si la lectura falla, devuelve el último valor válido. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor___d_h_t_8h}{sensor\+\_\+\+DHT.\+h}}\end{DoxyCompactItemize}

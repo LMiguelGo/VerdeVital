@@ -1,0 +1,92 @@
+\doxysection{Referencia de la clase SDLogger}
+\hypertarget{class_s_d_logger}{}\label{class_s_d_logger}\index{SDLogger@{SDLogger}}
+
+
+Clase para manejar el registro de datos en una tarjeta SD.  
+
+
+
+
+{\ttfamily \#include $<$SDLogger.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_d_logger_aa289079fd3a06e9b1d667b093deeeba2}{SDLogger}} (int cs\+Pin=5)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_s_d_logger}{SDLogger}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_d_logger_adc6d4e15e1ba3fde996762098976451c}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa la tarjeta SD. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_d_logger_adeca9ceda6127d490dce2db8942394b3}{log\+Sensor\+Data}} (const String \&timestamp, const String \&node\+Id, int rssi, const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&data, int system\+State)
+\begin{DoxyCompactList}\small\item\em Registra datos de sensores en un archivo CSV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar el registro de datos en una tarjeta SD. 
+
+Esta clase permite inicializar la tarjeta SD, crear directorios y archivos, y registrar datos de sensores en formato CSV. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_s_d_logger_aa289079fd3a06e9b1d667b093deeeba2}\index{SDLogger@{SDLogger}!SDLogger@{SDLogger}}
+\index{SDLogger@{SDLogger}!SDLogger@{SDLogger}}
+\doxysubsubsection{\texorpdfstring{SDLogger()}{SDLogger()}}
+{\footnotesize\ttfamily \label{class_s_d_logger_aa289079fd3a06e9b1d667b093deeeba2} 
+SDLogger\+::\+SDLogger (\begin{DoxyParamCaption}\item[{int}]{cs\+Pin}{ = {\ttfamily 5}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_s_d_logger}{SDLogger}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cs\+Pin} & Pin CS (Chip Select) utilizado para la tarjeta SD. Por defecto es 5. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_s_d_logger_adc6d4e15e1ba3fde996762098976451c}\index{SDLogger@{SDLogger}!begin@{begin}}
+\index{begin@{begin}!SDLogger@{SDLogger}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_s_d_logger_adc6d4e15e1ba3fde996762098976451c} 
+bool SDLogger\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa la tarjeta SD. 
+
+\begin{DoxyReturn}{Devuelve}
+true si la inicialización fue exitosa, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_s_d_logger_adeca9ceda6127d490dce2db8942394b3}\index{SDLogger@{SDLogger}!logSensorData@{logSensorData}}
+\index{logSensorData@{logSensorData}!SDLogger@{SDLogger}}
+\doxysubsubsection{\texorpdfstring{logSensorData()}{logSensorData()}}
+{\footnotesize\ttfamily \label{class_s_d_logger_adeca9ceda6127d490dce2db8942394b3} 
+bool SDLogger\+::log\+Sensor\+Data (\begin{DoxyParamCaption}\item[{const String \&}]{timestamp}{, }\item[{const String \&}]{node\+Id}{, }\item[{int}]{rssi}{, }\item[{const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&}]{data}{, }\item[{int}]{system\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registra datos de sensores en un archivo CSV. 
+
+Crea los directorios necesarios y escribe los datos en un archivo CSV con encabezados si el archivo está vacío.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em timestamp} & Marca de tiempo en formato "{}\+YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS"{}. \\
+\hline
+{\em node\+Id} & Identificador del nodo que envía los datos. \\
+\hline
+{\em rssi} & Intensidad de la señal Wi\+Fi en d\+Bm. \\
+\hline
+{\em data} & Estructura con los datos de los sensores. \\
+\hline
+{\em system\+State} & Estado del sistema (por ejemplo, 0 para normal, 1 para alerta). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si los datos se registraron correctamente, false en caso de error. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{_s_d_logger_8h}{SDLogger.\+h}}\end{DoxyCompactItemize}

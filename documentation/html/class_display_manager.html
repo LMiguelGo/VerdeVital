@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: Referencia de la clase DisplayManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_display_manager.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="class_display_manager-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase DisplayManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Clase para manejar la pantalla OLED del invernadero. Esta clase permite mostrar información del sistema, datos de sensores, estado de actuadores, comandos de Telegram y alertas.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_display_manager_8h_source.html">DisplayManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a7e82249b7037a4887f5ded4064eff7aa" id="r_a7e82249b7037a4887f5ded4064eff7aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e82249b7037a4887f5ded4064eff7aa">DisplayManager</a> (bool autoMode=false)</td></tr>
+<tr class="memdesc:a7e82249b7037a4887f5ded4064eff7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de la clase <a class="el" href="class_display_manager.html" title="Clase para manejar la pantalla OLED del invernadero. Esta clase permite mostrar información del siste...">DisplayManager</a>.  <br /></td></tr>
+<tr class="separator:a7e82249b7037a4887f5ded4064eff7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059554ac33949a168b63c7b63a3d70a1" id="r_a059554ac33949a168b63c7b63a3d70a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a059554ac33949a168b63c7b63a3d70a1">begin</a> ()</td></tr>
+<tr class="memdesc:a059554ac33949a168b63c7b63a3d70a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la pantalla OLED.  <br /></td></tr>
+<tr class="separator:a059554ac33949a168b63c7b63a3d70a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affce67b0f92225e81e4df4420e8a081f" id="r_affce67b0f92225e81e4df4420e8a081f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affce67b0f92225e81e4df4420e8a081f">setWifiStatus</a> (const String &amp;status)</td></tr>
+<tr class="memdesc:affce67b0f92225e81e4df4420e8a081f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza el estado de la conexión WiFi.  <br /></td></tr>
+<tr class="separator:affce67b0f92225e81e4df4420e8a081f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced97ecda1fe75a95b2ac6e4e01a9a6e" id="r_aced97ecda1fe75a95b2ac6e4e01a9a6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aced97ecda1fe75a95b2ac6e4e01a9a6e">setHora</a> (const String &amp;h)</td></tr>
+<tr class="memdesc:aced97ecda1fe75a95b2ac6e4e01a9a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la hora mostrada en la pantalla.  <br /></td></tr>
+<tr class="separator:aced97ecda1fe75a95b2ac6e4e01a9a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f0891862050023c70d6f8c4a8485361" id="r_a1f0891862050023c70d6f8c4a8485361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f0891862050023c70d6f8c4a8485361">setFecha</a> (const String &amp;f)</td></tr>
+<tr class="memdesc:a1f0891862050023c70d6f8c4a8485361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la fecha mostrada en la pantalla.  <br /></td></tr>
+<tr class="separator:a1f0891862050023c70d6f8c4a8485361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23be8e8de3c2f91368250246c402e0c0" id="r_a23be8e8de3c2f91368250246c402e0c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23be8e8de3c2f91368250246c402e0c0">setSensorData</a> (const <a class="el" href="struct_sensor_data.html">SensorData</a> &amp;data, const String &amp;rssiWifi=&quot;&quot;)</td></tr>
+<tr class="memdesc:a23be8e8de3c2f91368250246c402e0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los datos de los sensores mostrados en la pantalla.  <br /></td></tr>
+<tr class="separator:a23be8e8de3c2f91368250246c402e0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea5a3650f5fb29e0b1e3dac53f5949a" id="r_adea5a3650f5fb29e0b1e3dac53f5949a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adea5a3650f5fb29e0b1e3dac53f5949a">setActuadorEstado</a> (const <a class="el" href="struct_actuator_state.html">ActuatorState</a> &amp;state)</td></tr>
+<tr class="memdesc:adea5a3650f5fb29e0b1e3dac53f5949a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza el estado de los actuadores mostrado en la pantalla.  <br /></td></tr>
+<tr class="separator:adea5a3650f5fb29e0b1e3dac53f5949a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03b04bcd68b499df272d2d36bdb4c85" id="r_ae03b04bcd68b499df272d2d36bdb4c85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae03b04bcd68b499df272d2d36bdb4c85">setTelegramCmd</a> (const String &amp;cmd)</td></tr>
+<tr class="memdesc:ae03b04bcd68b499df272d2d36bdb4c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza el último comando de Telegram mostrado en la pantalla.  <br /></td></tr>
+<tr class="separator:ae03b04bcd68b499df272d2d36bdb4c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773114279d1011cf93be1128e06fe944" id="r_a773114279d1011cf93be1128e06fe944"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a773114279d1011cf93be1128e06fe944">setAlerta</a> (bool criticState, bool lsoilM, bool hsoilM, bool lTemp, bool hTemp, bool co2, bool light, bool voltage, bool rssi, bool espsensor, bool espactuator)</td></tr>
+<tr class="memdesc:a773114279d1011cf93be1128e06fe944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los mensajes de alerta mostrados en la pantalla.  <br /></td></tr>
+<tr class="separator:a773114279d1011cf93be1128e06fe944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4186f207f6550de013ad6b64e1e086" id="r_a0c4186f207f6550de013ad6b64e1e086"><td class="memItemLeft" align="right" valign="top"><a id="a0c4186f207f6550de013ad6b64e1e086" name="a0c4186f207f6550de013ad6b64e1e086"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mostrarPagina</b> ()</td></tr>
+<tr class="memdesc:a0c4186f207f6550de013ad6b64e1e086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muestra la página actual en la pantalla OLED. <br /></td></tr>
+<tr class="separator:a0c4186f207f6550de013ad6b64e1e086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271792e22b1cdd2c99f91afffa63633f" id="r_a271792e22b1cdd2c99f91afffa63633f"><td class="memItemLeft" align="right" valign="top"><a id="a271792e22b1cdd2c99f91afffa63633f" name="a271792e22b1cdd2c99f91afffa63633f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>actualizar</b> ()</td></tr>
+<tr class="memdesc:a271792e22b1cdd2c99f91afffa63633f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la pantalla, cambiando de página automáticamente si está habilitado. <br /></td></tr>
+<tr class="separator:a271792e22b1cdd2c99f91afffa63633f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61a1b10f016b72c29e94e0cff08c6ed" id="r_aa61a1b10f016b72c29e94e0cff08c6ed"><td class="memItemLeft" align="right" valign="top"><a id="aa61a1b10f016b72c29e94e0cff08c6ed" name="aa61a1b10f016b72c29e94e0cff08c6ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cambiarPagina</b> ()</td></tr>
+<tr class="memdesc:aa61a1b10f016b72c29e94e0cff08c6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cambia manualmente a la siguiente página. <br /></td></tr>
+<tr class="separator:aa61a1b10f016b72c29e94e0cff08c6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33be13dd0675736cf365c081380acb4e" id="r_a33be13dd0675736cf365c081380acb4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33be13dd0675736cf365c081380acb4e">mostrarMensajeRapido</a> (const String &amp;msg)</td></tr>
+<tr class="memdesc:a33be13dd0675736cf365c081380acb4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muestra un mensaje rápido en la pantalla OLED.  <br /></td></tr>
+<tr class="separator:a33be13dd0675736cf365c081380acb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Clase para manejar la pantalla OLED del invernadero. Esta clase permite mostrar información del sistema, datos de sensores, estado de actuadores, comandos de Telegram y alertas. </p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a7e82249b7037a4887f5ded4064eff7aa" name="a7e82249b7037a4887f5ded4064eff7aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e82249b7037a4887f5ded4064eff7aa">&#9670;&#160;</a></span>DisplayManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DisplayManager::DisplayManager </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor de la clase <a class="el" href="class_display_manager.html" title="Clase para manejar la pantalla OLED del invernadero. Esta clase permite mostrar información del siste...">DisplayManager</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">autoMode</td><td>Indica si el cambio de página es automático (por defecto es false). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a059554ac33949a168b63c7b63a3d70a1" name="a059554ac33949a168b63c7b63a3d70a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059554ac33949a168b63c7b63a3d70a1">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DisplayManager::begin </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicializa la pantalla OLED. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>true si la inicialización fue exitosa, false en caso contrario. </dd></dl>
+
+</div>
+</div>
+<a id="a33be13dd0675736cf365c081380acb4e" name="a33be13dd0675736cf365c081380acb4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33be13dd0675736cf365c081380acb4e">&#9670;&#160;</a></span>mostrarMensajeRapido()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::mostrarMensajeRapido </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Muestra un mensaje rápido en la pantalla OLED. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Mensaje a mostrar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adea5a3650f5fb29e0b1e3dac53f5949a" name="adea5a3650f5fb29e0b1e3dac53f5949a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adea5a3650f5fb29e0b1e3dac53f5949a">&#9670;&#160;</a></span>setActuadorEstado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setActuadorEstado </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_actuator_state.html">ActuatorState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza el estado de los actuadores mostrado en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Estructura con el estado de los actuadores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a773114279d1011cf93be1128e06fe944" name="a773114279d1011cf93be1128e06fe944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773114279d1011cf93be1128e06fe944">&#9670;&#160;</a></span>setAlerta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setAlerta </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>criticState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>lsoilM</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>hsoilM</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>lTemp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>hTemp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>co2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>light</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>voltage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>rssi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>espsensor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>espactuator</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza los mensajes de alerta mostrados en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">criticState</td><td>Indica si hay una falla crítica. </td></tr>
+    <tr><td class="paramname">lsoilM</td><td>Indica si la humedad del suelo es baja. </td></tr>
+    <tr><td class="paramname">hsoilM</td><td>Indica si la humedad del suelo es alta. </td></tr>
+    <tr><td class="paramname">lTemp</td><td>Indica si la temperatura es baja. </td></tr>
+    <tr><td class="paramname">hTemp</td><td>Indica si la temperatura es alta. </td></tr>
+    <tr><td class="paramname">co2</td><td>Indica si el nivel de CO2 es alto. </td></tr>
+    <tr><td class="paramname">light</td><td>Indica si la luz es insuficiente. </td></tr>
+    <tr><td class="paramname">voltage</td><td>Indica si el voltaje es bajo. </td></tr>
+    <tr><td class="paramname">rssi</td><td>Indica si la conexión WiFi es débil. </td></tr>
+    <tr><td class="paramname">espsensor</td><td>Indica si el ESP de sensores no está conectado. </td></tr>
+    <tr><td class="paramname">espactuator</td><td>Indica si el ESP de actuadores no está conectado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f0891862050023c70d6f8c4a8485361" name="a1f0891862050023c70d6f8c4a8485361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f0891862050023c70d6f8c4a8485361">&#9670;&#160;</a></span>setFecha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setFecha </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza la fecha mostrada en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Fecha en formato de cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aced97ecda1fe75a95b2ac6e4e01a9a6e" name="aced97ecda1fe75a95b2ac6e4e01a9a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced97ecda1fe75a95b2ac6e4e01a9a6e">&#9670;&#160;</a></span>setHora()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setHora </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>h</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza la hora mostrada en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">h</td><td>Hora en formato de cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23be8e8de3c2f91368250246c402e0c0" name="a23be8e8de3c2f91368250246c402e0c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23be8e8de3c2f91368250246c402e0c0">&#9670;&#160;</a></span>setSensorData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setSensorData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sensor_data.html">SensorData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>rssiWifi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza los datos de los sensores mostrados en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Estructura con los datos de los sensores. </td></tr>
+    <tr><td class="paramname">rssiWifi</td><td>(Opcional) Intensidad de la señal WiFi en dBm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae03b04bcd68b499df272d2d36bdb4c85" name="ae03b04bcd68b499df272d2d36bdb4c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03b04bcd68b499df272d2d36bdb4c85">&#9670;&#160;</a></span>setTelegramCmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setTelegramCmd </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza el último comando de Telegram mostrado en la pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Comando recibido de Telegram. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="affce67b0f92225e81e4df4420e8a081f" name="affce67b0f92225e81e4df4420e8a081f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affce67b0f92225e81e4df4420e8a081f">&#9670;&#160;</a></span>setWifiStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayManager::setWifiStatus </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiza el estado de la conexión WiFi. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">status</td><td>Estado actual del WiFi. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada del siguiente archivo:<ul>
+<li>PF-Edge/include/<a class="el" href="_display_manager_8h_source.html">DisplayManager.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_display_manager.html">DisplayManager</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

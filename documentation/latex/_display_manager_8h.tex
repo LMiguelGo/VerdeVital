@@ -1,0 +1,34 @@
+\doxysection{Referencia del archivo PF-\/\+Edge/include/\+Display\+Manager.h}
+\hypertarget{_display_manager_8h}{}\label{_display_manager_8h}\index{PF-\/Edge/include/DisplayManager.h@{PF-\/Edge/include/DisplayManager.h}}
+
+
+Este archivo define la clase \doxylink{class_display_manager}{Display\+Manager} para manejar la pantalla OLED del invernadero.  
+
+
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+GFX.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+SSD1306.\+h$>$}\newline
+{\ttfamily \#include "{}data\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}data\+Actuator.\+h"{}}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_display_manager}{Display\+Manager}}
+\begin{DoxyCompactList}\small\item\em Clase para manejar la pantalla OLED del invernadero. Esta clase permite mostrar información del sistema, datos de sensores, estado de actuadores, comandos de Telegram y alertas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_display_manager_8h_a2cd109632a6dcccaa80b43561b1ab700}\label{_display_manager_8h_a2cd109632a6dcccaa80b43561b1ab700} 
+\#define {\bfseries SCREEN\+\_\+\+WIDTH}~128
+\begin{DoxyCompactList}\small\item\em Ancho de la pantalla OLED en píxeles. \end{DoxyCompactList}\item 
+\Hypertarget{_display_manager_8h_a6974d08a74da681b3957b2fead2608b8}\label{_display_manager_8h_a6974d08a74da681b3957b2fead2608b8} 
+\#define {\bfseries SCREEN\+\_\+\+HEIGHT}~64
+\begin{DoxyCompactList}\small\item\em Alto de la pantalla OLED en píxeles. \end{DoxyCompactList}\item 
+\Hypertarget{_display_manager_8h_a7dfa2c4cfbfcba36416046052e7943e8}\label{_display_manager_8h_a7dfa2c4cfbfcba36416046052e7943e8} 
+\#define {\bfseries OLED\+\_\+\+ADDR}~0x3C
+\begin{DoxyCompactList}\small\item\em Dirección I2C de la pantalla OLED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Este archivo define la clase \doxylink{class_display_manager}{Display\+Manager} para manejar la pantalla OLED del invernadero. 
+

@@ -1,0 +1,33 @@
+\doxysection{Rele.\+h}
+\hypertarget{_rele_8h_source}{}\label{_rele_8h_source}\index{PF-\/Actuadores/include/Rele.h@{PF-\/Actuadores/include/Rele.h}}
+\mbox{\hyperlink{_rele_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ RELE\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ RELE\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rele_a3789bb8aaaea94f16ab73238b7aeb999}{Rele}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ pin;\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_rele_a3789bb8aaaea94f16ab73238b7aeb999}{Rele}}(\textcolor{keywordtype}{int}\ pin)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ this-\/>pin\ =\ pin;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rele_adb16f4d5045b5f945f02c8e4a52a95fa}{begin}}()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ pinMode(pin,\ OUTPUT);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ digitalWrite(pin,\ HIGH);\ \textcolor{comment}{//\ Asumimos\ activo\ bajo\ (apagado\ por\ defecto)}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rele_a7e1f59680e69a2fee7fc5c49f41956b9}{setState}}(\textcolor{keywordtype}{bool}\ activo)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ digitalWrite(pin,\ activo\ ?\ HIGH\ :\ LOW);\ \textcolor{comment}{//\ Prueba\ lógica\ activa\ alta}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RELE\_H}}
+
+\end{DoxyCode}

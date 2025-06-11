@@ -1,0 +1,36 @@
+\doxysection{sensor\+\_\+\+Voltage.\+h}
+\hypertarget{sensor___voltage_8h_source}{}\label{sensor___voltage_8h_source}\index{PF-\/Sensores/include/sensor\_Voltage.h@{PF-\/Sensores/include/sensor\_Voltage.h}}
+\mbox{\hyperlink{sensor___voltage_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_VOLTAGE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SENSOR\_VOLTAGE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_voltage_sensor_aa737191de09ad9790503ba0787589bf4}{VoltageSensor}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \_adcPin;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \_R1;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \_R2;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \_vRef;\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \_adcMax;\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_voltage_sensor_aa737191de09ad9790503ba0787589bf4}{VoltageSensor}}(\textcolor{keywordtype}{int}\ adcPin,\ \textcolor{keywordtype}{float}\ R1\ =\ 30000.0f,\ \textcolor{keywordtype}{float}\ R2\ =\ 7500.0f,\ \textcolor{keywordtype}{float}\ vRef\ =\ 3.3f,\ \textcolor{keywordtype}{int}\ adcMax\ =\ 4095)}
+\DoxyCodeLine{00039\ \ \ \ \ :\ \_adcPin(adcPin),\ \_R1(R1),\ \_R2(R2),\ \_vRef(vRef),\ \_adcMax(adcMax)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ pinMode(\_adcPin,\ INPUT);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_voltage_sensor_ae995eed43cee2b1feebfad6134e09cbe}{readVoltage}}()\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adcValue\ =\ analogRead(\_adcPin);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vOut\ =\ (adcValue\ /\ (float)\_adcMax)\ *\ \_vRef;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vIn\ =\ (vOut\ *\ (\_R1\ +\ \_R2)\ /\ \_R2)*1.02266;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vIn;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SENSOR\_VOLTAGE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,109 @@
+\doxysection{Telegram\+Bot.\+h}
+\hypertarget{_telegram_bot_8h_source}{}\label{_telegram_bot_8h_source}\index{PF-\/Edge/include/TelegramBot.h@{PF-\/Edge/include/TelegramBot.h}}
+\mbox{\hyperlink{_telegram_bot_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ TELEGRAM\_BOT\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ TELEGRAM\_BOT\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <WiFiClientSecure.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <HTTPClient.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telegram_bot_a130cbe8f5af5433477f62a7a0409513e}{TelegramBot}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ String\ botToken;\ }
+\DoxyCodeLine{00023\ \ \ \ \ String\ chatId;\ }
+\DoxyCodeLine{00024\ \ \ \ \ String\ apiHost\ =\ \textcolor{stringliteral}{"{}https://api.telegram.org"{}};\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_telegram_bot_a130cbe8f5af5433477f62a7a0409513e}{TelegramBot}}(\textcolor{keyword}{const}\ String\&\ token,\ \textcolor{keyword}{const}\ String\&\ chat\_id)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ :\ botToken(token),\ chatId(chat\_id)\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telegram_bot_ade03e4220d28c86a8a4b572cef880ec4}{sendMessage}}(\textcolor{keyword}{const}\ String\&\ message)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (WiFi.status()\ !=\ WL\_CONNECTED)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ WiFiClientSecure\ client;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ client.setInsecure();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ HTTPClient\ https;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ String\ url\ =\ apiHost\ +\ \textcolor{stringliteral}{"{}/bot"{}}\ +\ botToken\ +\ \textcolor{stringliteral}{"{}/sendMessage"{}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ String\ payload\ =\ \textcolor{stringliteral}{"{}chat\_id="{}}\ +\ chatId\ +\ \textcolor{stringliteral}{"{}\&text="{}}\ +\ urlencode(message);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ https.begin(client,\ url);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ https.addHeader(\textcolor{stringliteral}{"{}Content-\/Type"{}},\ \textcolor{stringliteral}{"{}application/x-\/www-\/form-\/urlencoded"{}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ httpCode\ =\ https.POST(payload);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ https.end();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ httpCode\ ==\ 200;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00072\ \ \ \ \ String\ \mbox{\hyperlink{class_telegram_bot_ad0f05ef8cbb03557124190bf5428189a}{getNextMessage}}(\textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56}{lastUpdateId}})\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (WiFi.status()\ !=\ WL\_CONNECTED)\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ WiFiClientSecure\ client;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ client.setInsecure();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ HTTPClient\ https;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ String\ url\ =\ apiHost\ +\ \textcolor{stringliteral}{"{}/bot"{}}\ +\ botToken\ +\ \textcolor{stringliteral}{"{}/getUpdates?offset="{}}\ +\ String(\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56}{lastUpdateId}}\ +\ 1);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ https.begin(client,\ url);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ httpCode\ =\ https.GET();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (httpCode\ !=\ 200)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ https.end();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ String\ response\ =\ https.getString();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ https.end();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ updateIdIndex\ =\ response.indexOf(\textcolor{stringliteral}{"{}\(\backslash\)"{}update\_id\(\backslash\)"{}:"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (updateIdIndex\ ==\ -\/1)\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idStart\ =\ updateIdIndex\ +\ 12;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idEnd\ =\ response.indexOf(\textcolor{stringliteral}{"{},"{}},\ idStart);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ updateId\ =\ response.substring(idStart,\ idEnd).toInt();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (updateId\ <=\ \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56}{lastUpdateId}})\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_af4ce90163aa9da616b752295dd074d56}{lastUpdateId}}\ =\ updateId;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ textIndex\ =\ response.indexOf(\textcolor{stringliteral}{"{}\(\backslash\)"{}text\(\backslash\)"{}:\(\backslash\)"{}"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textIndex\ ==\ -\/1)\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\ =\ textIndex\ +\ 8;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ response.indexOf(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}},\ start);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ String\ text\ =\ response.substring(start,\ end);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ text;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00122\ \ \ \ \ String\ urlencode(\textcolor{keyword}{const}\ String\&\ str)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ String\ encoded\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ code0;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ code1;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ str.length();\ i++)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ str.charAt(i);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isalnum(c))\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encoded\ +=\ c;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ code0\ =\ (c\ >>\ 4)\ \&\ 0xF;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ code1\ =\ c\ \&\ 0xF;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encoded\ +=\ \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encoded\ +=\ char(code0\ >\ 9\ ?\ code0\ -\/\ 10\ +\ \textcolor{charliteral}{'A'}\ :\ code0\ +\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encoded\ +=\ char(code1\ >\ 9\ ?\ code1\ -\/\ 10\ +\ \textcolor{charliteral}{'A'}\ :\ code1\ +\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ encoded;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TELEGRAM\_BOT\_H}}
+
+\end{DoxyCode}

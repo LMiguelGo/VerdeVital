@@ -1,0 +1,237 @@
+\doxysection{Referencia de la clase Rtc\+DS1302\+Helper}
+\hypertarget{class_rtc_d_s1302_helper}{}\label{class_rtc_d_s1302_helper}\index{RtcDS1302Helper@{RtcDS1302Helper}}
+
+
+Clase para interactuar con el módulo RTC DS1302.  
+
+
+
+
+{\ttfamily \#include $<$Rtc\+DS1302\+Helper.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rtc_d_s1302_helper_a185482cff2ea3ce22eab3ad888ed8f97}{Rtc\+DS1302\+Helper}} (uint8\+\_\+t io\+Pin, uint8\+\_\+t sclk\+Pin, uint8\+\_\+t ce\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_rtc_d_s1302_helper}{Rtc\+DS1302\+Helper}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rtc_d_s1302_helper_a4397ac561ca2d81d2f62669e3648cdee}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el módulo RTC DS1302. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_af1f72bfe97f4c84245260154fc5da5e6}{get\+Year}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el año actual del RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_a470c70bd063ed21f445f9f1f0f6d6a89}{get\+Month}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el mes actual del RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_a74f0ba53e28a9de90054ee190edb5441}{get\+Day}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el día actual del RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_a0f09e359f5ac2f467c42750c9217b8e1}{get\+Hour}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la hora actual del RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_a7a55336749a837ccb7888005ddab7736}{get\+Minute}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el minuto actual del RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_rtc_d_s1302_helper_ad8cf28bc2fb1bad6edc2caaf4afe2063}{get\+Second}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el segundo actual del RTC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rtc_d_s1302_helper_aab3737bc8b69034ee329fa5187a49c64}{update\+From\+Compile\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza la fecha y hora del RTC con la fecha y hora de compilación. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rtc_d_s1302_helper_a44490c4029b4255fb2d0dd069431e84d}{update\+From\+NTP}} (int year, int month, int day, int hour, int minute, int second)
+\begin{DoxyCompactList}\small\item\em Actualiza la fecha y hora del RTC con valores proporcionados. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_rtc_d_s1302_helper_a54773e2ad3c5331b0ea9774db7ee1c74}{get\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene una marca de tiempo completa (fecha y hora) del RTC. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_rtc_d_s1302_helper_a7878f4992471fa5acf0fd08e79724212}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la fecha actual del RTC. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_rtc_d_s1302_helper_a06bc719cb8396d111a929e90aa51a7aa}{get\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la hora actual del RTC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para interactuar con el módulo RTC DS1302. 
+
+Esta clase proporciona métodos para inicializar, configurar y obtener datos del reloj en tiempo real DS1302. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_rtc_d_s1302_helper_a185482cff2ea3ce22eab3ad888ed8f97}\index{RtcDS1302Helper@{RtcDS1302Helper}!RtcDS1302Helper@{RtcDS1302Helper}}
+\index{RtcDS1302Helper@{RtcDS1302Helper}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{RtcDS1302Helper()}{RtcDS1302Helper()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a185482cff2ea3ce22eab3ad888ed8f97} 
+Rtc\+DS1302\+Helper\+::\+Rtc\+DS1302\+Helper (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{io\+Pin}{, }\item[{uint8\+\_\+t}]{sclk\+Pin}{, }\item[{uint8\+\_\+t}]{ce\+Pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_rtc_d_s1302_helper}{Rtc\+DS1302\+Helper}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em io\+Pin} & Pin de datos I/O del DS1302. \\
+\hline
+{\em sclk\+Pin} & Pin de reloj (SCLK) del DS1302. \\
+\hline
+{\em ce\+Pin} & Pin de habilitación (CE) del DS1302. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_rtc_d_s1302_helper_a4397ac561ca2d81d2f62669e3648cdee}\index{RtcDS1302Helper@{RtcDS1302Helper}!begin@{begin}}
+\index{begin@{begin}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a4397ac561ca2d81d2f62669e3648cdee} 
+void Rtc\+DS1302\+Helper\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el módulo RTC DS1302. 
+
+Configura el módulo, desactiva la protección de escritura, inicia el reloj si no está corriendo y actualiza la fecha/hora desde el tiempo de compilación si es necesario. \Hypertarget{class_rtc_d_s1302_helper_a7878f4992471fa5acf0fd08e79724212}\index{RtcDS1302Helper@{RtcDS1302Helper}!getDate@{getDate}}
+\index{getDate@{getDate}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a7878f4992471fa5acf0fd08e79724212} 
+String Rtc\+DS1302\+Helper\+::get\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la fecha actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Cadena con la fecha en formato "{}\+YYYY-\/\+MM-\/\+DD"{}. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a74f0ba53e28a9de90054ee190edb5441}\index{RtcDS1302Helper@{RtcDS1302Helper}!getDay@{getDay}}
+\index{getDay@{getDay}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getDay()}{getDay()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a74f0ba53e28a9de90054ee190edb5441} 
+int Rtc\+DS1302\+Helper\+::get\+Day (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el día actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Día actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a0f09e359f5ac2f467c42750c9217b8e1}\index{RtcDS1302Helper@{RtcDS1302Helper}!getHour@{getHour}}
+\index{getHour@{getHour}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getHour()}{getHour()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a0f09e359f5ac2f467c42750c9217b8e1} 
+int Rtc\+DS1302\+Helper\+::get\+Hour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la hora actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Hora actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a7a55336749a837ccb7888005ddab7736}\index{RtcDS1302Helper@{RtcDS1302Helper}!getMinute@{getMinute}}
+\index{getMinute@{getMinute}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getMinute()}{getMinute()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a7a55336749a837ccb7888005ddab7736} 
+int Rtc\+DS1302\+Helper\+::get\+Minute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el minuto actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Minuto actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a470c70bd063ed21f445f9f1f0f6d6a89}\index{RtcDS1302Helper@{RtcDS1302Helper}!getMonth@{getMonth}}
+\index{getMonth@{getMonth}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getMonth()}{getMonth()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a470c70bd063ed21f445f9f1f0f6d6a89} 
+int Rtc\+DS1302\+Helper\+::get\+Month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el mes actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Mes actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_ad8cf28bc2fb1bad6edc2caaf4afe2063}\index{RtcDS1302Helper@{RtcDS1302Helper}!getSecond@{getSecond}}
+\index{getSecond@{getSecond}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getSecond()}{getSecond()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_ad8cf28bc2fb1bad6edc2caaf4afe2063} 
+int Rtc\+DS1302\+Helper\+::get\+Second (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el segundo actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Segundo actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a06bc719cb8396d111a929e90aa51a7aa}\index{RtcDS1302Helper@{RtcDS1302Helper}!getTime@{getTime}}
+\index{getTime@{getTime}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a06bc719cb8396d111a929e90aa51a7aa} 
+String Rtc\+DS1302\+Helper\+::get\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la hora actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Cadena con la hora en formato "{}\+HH\+:\+MM\+:\+SS"{}. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_a54773e2ad3c5331b0ea9774db7ee1c74}\index{RtcDS1302Helper@{RtcDS1302Helper}!getTimestamp@{getTimestamp}}
+\index{getTimestamp@{getTimestamp}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getTimestamp()}{getTimestamp()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a54773e2ad3c5331b0ea9774db7ee1c74} 
+String Rtc\+DS1302\+Helper\+::get\+Timestamp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene una marca de tiempo completa (fecha y hora) del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Cadena con la marca de tiempo en formato "{}\+YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS"{}. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_af1f72bfe97f4c84245260154fc5da5e6}\index{RtcDS1302Helper@{RtcDS1302Helper}!getYear@{getYear}}
+\index{getYear@{getYear}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{getYear()}{getYear()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_af1f72bfe97f4c84245260154fc5da5e6} 
+int Rtc\+DS1302\+Helper\+::get\+Year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el año actual del RTC. 
+
+\begin{DoxyReturn}{Devuelve}
+Año actual. 
+\end{DoxyReturn}
+\Hypertarget{class_rtc_d_s1302_helper_aab3737bc8b69034ee329fa5187a49c64}\index{RtcDS1302Helper@{RtcDS1302Helper}!updateFromCompileTime@{updateFromCompileTime}}
+\index{updateFromCompileTime@{updateFromCompileTime}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{updateFromCompileTime()}{updateFromCompileTime()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_aab3737bc8b69034ee329fa5187a49c64} 
+void Rtc\+DS1302\+Helper\+::update\+From\+Compile\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Actualiza la fecha y hora del RTC con la fecha y hora de compilación. 
+
+Si la fecha/hora actual del RTC no es válida o es anterior a la fecha/hora de compilación, se actualiza con esta última. \Hypertarget{class_rtc_d_s1302_helper_a44490c4029b4255fb2d0dd069431e84d}\index{RtcDS1302Helper@{RtcDS1302Helper}!updateFromNTP@{updateFromNTP}}
+\index{updateFromNTP@{updateFromNTP}!RtcDS1302Helper@{RtcDS1302Helper}}
+\doxysubsubsection{\texorpdfstring{updateFromNTP()}{updateFromNTP()}}
+{\footnotesize\ttfamily \label{class_rtc_d_s1302_helper_a44490c4029b4255fb2d0dd069431e84d} 
+void Rtc\+DS1302\+Helper\+::update\+From\+NTP (\begin{DoxyParamCaption}\item[{int}]{year}{, }\item[{int}]{month}{, }\item[{int}]{day}{, }\item[{int}]{hour}{, }\item[{int}]{minute}{, }\item[{int}]{second}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Actualiza la fecha y hora del RTC con valores proporcionados. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em year} & Año a establecer. \\
+\hline
+{\em month} & Mes a establecer. \\
+\hline
+{\em day} & Día a establecer. \\
+\hline
+{\em hour} & Hora a establecer. \\
+\hline
+{\em minute} & Minuto a establecer. \\
+\hline
+{\em second} & Segundo a establecer. \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{_rtc_d_s1302_helper_8h}{Rtc\+DS1302\+Helper.\+h}}\end{DoxyCompactItemize}

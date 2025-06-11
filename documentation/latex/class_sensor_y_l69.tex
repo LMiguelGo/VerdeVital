@@ -1,0 +1,72 @@
+\doxysection{Referencia de la clase Sensor\+YL69}
+\hypertarget{class_sensor_y_l69}{}\label{class_sensor_y_l69}\index{SensorYL69@{SensorYL69}}
+
+
+Clase para manejar el sensor de humedad YL-\/69. Esta clase permite leer el nivel de humedad del suelo utilizando el sensor YL-\/69.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+\+YL69.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_y_l69_aec64babd45574a009e2f7f32bd3eed14}{Sensor\+YL69}} (int pin\+Sensor)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_sensor_y_l69}{Sensor\+YL69}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_y_l69_a3d825235f6b574c7f16e8df47dee639c}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el sensor YL-\/69. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_y_l69_a9ee3b17296bc78b223467bc32e102ec6}{read\+Percentage}} ()
+\begin{DoxyCompactList}\small\item\em Lee el nivel de humedad del suelo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar el sensor de humedad YL-\/69. Esta clase permite leer el nivel de humedad del suelo utilizando el sensor YL-\/69. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_sensor_y_l69_aec64babd45574a009e2f7f32bd3eed14}\index{SensorYL69@{SensorYL69}!SensorYL69@{SensorYL69}}
+\index{SensorYL69@{SensorYL69}!SensorYL69@{SensorYL69}}
+\doxysubsubsection{\texorpdfstring{SensorYL69()}{SensorYL69()}}
+{\footnotesize\ttfamily \label{class_sensor_y_l69_aec64babd45574a009e2f7f32bd3eed14} 
+Sensor\+YL69\+::\+Sensor\+YL69 (\begin{DoxyParamCaption}\item[{int}]{pin\+Sensor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_sensor_y_l69}{Sensor\+YL69}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin\+Sensor} & Pin al que está conectado el sensor YL-\/69. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_sensor_y_l69_a3d825235f6b574c7f16e8df47dee639c}\index{SensorYL69@{SensorYL69}!begin@{begin}}
+\index{begin@{begin}!SensorYL69@{SensorYL69}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_sensor_y_l69_a3d825235f6b574c7f16e8df47dee639c} 
+void Sensor\+YL69\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el sensor YL-\/69. 
+
+Debe ser llamado antes de leer datos del sensor. \Hypertarget{class_sensor_y_l69_a9ee3b17296bc78b223467bc32e102ec6}\index{SensorYL69@{SensorYL69}!readPercentage@{readPercentage}}
+\index{readPercentage@{readPercentage}!SensorYL69@{SensorYL69}}
+\doxysubsubsection{\texorpdfstring{readPercentage()}{readPercentage()}}
+{\footnotesize\ttfamily \label{class_sensor_y_l69_a9ee3b17296bc78b223467bc32e102ec6} 
+float Sensor\+YL69\+::read\+Percentage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee el nivel de humedad del suelo. 
+
+\begin{DoxyReturn}{Devuelve}
+Nivel de humedad en porcentaje (0\% seco, 100\% húmedo).
+\end{DoxyReturn}
+La lectura se limita al rango esperado y se convierte a porcentaje. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor___y_l69_8h}{sensor\+\_\+\+YL69.\+h}}\end{DoxyCompactItemize}

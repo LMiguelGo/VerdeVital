@@ -1,0 +1,42 @@
+\doxysection{sensor\+\_\+\+DHT.\+h}
+\hypertarget{sensor___d_h_t_8h_source}{}\label{sensor___d_h_t_8h_source}\index{PF-\/Sensores/include/sensor\_DHT.h@{PF-\/Sensores/include/sensor\_DHT.h}}
+\mbox{\hyperlink{sensor___d_h_t_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_DHT\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ SENSOR\_DHT\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}DHT.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sensor_d_h_t_a94926134cf3c5292dc6571c191f3a984}{SensorDHT}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ DHT\ dht;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ lastTemperature;\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ lastHumidity;\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_sensor_d_h_t_a94926134cf3c5292dc6571c191f3a984}{SensorDHT}}(uint8\_t\ pin,\ uint8\_t\ type)\ :\ dht(pin,\ type),\ lastTemperature(0.0f),\ lastHumidity(0.0f)\ \{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sensor_d_h_t_a1f3274f491963de740f3805c42671698}{begin}}()\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ dht.begin();}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_sensor_d_h_t_adc27701622fd9d7eaa70b707b16d097d}{readTemperature}}()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ temp\ =\ dht.readTemperature();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isnan(temp))\ lastTemperature\ =\ temp;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lastTemperature;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_sensor_d_h_t_aa08438903d4948cc098d18c1f0f5ff55}{readHumidity}}()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ hum\ =\ dht.readHumidity();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isnan(hum))\ lastHumidity\ =\ hum;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lastHumidity;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SENSOR\_DHT\_H}}
+
+\end{DoxyCode}

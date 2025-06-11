@@ -1,0 +1,78 @@
+\doxysection{Referencia de la clase ESPNow\+Sender}
+\hypertarget{class_e_s_p_now_sender}{}\label{class_e_s_p_now_sender}\index{ESPNowSender@{ESPNowSender}}
+
+
+Clase para enviar datos de sensores usando ESP-\/\+NOW.  
+
+
+
+
+{\ttfamily \#include $<$ESPNow\+Sender.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_s_p_now_sender_a0c1ce669b47d6005144150588e8e9312}{ESPNow\+Sender}} (const uint8\+\_\+t mac\mbox{[}6\mbox{]}, uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_e_s_p_now_sender}{ESPNow\+Sender}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_sender_a172f017d86833cfec51c809fa866931e}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Constructor que inicializa el envío de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_sender_ab52764ebf869b2c7fc36f33448205a5f}{send\+Data}} (const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&data)
+\begin{DoxyCompactList}\small\item\em Envía los datos del sensor a través de ESP-\/\+NOW. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para enviar datos de sensores usando ESP-\/\+NOW. 
+
+Esta clase permite inicializar el envío de datos a un dispositivo específico utilizando ESP-\/\+NOW. Se encarga de configurar el canal y la dirección MAC del peer. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_e_s_p_now_sender_a0c1ce669b47d6005144150588e8e9312}\index{ESPNowSender@{ESPNowSender}!ESPNowSender@{ESPNowSender}}
+\index{ESPNowSender@{ESPNowSender}!ESPNowSender@{ESPNowSender}}
+\doxysubsubsection{\texorpdfstring{ESPNowSender()}{ESPNowSender()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_sender_a0c1ce669b47d6005144150588e8e9312} 
+ESPNow\+Sender\+::\+ESPNow\+Sender (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mac}{\mbox{[}6\mbox{]}, }\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_e_s_p_now_sender}{ESPNow\+Sender}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mac} & Dirección MAC del dispositivo receptor (6 bytes). \\
+\hline
+{\em channel} & Canal de comunicación (1-\/14). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_e_s_p_now_sender_a172f017d86833cfec51c809fa866931e}\index{ESPNowSender@{ESPNowSender}!begin@{begin}}
+\index{begin@{begin}!ESPNowSender@{ESPNowSender}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_sender_a172f017d86833cfec51c809fa866931e} 
+void ESPNow\+Sender\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor que inicializa el envío de datos. 
+
+Configura el modo Wi\+Fi, el canal y la dirección del peer. Registra el callback de envío y añade el peer si no existe. \Hypertarget{class_e_s_p_now_sender_ab52764ebf869b2c7fc36f33448205a5f}\index{ESPNowSender@{ESPNowSender}!sendData@{sendData}}
+\index{sendData@{sendData}!ESPNowSender@{ESPNowSender}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_sender_ab52764ebf869b2c7fc36f33448205a5f} 
+void ESPNow\+Sender\+::send\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Envía los datos del sensor a través de ESP-\/\+NOW. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Estructura \doxylink{struct_sensor_data}{Sensor\+Data} que contiene los datos del sensor. \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{_p_f-_sensores_2include_2_e_s_p_now_sender_8h}{ESPNow\+Sender.\+h}}\end{DoxyCompactItemize}

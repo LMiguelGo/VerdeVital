@@ -1,0 +1,66 @@
+\doxysection{Referencia de la estructura Actuator\+State}
+\hypertarget{struct_actuator_state}{}\label{struct_actuator_state}\index{ActuatorState@{ActuatorState}}
+
+
+Estructura para representar el estado de los actuadores.  
+
+
+
+
+{\ttfamily \#include $<$data\+Actuator.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_actuator_state_a2e6e71e1b72f5f7df11eb03a1b48b99e}{water\+Pump}} = 0
+\begin{DoxyCompactList}\small\item\em Estado de la bomba de agua (0\+: apagada, 1\+: encendida) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_actuator_state_a1cfe9ff4489556ce5b58d5a30a42f1ca}{fan}} = 0
+\begin{DoxyCompactList}\small\item\em Estado del ventilador (0\+: apagado, 1\+: encendido) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_actuator_state_ab1f44635e84e731fcc0aae40c678a9ef}{leds}} = 0
+\begin{DoxyCompactList}\small\item\em Estado de los LEDs (0\+: apagados, 1\+: encendidos) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Estructura para representar el estado de los actuadores. 
+
+Estructura para almacenar el estado de los actuadores del invernadero.
+
+Esta estructura contiene los estados de los actuadores como la bomba de agua, el ventilador y los LEDs. Cada actuador se representa con un valor de 0 (apagado) o 1 (encendido). 
+
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_actuator_state_a1cfe9ff4489556ce5b58d5a30a42f1ca}\index{ActuatorState@{ActuatorState}!fan@{fan}}
+\index{fan@{fan}!ActuatorState@{ActuatorState}}
+\doxysubsubsection{\texorpdfstring{fan}{fan}}
+{\footnotesize\ttfamily \label{struct_actuator_state_a1cfe9ff4489556ce5b58d5a30a42f1ca} 
+uint8\+\_\+t Actuator\+State\+::fan = 0}
+
+
+
+Estado del ventilador (0\+: apagado, 1\+: encendido) 
+
+Estado del ventilador\+: 0 = apagado, 1 = encendido. \Hypertarget{struct_actuator_state_ab1f44635e84e731fcc0aae40c678a9ef}\index{ActuatorState@{ActuatorState}!leds@{leds}}
+\index{leds@{leds}!ActuatorState@{ActuatorState}}
+\doxysubsubsection{\texorpdfstring{leds}{leds}}
+{\footnotesize\ttfamily \label{struct_actuator_state_ab1f44635e84e731fcc0aae40c678a9ef} 
+uint8\+\_\+t Actuator\+State\+::leds = 0}
+
+
+
+Estado de los LEDs (0\+: apagados, 1\+: encendidos) 
+
+Estado de las luces LED\+: 0 = apagadas, 1 = encendidas. \Hypertarget{struct_actuator_state_a2e6e71e1b72f5f7df11eb03a1b48b99e}\index{ActuatorState@{ActuatorState}!waterPump@{waterPump}}
+\index{waterPump@{waterPump}!ActuatorState@{ActuatorState}}
+\doxysubsubsection{\texorpdfstring{waterPump}{waterPump}}
+{\footnotesize\ttfamily \label{struct_actuator_state_a2e6e71e1b72f5f7df11eb03a1b48b99e} 
+uint8\+\_\+t Actuator\+State\+::water\+Pump = 0}
+
+
+
+Estado de la bomba de agua (0\+: apagada, 1\+: encendida) 
+
+Estado de la bomba de agua\+: 0 = apagada, 1 = encendida. 
+
+La documentación de esta estructura está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Actuadores/include/\mbox{\hyperlink{_p_f-_actuadores_2include_2data_actuator_8h}{data\+Actuator.\+h}}\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{_p_f-_edge_2include_2data_actuator_8h}{data\+Actuator.\+h}}\end{DoxyCompactItemize}

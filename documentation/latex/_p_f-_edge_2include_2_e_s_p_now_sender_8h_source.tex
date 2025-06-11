@@ -1,0 +1,87 @@
+\doxysection{ESPNow\+Sender.\+h}
+\hypertarget{_p_f-_edge_2include_2_e_s_p_now_sender_8h_source}{}\label{_p_f-_edge_2include_2_e_s_p_now_sender_8h_source}\index{PF-\/Edge/include/ESPNowSender.h@{PF-\/Edge/include/ESPNowSender.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ESP\_NOW\_ACTUATOR\_SENDER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ESP\_NOW\_ACTUATOR\_SENDER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <esp\_now.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <esp\_wifi.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_f-_edge_2include_2data_actuator_8h}{dataActuator.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\ \mbox{\hyperlink{_p_f-_sensores_2include_2_e_s_p_now_sender_8h_ad84dc0f9f050dea47380736f459fbbd8}{struct\_message}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_s_p_now_actuator_sender_a8620b9b17c1ab6c93a30de3b94f93193}{ESPNowActuatorSender}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ \_peerAddress[6];\ }
+\DoxyCodeLine{00030\ \ \ \ \ uint8\_t\ \_channel;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \_peerConnected;\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a8620b9b17c1ab6c93a30de3b94f93193}{ESPNowActuatorSender}}(\textcolor{keyword}{const}\ uint8\_t\ mac[6],\ uint8\_t\ channel)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ memcpy(\_peerAddress,\ mac,\ 6);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \_channel\ =\ channel;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a721624618b267027c86b7a3ccb341f38}{begin}}()\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ WiFi.mode(WIFI\_STA);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ esp\_wifi\_set\_channel(\_channel,\ WIFI\_SECOND\_CHAN\_NONE);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (esp\_now\_init()\ !=\ ESP\_OK)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}❌\ Error\ al\ iniciar\ ESP-\/NOW"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ esp\_now\_register\_send\_cb([](\textcolor{keyword}{const}\ uint8\_t\ *mac\_addr,\ esp\_now\_send\_status\_t\ status)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}📤\ Estado\ del\ envío\ de\ actuadores:\ "{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\ ==\ ESP\_NOW\_SEND\_SUCCESS)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Éxito"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_peerConnected\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ Actualiza\ estado}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Fallido"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_peerConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ esp\_now\_peer\_info\_t\ peerInfo\ =\ \{\};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ memcpy(peerInfo.peer\_addr,\ \_peerAddress,\ 6);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ peerInfo.channel\ =\ \_channel;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ peerInfo.encrypt\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ peerInfo.ifidx\ =\ WIFI\_IF\_STA;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!esp\_now\_is\_peer\_exist(\_peerAddress))\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (esp\_now\_add\_peer(\&peerInfo)\ !=\ ESP\_OK)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}❌\ Error\ al\ añadir\ el\ peer"{}});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}✅\ ESP-\/NOW\ Emisor\ de\ actuadores\ listo"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a97d5919a0184c480a8f931c446068951}{sendData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\&\ state)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ esp\_err\_t\ result\ =\ esp\_now\_send(\_peerAddress,\ (uint8\_t\ *)\&state,\ \textcolor{keyword}{sizeof}(state));}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ ESP\_OK)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}📨\ Estado\ de\ actuadores\ enviado\ correctamente"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}⚠️\ Error\ al\ enviar\ estado:\ "{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(esp\_err\_to\_name(result));}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \_peerConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a9627d10962a41e4b6033e311769366c1}{isPeerConnected}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_peerConnected;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ Definición\ del\ atributo\ estático}}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{bool}\ ESPNowActuatorSender::\_peerConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ESP\_NOW\_ACTUATOR\_SENDER\_H}}
+
+\end{DoxyCode}

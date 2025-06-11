@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['sdlogger_0',['SDLogger',['../class_s_d_logger.html#aa289079fd3a06e9b1d667b093deeeba2',1,'SDLogger']]],
+  ['sdloggertask_1',['SDLoggerTask',['../_p_f-_edge_2src_2main_8cpp.html#a4762f67866ef1a40eafc34ddcf740420',1,'main.cpp']]],
+  ['senddata_2',['sendData',['../class_e_s_p_now_sender.html#ab52764ebf869b2c7fc36f33448205a5f',1,'ESPNowSender::sendData()'],['../class_e_s_p_now_actuator_sender.html#a97d5919a0184c480a8f931c446068951',1,'ESPNowActuatorSender::sendData()']]],
+  ['sendmessage_3',['sendMessage',['../class_telegram_bot.html#ade03e4220d28c86a8a4b572cef880ec4',1,'TelegramBot']]],
+  ['sensordht_4',['SensorDHT',['../class_sensor_d_h_t.html#a94926134cf3c5292dc6571c191f3a984',1,'SensorDHT']]],
+  ['sensorldr_5',['SensorLDR',['../class_sensor_l_d_r.html#abbeb88df68c0e766802d2355cc6a7206',1,'SensorLDR']]],
+  ['sensormq135_6',['SensorMQ135',['../class_sensor_m_q135.html#a04024d5aedb195784a5fb38aab6659ac',1,'SensorMQ135']]],
+  ['sensoryl69_7',['SensorYL69',['../class_sensor_y_l69.html#aec64babd45574a009e2f7f32bd3eed14',1,'SensorYL69']]],
+  ['setactuadorestado_8',['setActuadorEstado',['../class_display_manager.html#adea5a3650f5fb29e0b1e3dac53f5949a',1,'DisplayManager']]],
+  ['setalerta_9',['setAlerta',['../class_display_manager.html#a773114279d1011cf93be1128e06fe944',1,'DisplayManager']]],
+  ['setallleds_10',['setAllLeds',['../_p_f-_actuadores_2src_2main_8cpp.html#acb1249cfa52e0ab1f621f096dbe050a3',1,'main.cpp']]],
+  ['setfecha_11',['setFecha',['../class_display_manager.html#a1f0891862050023c70d6f8c4a8485361',1,'DisplayManager']]],
+  ['sethora_12',['setHora',['../class_display_manager.html#aced97ecda1fe75a95b2ac6e4e01a9a6e',1,'DisplayManager']]],
+  ['setsensordata_13',['setSensorData',['../class_display_manager.html#a23be8e8de3c2f91368250246c402e0c0',1,'DisplayManager']]],
+  ['setstate_14',['setState',['../class_rele.html#a7e1f59680e69a2fee7fc5c49f41956b9',1,'Rele']]],
+  ['settelegramcmd_15',['setTelegramCmd',['../class_display_manager.html#ae03b04bcd68b499df272d2d36bdb4c85',1,'DisplayManager']]],
+  ['setup_16',['setup',['../_p_f-_actuadores_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp'],['../_p_f-_sensores_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp'],['../_p_f-_edge_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp']]],
+  ['setwifistatus_17',['setWifiStatus',['../class_display_manager.html#affce67b0f92225e81e4df4420e8a081f',1,'DisplayManager']]],
+  ['syncrtcwithntp_18',['syncRtcWithNTP',['../_p_f-_edge_2src_2main_8cpp.html#a4a27c94e7a82a5fcc558a79dc503edcc',1,'main.cpp']]]
+];

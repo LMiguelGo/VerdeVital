@@ -1,0 +1,170 @@
+\doxysection{Display\+Manager.\+h}
+\hypertarget{_display_manager_8h_source}{}\label{_display_manager_8h_source}\index{PF-\/Edge/include/DisplayManager.h@{PF-\/Edge/include/DisplayManager.h}}
+\mbox{\hyperlink{_display_manager_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ DISPLAY\_MANAGER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ DISPLAY\_MANAGER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Adafruit\_GFX.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Adafruit\_SSD1306.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data_sensor_8h}{dataSensor.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_f-_edge_2include_2data_actuator_8h}{dataActuator.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Definiciones}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ SCREEN\_WIDTH\ 128\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ SCREEN\_HEIGHT\ 64\ }}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ OLED\_ADDR\ 0x3C\ }}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_display_manager_a7e82249b7037a4887f5ded4064eff7aa}{DisplayManager}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ Adafruit\_SSD1306\ display;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ lastPageChange\ =\ 0;\ }
+\DoxyCodeLine{00030\ \ \ \ \ uint8\_t\ currentPage\ =\ 0;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ totalPages\ =\ 5;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ interval\ =\ 3000;\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ autoChange\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Datos\ simulados\ /\ reales\ (pueden\ ser\ actualizados\ desde\ fuera)}}
+\DoxyCodeLine{00036\ \ \ \ \ String\ wifiStatus\ =\ \textcolor{stringliteral}{"{}OK"{}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ String\ hora\ =\ \textcolor{stringliteral}{"{}00:00:00"{}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ String\ fecha\ =\ \textcolor{stringliteral}{"{}01-\/01-\/2023"{}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ String\ sensorData\ =\ \textcolor{stringliteral}{"{}T:-\/-\/\ H:-\/-\/"{}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ String\ actuadorEstado\ =\ \textcolor{stringliteral}{"{}Luces:\ OFF"{}};\ }
+\DoxyCodeLine{00041\ \ \ \ \ String\ telegramCmd\ =\ \textcolor{stringliteral}{"{}/start"{}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ String\ alerta\ =\ \textcolor{stringliteral}{"{}"{}};\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_display_manager_a7e82249b7037a4887f5ded4064eff7aa}{DisplayManager}}(\textcolor{keywordtype}{bool}\ autoMode\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ :\ display(\mbox{\hyperlink{_display_manager_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}},\ \mbox{\hyperlink{_display_manager_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\_HEIGHT}},\ \&Wire,\ -\/1),\ autoChange(autoMode)\ \{\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_display_manager_a059554ac33949a168b63c7b63a3d70a1}{begin}}()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!display.begin(SSD1306\_SWITCHCAPVCC,\ \mbox{\hyperlink{_display_manager_8h_a7dfa2c4cfbfcba36416046052e7943e8}{OLED\_ADDR}}))\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(F(\textcolor{stringliteral}{"{}❌\ No\ se\ encontró\ la\ pantalla\ OLED"{}}));}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ display.clearDisplay();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ display.display();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}✅\ Pantalla\ OLED\ inicializada"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_affce67b0f92225e81e4df4420e8a081f}{setWifiStatus}}(\textcolor{keyword}{const}\ String\&\ status)\ \{\ wifiStatus\ =\ status;\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_aced97ecda1fe75a95b2ac6e4e01a9a6e}{setHora}}(\textcolor{keyword}{const}\ String\&\ h)\ \{\ hora\ =\ h;\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a1f0891862050023c70d6f8c4a8485361}{setFecha}}(\textcolor{keyword}{const}\ String\&\ f)\ \{\ fecha\ =\ f;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a23be8e8de3c2f91368250246c402e0c0}{setSensorData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sensor_data}{SensorData}}\&\ data,\ \textcolor{keyword}{const}\ String\&\ rssiWifi\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ sensorData\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}Temp:\ \ "{}}\ +\ String(data.temperature,\ 1)\ +\ \textcolor{stringliteral}{"{}\ C\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}Hum:\ \ \ "{}}\ +\ String(data.humidity,\ 1)\ +\ \textcolor{stringliteral}{"{}\ \%\(\backslash\)n"{}};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}Luz:\ \ \ "{}}\ +\ String(data.light)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}CO2:\ \ \ "{}}\ +\ String(data.co2ppm)\ +\ \textcolor{stringliteral}{"{}\ ppm\(\backslash\)n"{}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}Suelo:\ "{}}\ +\ String(data.soilMoisture,\ 1)\ +\ \textcolor{stringliteral}{"{}\ \%\(\backslash\)n"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}Volt:\ \ "{}}\ +\ String(data.voltage,\ 2)\ +\ \textcolor{stringliteral}{"{}\ V\(\backslash\)n"{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ sensorData\ +=\ \textcolor{stringliteral}{"{}RSSI:\ \ "{}}\ +\ rssiWifi\ +\ \textcolor{stringliteral}{"{}\ dBm\(\backslash\)n"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_adea5a3650f5fb29e0b1e3dac53f5949a}{setActuadorEstado}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\&\ state)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ actuadorEstado\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ actuadorEstado\ +=\ \textcolor{stringliteral}{"{}Bomba:\ "{}}\ +\ String(state.\mbox{\hyperlink{struct_actuator_state_a2e6e71e1b72f5f7df11eb03a1b48b99e}{waterPump}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ actuadorEstado\ +=\ \textcolor{stringliteral}{"{}Vent:\ \ "{}}\ +\ String(state.\mbox{\hyperlink{struct_actuator_state_a1cfe9ff4489556ce5b58d5a30a42f1ca}{fan}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ actuadorEstado\ +=\ \textcolor{stringliteral}{"{}Luces:\ "{}}\ +\ String(state.\mbox{\hyperlink{struct_actuator_state_ab1f44635e84e731fcc0aae40c678a9ef}{leds}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_ae03b04bcd68b499df272d2d36bdb4c85}{setTelegramCmd}}(\textcolor{keyword}{const}\ String\&\ cmd)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ telegramCmd\ =\ cmd;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a773114279d1011cf93be1128e06fe944}{setAlerta}}(\textcolor{keywordtype}{bool}\ criticState,\ \textcolor{keywordtype}{bool}\ lsoilM,\ \textcolor{keywordtype}{bool}\ hsoilM,\ \textcolor{keywordtype}{bool}\ lTemp,\ \textcolor{keywordtype}{bool}\ hTemp,\ \textcolor{keywordtype}{bool}\ co2,\ \textcolor{keywordtype}{bool}\ light,\ \textcolor{keywordtype}{bool}\ voltage,\ \textcolor{keywordtype}{bool}\ rssi,\ \textcolor{keywordtype}{bool}\ espsensor,\ \textcolor{keywordtype}{bool}\ espactuator)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ alerta\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (criticState)\ alerta\ +=\ \textcolor{stringliteral}{"{}FALLA\ CRITICA!\(\backslash\)n"{}};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (voltage)\ alerta\ +=\ \textcolor{stringliteral}{"{}\ -\/\ Voltaje\ bajo\(\backslash\)n"{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (espsensor)\ alerta\ +=\ \textcolor{stringliteral}{"{}\ -\/\ Sensor\ ESP\ N.C.\(\backslash\)n"{}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (espactuator)\ alerta\ +=\ \textcolor{stringliteral}{"{}\ -\/\ Actuador\ ESP\ N.C.\(\backslash\)n"{}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lsoilM)\ alerta\ +=\ \textcolor{stringliteral}{"{}Hum.\ Suelo\ baja\(\backslash\)n"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hsoilM)\ alerta\ +=\ \textcolor{stringliteral}{"{}Hum.\ Suelo\ alta\(\backslash\)n"{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lTemp)\ alerta\ +=\ \textcolor{stringliteral}{"{}Temp.\ baja\(\backslash\)n"{}};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hTemp)\ alerta\ +=\ \textcolor{stringliteral}{"{}Temp.\ alta\(\backslash\)n"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (co2)\ alerta\ +=\ \textcolor{stringliteral}{"{}CO2\ alto\(\backslash\)n"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (light)\ alerta\ +=\ \textcolor{stringliteral}{"{}Luz\ insuficiente\(\backslash\)n"{}};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rssi)\ alerta\ +=\ \textcolor{stringliteral}{"{}Conexión\ WiFi\ débil\(\backslash\)n"{}};}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a0c4186f207f6550de013ad6b64e1e086}{mostrarPagina}}()\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ display.clearDisplay();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ display.setTextSize(1);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ display.setTextColor(SSD1306\_WHITE);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ display.setCursor(0,\ 0);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (currentPage)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}Sistema\ activo"{}});}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.print(\textcolor{stringliteral}{"{}WiFi:\ "{}});\ display.println(wifiStatus);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.print(\textcolor{stringliteral}{"{}Fecha:\ "{}});\ display.println(fecha);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.print(\textcolor{stringliteral}{"{}Hora:\ "{}});\ display.println(hora);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}Ultimas\ mediciones:"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(sensorData);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}Actuadores:"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(actuadorEstado);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}Telegram:\ OK"{}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.print(\textcolor{stringliteral}{"{}Ultimo\ comando:\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(telegramCmd);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}ALERTAS:"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alerta.length()\ >\ 0)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(alerta);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ display.println(\textcolor{stringliteral}{"{}No\ hay\ alertas\ activas"{}});}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ display.display();}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a271792e22b1cdd2c99f91afffa63633f}{actualizar}}()\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ now\ =\ millis();}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ✅\ Cambio\ automático\ si\ está\ habilitado}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (autoChange\ \&\&\ now\ -\/\ lastPageChange\ >=\ interval)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ currentPage\ =\ (currentPage\ +\ 1)\ \%\ totalPages;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_display_manager_a0c4186f207f6550de013ad6b64e1e086}{mostrarPagina}}();}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ lastPageChange\ =\ now;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_aa61a1b10f016b72c29e94e0cff08c6ed}{cambiarPagina}}()\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ currentPage\ =\ (currentPage\ +\ 1)\ \%\ totalPages;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_display_manager_a0c4186f207f6550de013ad6b64e1e086}{mostrarPagina}}();}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_display_manager_a33be13dd0675736cf365c081380acb4e}{mostrarMensajeRapido}}(\textcolor{keyword}{const}\ String\&\ msg)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ display.clearDisplay();}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ display.setCursor(0,\ 0);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ display.setTextSize(1);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ display.setTextColor(SSD1306\_WHITE);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ display.println(msg);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ display.display();}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DISPLAY\_MANAGER\_H}}
+
+\end{DoxyCode}

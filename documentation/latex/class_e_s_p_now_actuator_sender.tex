@@ -1,0 +1,93 @@
+\doxysection{Referencia de la clase ESPNow\+Actuator\+Sender}
+\hypertarget{class_e_s_p_now_actuator_sender}{}\label{class_e_s_p_now_actuator_sender}\index{ESPNowActuatorSender@{ESPNowActuatorSender}}
+
+
+Clase para manejar el envío de datos de actuadores mediante ESP-\/\+NOW.  
+
+
+
+
+{\ttfamily \#include $<$ESPNow\+Sender.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_s_p_now_actuator_sender_a8620b9b17c1ab6c93a30de3b94f93193}{ESPNow\+Actuator\+Sender}} (const uint8\+\_\+t mac\mbox{[}6\mbox{]}, uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_e_s_p_now_actuator_sender}{ESPNow\+Actuator\+Sender}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a721624618b267027c86b7a3ccb341f38}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa ESP-\/\+NOW y configura el peer receptor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a97d5919a0184c480a8f931c446068951}{send\+Data}} (const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Envía datos de actuadores al peer receptor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_e_s_p_now_actuator_sender_a9627d10962a41e4b6033e311769366c1}{is\+Peer\+Connected}} () const
+\begin{DoxyCompactList}\small\item\em Verifica si el peer receptor está conectado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar el envío de datos de actuadores mediante ESP-\/\+NOW. 
+
+Esta clase permite inicializar ESP-\/\+NOW, configurar el peer receptor y enviar datos de actuadores. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_e_s_p_now_actuator_sender_a8620b9b17c1ab6c93a30de3b94f93193}\index{ESPNowActuatorSender@{ESPNowActuatorSender}!ESPNowActuatorSender@{ESPNowActuatorSender}}
+\index{ESPNowActuatorSender@{ESPNowActuatorSender}!ESPNowActuatorSender@{ESPNowActuatorSender}}
+\doxysubsubsection{\texorpdfstring{ESPNowActuatorSender()}{ESPNowActuatorSender()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_sender_a8620b9b17c1ab6c93a30de3b94f93193} 
+ESPNow\+Actuator\+Sender\+::\+ESPNow\+Actuator\+Sender (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mac}{\mbox{[}6\mbox{]}, }\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_e_s_p_now_actuator_sender}{ESPNow\+Actuator\+Sender}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mac} & Dirección MAC del peer receptor. \\
+\hline
+{\em channel} & Canal de comunicación ESP-\/\+NOW. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_e_s_p_now_actuator_sender_a721624618b267027c86b7a3ccb341f38}\index{ESPNowActuatorSender@{ESPNowActuatorSender}!begin@{begin}}
+\index{begin@{begin}!ESPNowActuatorSender@{ESPNowActuatorSender}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_sender_a721624618b267027c86b7a3ccb341f38} 
+void ESPNow\+Actuator\+Sender\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa ESP-\/\+NOW y configura el peer receptor. 
+
+Configura el modo Wi\+Fi en STA, establece el canal de comunicación y registra el callback para el estado de envío. \Hypertarget{class_e_s_p_now_actuator_sender_a9627d10962a41e4b6033e311769366c1}\index{ESPNowActuatorSender@{ESPNowActuatorSender}!isPeerConnected@{isPeerConnected}}
+\index{isPeerConnected@{isPeerConnected}!ESPNowActuatorSender@{ESPNowActuatorSender}}
+\doxysubsubsection{\texorpdfstring{isPeerConnected()}{isPeerConnected()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_sender_a9627d10962a41e4b6033e311769366c1} 
+bool ESPNow\+Actuator\+Sender\+::is\+Peer\+Connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el peer receptor está conectado. 
+
+\begin{DoxyReturn}{Devuelve}
+true si el peer está conectado, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_e_s_p_now_actuator_sender_a97d5919a0184c480a8f931c446068951}\index{ESPNowActuatorSender@{ESPNowActuatorSender}!sendData@{sendData}}
+\index{sendData@{sendData}!ESPNowActuatorSender@{ESPNowActuatorSender}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_sender_a97d5919a0184c480a8f931c446068951} 
+void ESPNow\+Actuator\+Sender\+::send\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Envía datos de actuadores al peer receptor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em state} & Estructura \doxylink{struct_actuator_state}{Actuator\+State} con los datos de los actuadores. \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Edge/include/ESPNow\+Sender.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\doxysection{ESPNow\+Receiver.\+h}
+\hypertarget{_p_f-_actuadores_2include_2_e_s_p_now_receiver_8h_source}{}\label{_p_f-_actuadores_2include_2_e_s_p_now_receiver_8h_source}\index{PF-\/Actuadores/include/ESPNowReceiver.h@{PF-\/Actuadores/include/ESPNowReceiver.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ ESP\_NOW\_ACTUATOR\_RECEIVER\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ESP\_NOW\_ACTUATOR\_RECEIVER\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <esp\_now.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <esp\_wifi.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_f-_actuadores_2include_2data_actuator_8h}{dataActuator.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_s_p_now_actuator_receiver_a62f64d354e305582b67e699b17607ef5}{ESPNowActuatorReceiver}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ \_channel;\ }
+\DoxyCodeLine{00030\ \ \ \ \ void\ (*\_onReceiveCallback)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\&);\ \ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_e_s_p_now_actuator_receiver_a62f64d354e305582b67e699b17607ef5}{ESPNowActuatorReceiver}}(uint8\_t\ channel\ =\ 1)\ :\ \_channel(channel),\ \_onReceiveCallback(nullptr)\ \{\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_s_p_now_actuator_receiver_af98df623bc8be62fd60e72d1620d4caa}{begin}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ WiFi.mode(WIFI\_STA);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ esp\_wifi\_set\_channel(\_channel,\ WIFI\_SECOND\_CHAN\_NONE);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (esp\_now\_init()\ !=\ ESP\_OK)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}❌\ Error\ al\ iniciar\ ESP-\/NOW"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ESP\_NOW:\ Configura\ el\ dispositivo\ como\ receptor}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ esp\_now\_register\_recv\_cb([](\textcolor{keyword}{const}\ uint8\_t\ *mac,\ \textcolor{keyword}{const}\ uint8\_t\ *incomingDataRaw,\ \textcolor{keywordtype}{int}\ len)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\ state;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(\&state,\ incomingDataRaw,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_actuator_state}{ActuatorState}}));}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}📥\ Estado\ de\ actuadores\ recibido:"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}💧\ Bomba:\ "{}});\ Serial.print(state.\mbox{\hyperlink{struct_actuator_state_a2e6e71e1b72f5f7df11eb03a1b48b99e}{waterPump}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ |\ 🌬️\ Ventilador:\ "{}});\ Serial.print(state.\mbox{\hyperlink{struct_actuator_state_a1cfe9ff4489556ce5b58d5a30a42f1ca}{fan}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ |\ 💡\ LEDs:\ "{}});\ Serial.println(state.\mbox{\hyperlink{struct_actuator_state_ab1f44635e84e731fcc0aae40c678a9ef}{leds}}\ ?\ \textcolor{stringliteral}{"{}ON"{}}\ :\ \textcolor{stringliteral}{"{}OFF"{}});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_instance\ \&\&\ \_instance-\/>\_onReceiveCallback)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_instance-\/>\_onReceiveCallback(state);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \_instance\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}✅\ ESP-\/NOW\ Receptor\ de\ actuadores\ listo"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_s_p_now_actuator_receiver_af047114a7c26fb9738b82978ecb8f13e}{onReceive}}(\textcolor{keywordtype}{void}\ (*callback)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_actuator_state}{ActuatorState}}\&))\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \_onReceiveCallback\ =\ callback;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_e_s_p_now_actuator_receiver}{ESPNowActuatorReceiver}}*\ \_instance;\ }
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ Definición\ del\ puntero\ estático}}
+\DoxyCodeLine{00084\ \mbox{\hyperlink{class_e_s_p_now_actuator_receiver}{ESPNowActuatorReceiver}}*\ ESPNowActuatorReceiver::\_instance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ESP\_NOW\_ACTUATOR\_RECEIVER\_H}}
+
+\end{DoxyCode}

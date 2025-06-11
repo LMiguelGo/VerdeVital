@@ -1,0 +1,76 @@
+\doxysection{Referencia de la clase Rele}
+\hypertarget{class_rele}{}\label{class_rele}\index{Rele@{Rele}}
+
+
+Clase para controlar un relé  
+
+
+
+
+{\ttfamily \#include $<$Rele.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rele_a3789bb8aaaea94f16ab73238b7aeb999}{Rele}} (int pin)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_rele}{Rele}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rele_adb16f4d5045b5f945f02c8e4a52a95fa}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el relé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rele_a7e1f59680e69a2fee7fc5c49f41956b9}{set\+State}} (bool activo)
+\begin{DoxyCompactList}\small\item\em Establece el estado del relé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para controlar un relé 
+
+Esta clase permite controlar un relé conectado a un pin específico del ESP32. Proporciona métodos para inicializar el relé y establecer su estado (activo o inactivo). 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_rele_a3789bb8aaaea94f16ab73238b7aeb999}\index{Rele@{Rele}!Rele@{Rele}}
+\index{Rele@{Rele}!Rele@{Rele}}
+\doxysubsubsection{\texorpdfstring{Rele()}{Rele()}}
+{\footnotesize\ttfamily \label{class_rele_a3789bb8aaaea94f16ab73238b7aeb999} 
+Rele\+::\+Rele (\begin{DoxyParamCaption}\item[{int}]{pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_rele}{Rele}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & Pin al que está conectado el relé \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_rele_adb16f4d5045b5f945f02c8e4a52a95fa}\index{Rele@{Rele}!begin@{begin}}
+\index{begin@{begin}!Rele@{Rele}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_rele_adb16f4d5045b5f945f02c8e4a52a95fa} 
+void Rele\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el relé 
+
+Configura el pin del relé como salida y lo apaga inicialmente. \Hypertarget{class_rele_a7e1f59680e69a2fee7fc5c49f41956b9}\index{Rele@{Rele}!setState@{setState}}
+\index{setState@{setState}!Rele@{Rele}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily \label{class_rele_a7e1f59680e69a2fee7fc5c49f41956b9} 
+void Rele\+::set\+State (\begin{DoxyParamCaption}\item[{bool}]{activo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Establece el estado del relé 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em activo} & Estado del relé (true\+: activo, false\+: inactivo) \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Actuadores/include/\mbox{\hyperlink{_rele_8h}{Rele.\+h}}\end{DoxyCompactItemize}

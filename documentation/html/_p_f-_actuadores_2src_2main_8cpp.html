@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: Referencia del archivo PF-Actuadores/src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_p_f-_actuadores_2src_2main_8cpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Sistema de automatización VerdeVital usando ESP32 y actuadores.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;ESPNowReceiver.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_rele_8h_source.html">Rele.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_led_r_g_b_8h_source.html">LedRGB.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a04c091f47b05cd33db87cbb066492c68" id="r_a04c091f47b05cd33db87cbb066492c68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04c091f47b05cd33db87cbb066492c68">PIN_BOMBA</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:a04c091f47b05cd33db87cbb066492c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Librerías.  <br /></td></tr>
+<tr class="separator:a04c091f47b05cd33db87cbb066492c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ff202ed1966d6db435a234f7e53204" id="r_ad8ff202ed1966d6db435a234f7e53204"><td class="memItemLeft" align="right" valign="top"><a id="ad8ff202ed1966d6db435a234f7e53204" name="ad8ff202ed1966d6db435a234f7e53204"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_VENTILADOR</b>&#160;&#160;&#160;26</td></tr>
+<tr class="memdesc:ad8ff202ed1966d6db435a234f7e53204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin para el ventilador. <br /></td></tr>
+<tr class="separator:ad8ff202ed1966d6db435a234f7e53204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1ab79f4742613cc2f7f472d9d6c6570" id="r_af1ab79f4742613cc2f7f472d9d6c6570"><td class="memItemLeft" align="right" valign="top"><a id="af1ab79f4742613cc2f7f472d9d6c6570" name="af1ab79f4742613cc2f7f472d9d6c6570"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_LED_1</b>&#160;&#160;&#160;14</td></tr>
+<tr class="memdesc:af1ab79f4742613cc2f7f472d9d6c6570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin para el LED 1. <br /></td></tr>
+<tr class="separator:af1ab79f4742613cc2f7f472d9d6c6570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0856e6b89a9e5cb8a8bbbf6ba9f7dccc" id="r_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc"><td class="memItemLeft" align="right" valign="top"><a id="a0856e6b89a9e5cb8a8bbbf6ba9f7dccc" name="a0856e6b89a9e5cb8a8bbbf6ba9f7dccc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_LED_2</b>&#160;&#160;&#160;27</td></tr>
+<tr class="memdesc:a0856e6b89a9e5cb8a8bbbf6ba9f7dccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin para el LED 2. <br /></td></tr>
+<tr class="separator:a0856e6b89a9e5cb8a8bbbf6ba9f7dccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac55df431f2832acd5b0afa6f56cbc1" id="r_afac55df431f2832acd5b0afa6f56cbc1"><td class="memItemLeft" align="right" valign="top"><a id="afac55df431f2832acd5b0afa6f56cbc1" name="afac55df431f2832acd5b0afa6f56cbc1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_LED_3</b>&#160;&#160;&#160;33</td></tr>
+<tr class="memdesc:afac55df431f2832acd5b0afa6f56cbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin para el LED 3. <br /></td></tr>
+<tr class="separator:afac55df431f2832acd5b0afa6f56cbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fffd93d20b6fe777713bd58125e3e0b" id="r_a1fffd93d20b6fe777713bd58125e3e0b"><td class="memItemLeft" align="right" valign="top"><a id="a1fffd93d20b6fe777713bd58125e3e0b" name="a1fffd93d20b6fe777713bd58125e3e0b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_LED_4</b>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:a1fffd93d20b6fe777713bd58125e3e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin para el LED 4. <br /></td></tr>
+<tr class="separator:a1fffd93d20b6fe777713bd58125e3e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:acb1249cfa52e0ab1f621f096dbe050a3" id="r_acb1249cfa52e0ab1f621f096dbe050a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb1249cfa52e0ab1f621f096dbe050a3">setAllLeds</a> (bool state)</td></tr>
+<tr class="memdesc:acb1249cfa52e0ab1f621f096dbe050a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura el estado de todos los LEDs.  <br /></td></tr>
+<tr class="separator:acb1249cfa52e0ab1f621f096dbe050a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba84061f5e5c3cc8edca69cfe52f02a2" id="r_aba84061f5e5c3cc8edca69cfe52f02a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba84061f5e5c3cc8edca69cfe52f02a2">onActuatorStateReceived</a> (const <a class="el" href="struct_actuator_state.html">ActuatorState</a> &amp;state)</td></tr>
+<tr class="memdesc:aba84061f5e5c3cc8edca69cfe52f02a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal para el sistema de actuadores.  <br /></td></tr>
+<tr class="separator:aba84061f5e5c3cc8edca69cfe52f02a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal del ESP-Edge.  <br /></td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top"><a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a399f2f016c8b7203c05bbc7f634f7389" id="r_a399f2f016c8b7203c05bbc7f634f7389"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_e_s_p_now_actuator_receiver.html">ESPNowActuatorReceiver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a399f2f016c8b7203c05bbc7f634f7389">receiver</a> (1)</td></tr>
+<tr class="memdesc:a399f2f016c8b7203c05bbc7f634f7389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del receptor ESP-NOW para recibir estados de actuadores.  <br /></td></tr>
+<tr class="separator:a399f2f016c8b7203c05bbc7f634f7389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e642c56778aaa6f8ea6065d89492dfa" id="r_a2e642c56778aaa6f8ea6065d89492dfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rele.html">Rele</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e642c56778aaa6f8ea6065d89492dfa">bomba</a> (<a class="el" href="#a04c091f47b05cd33db87cbb066492c68">PIN_BOMBA</a>)</td></tr>
+<tr class="memdesc:a2e642c56778aaa6f8ea6065d89492dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancias de los actuadores.  <br /></td></tr>
+<tr class="separator:a2e642c56778aaa6f8ea6065d89492dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace684b8d25014d3c1df2c3e5651985a2" id="r_ace684b8d25014d3c1df2c3e5651985a2"><td class="memItemLeft" align="right" valign="top"><a id="ace684b8d25014d3c1df2c3e5651985a2" name="ace684b8d25014d3c1df2c3e5651985a2"></a>
+<a class="el" href="class_rele.html">Rele</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ventilador</b> (<a class="el" href="#ad8ff202ed1966d6db435a234f7e53204">PIN_VENTILADOR</a>)</td></tr>
+<tr class="separator:ace684b8d25014d3c1df2c3e5651985a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d258bf7ecf0463cae54a21a5baae18" id="r_af1d258bf7ecf0463cae54a21a5baae18"><td class="memItemLeft" align="right" valign="top"><a id="af1d258bf7ecf0463cae54a21a5baae18" name="af1d258bf7ecf0463cae54a21a5baae18"></a>
+<a class="el" href="class_led_r_g_b.html">LedRGB</a>&#160;</td><td class="memItemRight" valign="bottom"><b>led1</b> (<a class="el" href="#af1ab79f4742613cc2f7f472d9d6c6570">PIN_LED_1</a>)</td></tr>
+<tr class="separator:af1d258bf7ecf0463cae54a21a5baae18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa516c34e9cbaffc129aa5f4f5f40c5b6" id="r_aa516c34e9cbaffc129aa5f4f5f40c5b6"><td class="memItemLeft" align="right" valign="top"><a id="aa516c34e9cbaffc129aa5f4f5f40c5b6" name="aa516c34e9cbaffc129aa5f4f5f40c5b6"></a>
+<a class="el" href="class_led_r_g_b.html">LedRGB</a>&#160;</td><td class="memItemRight" valign="bottom"><b>led2</b> (<a class="el" href="#a0856e6b89a9e5cb8a8bbbf6ba9f7dccc">PIN_LED_2</a>)</td></tr>
+<tr class="separator:aa516c34e9cbaffc129aa5f4f5f40c5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b955be745eb83a1e6bb8198dea9f5d2" id="r_a3b955be745eb83a1e6bb8198dea9f5d2"><td class="memItemLeft" align="right" valign="top"><a id="a3b955be745eb83a1e6bb8198dea9f5d2" name="a3b955be745eb83a1e6bb8198dea9f5d2"></a>
+<a class="el" href="class_led_r_g_b.html">LedRGB</a>&#160;</td><td class="memItemRight" valign="bottom"><b>led3</b> (<a class="el" href="#afac55df431f2832acd5b0afa6f56cbc1">PIN_LED_3</a>)</td></tr>
+<tr class="separator:a3b955be745eb83a1e6bb8198dea9f5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1a83b87ca326c22a70bf335ad56cbe" id="r_a8f1a83b87ca326c22a70bf335ad56cbe"><td class="memItemLeft" align="right" valign="top"><a id="a8f1a83b87ca326c22a70bf335ad56cbe" name="a8f1a83b87ca326c22a70bf335ad56cbe"></a>
+<a class="el" href="class_led_r_g_b.html">LedRGB</a>&#160;</td><td class="memItemRight" valign="bottom"><b>led4</b> (<a class="el" href="#a1fffd93d20b6fe777713bd58125e3e0b">PIN_LED_4</a>)</td></tr>
+<tr class="separator:a8f1a83b87ca326c22a70bf335ad56cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Sistema de automatización VerdeVital usando ESP32 y actuadores. </p>
+<p>Este archivo contiene la implementación del sistema de automatización VerdeVital, que utiliza un ESP32 para controlar diversos actuadores como bombas, ventiladores y LEDs. El sistema recibe comandos a través de ESP-NOW y controla los actuadores.</p>
+<p>Los actuadores y sus pines respectivos son:</p><ul>
+<li>Bomba de agua: Pin 25</li>
+<li>Ventilador: Pin 26</li>
+<li>LEDs RGB: Pines 14, 27, 33, 32</li>
+</ul>
+<p>También se implementa ESP-NOW para la comunicación entre dispositivos (Edge y Actuadores).</p>
+<dl class="section author"><dt>Autor</dt><dd>Valentina Muñoz Arcos Luis Miguel Gómez Muñoz David Alejandro Ortega Flórez</dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>4.0 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2025-06-11 </dd></dl>
+</div><h2 class="groupheader">Documentación de «define»</h2>
+<a id="a04c091f47b05cd33db87cbb066492c68" name="a04c091f47b05cd33db87cbb066492c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c091f47b05cd33db87cbb066492c68">&#9670;&#160;</a></span>PIN_BOMBA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIN_BOMBA&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Librerías. </p>
+<p>Pin para la bomba de agua </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="aba84061f5e5c3cc8edca69cfe52f02a2" name="aba84061f5e5c3cc8edca69cfe52f02a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba84061f5e5c3cc8edca69cfe52f02a2">&#9670;&#160;</a></span>onActuatorStateReceived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onActuatorStateReceived </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_actuator_state.html">ActuatorState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal para el sistema de actuadores. </p>
+<p>Dependiendo de el parametro recibido activa o desactiva un actuador en especifico </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>ActuadorState | Contiene información sobre el estado de los actuadores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acb1249cfa52e0ab1f621f096dbe050a3" name="acb1249cfa52e0ab1f621f096dbe050a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1249cfa52e0ab1f621f096dbe050a3">&#9670;&#160;</a></span>setAllLeds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setAllLeds </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura el estado de todos los LEDs. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Estado lógico para encender los LEDs con 1 o apagarlos con 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Este es un proceso sin retorno </dd></dl>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal del ESP-Edge. </p>
+<p>Se encarga de incializar todos los actuadores y el sistema ESP-NPW </p><dl class="section return"><dt>Devuelve</dt><dd>Es un proceso sin retorno </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a2e642c56778aaa6f8ea6065d89492dfa" name="a2e642c56778aaa6f8ea6065d89492dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e642c56778aaa6f8ea6065d89492dfa">&#9670;&#160;</a></span>bomba</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rele.html">Rele</a> bomba(<a class="el" href="#a04c091f47b05cd33db87cbb066492c68">PIN_BOMBA</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a04c091f47b05cd33db87cbb066492c68">PIN_BOMBA</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instancias de los actuadores. </p>
+<ul>
+<li>Bomba de agua: Controlada por un relé en el pin 25</li>
+<li>Ventilador: Controlado por un relé en el pin 26</li>
+<li>LEDs RGB: Cuatro instancias para controlar los LEDs en los pines 14, 27, 33 y 32 </li>
+</ul>
+
+</div>
+</div>
+<a id="a399f2f016c8b7203c05bbc7f634f7389" name="a399f2f016c8b7203c05bbc7f634f7389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a399f2f016c8b7203c05bbc7f634f7389">&#9670;&#160;</a></span>receiver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_e_s_p_now_actuator_receiver.html">ESPNowActuatorReceiver</a> receiver(1) </td>
+          <td>(</td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instancia del receptor ESP-NOW para recibir estados de actuadores. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">canal</td><td>Canal de comunicación ESP-NOW </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fb9e30731b8ea9a7bfa2a061f2e58472.html">PF-Actuadores</a></li><li class="navelem"><a class="el" href="dir_c6c12a29cc43e234897773a3db5f508e.html">src</a></li><li class="navelem"><a class="el" href="_p_f-_actuadores_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

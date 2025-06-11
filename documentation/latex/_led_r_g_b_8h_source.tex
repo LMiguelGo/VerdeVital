@@ -1,0 +1,35 @@
+\doxysection{Led\+RGB.\+h}
+\hypertarget{_led_r_g_b_8h_source}{}\label{_led_r_g_b_8h_source}\index{PF-\/Actuadores/include/LedRGB.h@{PF-\/Actuadores/include/LedRGB.h}}
+\mbox{\hyperlink{_led_r_g_b_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ LED\_RGB\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ LED\_RGB\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_led_r_g_b_affa10cd1fe60cb583e83d31801b034f0}{LedRGB}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ pin;\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_led_r_g_b_affa10cd1fe60cb583e83d31801b034f0}{LedRGB}}(\textcolor{keywordtype}{int}\ pin)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ this-\/>pin\ =\ pin;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_led_r_g_b_aeda17444829509c28cfe50fa6b0adbc5}{begin}}()\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ pinMode(pin,\ OUTPUT);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ digitalWrite(pin,\ LOW);}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_led_r_g_b_a11c68a8a6256649f704c73d0f33dac76}{on}}()\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ digitalWrite(pin,\ HIGH);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_led_r_g_b_a55dc6abcedf33b32427af1ebce75f797}{off}}()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ digitalWrite(pin,\ LOW);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LED\_RGB\_H}}
+
+\end{DoxyCode}

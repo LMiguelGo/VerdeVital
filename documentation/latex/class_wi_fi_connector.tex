@@ -1,0 +1,126 @@
+\doxysection{Referencia de la clase Wi\+Fi\+Connector}
+\hypertarget{class_wi_fi_connector}{}\label{class_wi_fi_connector}\index{WiFiConnector@{WiFiConnector}}
+
+
+Clase para gestionar la conexión Wi\+Fi.  
+
+
+
+
+{\ttfamily \#include $<$Wifi\+Connector.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wi_fi_connector_a667ad8ceac783fd420fabc099e5dd93b}{Wi\+Fi\+Connector}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_a587ba0cb07f02913598610049a3bbb79}{ssid}}, const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_p_f-_edge_2src_2main_8cpp_aa4a2ebcb494493f648ae1e6975672575}{password}})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_wi_fi_connector}{Wi\+Fi\+Connector}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_wi_fi_connector_af4416560cd48383b557e78db610af24b}{connect}} ()
+\begin{DoxyCompactList}\small\item\em Conecta el dispositivo a la red Wi\+Fi. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_wi_fi_connector_a8c46de435339833c97c5604c4398af07}{get\+Channel}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el canal de la red Wi\+Fi conectada. \end{DoxyCompactList}\item 
+IPAddress \mbox{\hyperlink{class_wi_fi_connector_aab80aa21370252026d4e907d0a244ffa}{get\+IP}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la dirección IP local asignada al dispositivo. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_wi_fi_connector_a50b37feaea6ef019ef5be0dcc6092fb2}{get\+SSID}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el SSID de la red Wi\+Fi conectada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_wi_fi_connector_af47bb128405ae1d186e11a1e01667cb0}{get\+RSSI}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la intensidad de la señal Wi\+Fi (RSSI). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para gestionar la conexión Wi\+Fi. 
+
+Proporciona métodos para conectarse a una red Wi\+Fi y obtener detalles de la conexión, como el canal, la dirección IP, el SSID y la intensidad de la señal. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_wi_fi_connector_a667ad8ceac783fd420fabc099e5dd93b}\index{WiFiConnector@{WiFiConnector}!WiFiConnector@{WiFiConnector}}
+\index{WiFiConnector@{WiFiConnector}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{WiFiConnector()}{WiFiConnector()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_a667ad8ceac783fd420fabc099e5dd93b} 
+Wi\+Fi\+Connector\+::\+Wi\+Fi\+Connector (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{ssid}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_wi_fi_connector}{Wi\+Fi\+Connector}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ssid} & SSID de la red Wi\+Fi. \\
+\hline
+{\em password} & Contraseña de la red Wi\+Fi. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_wi_fi_connector_af4416560cd48383b557e78db610af24b}\index{WiFiConnector@{WiFiConnector}!connect@{connect}}
+\index{connect@{connect}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_af4416560cd48383b557e78db610af24b} 
+bool Wi\+Fi\+Connector\+::connect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conecta el dispositivo a la red Wi\+Fi. 
+
+Configura el dispositivo en modo estación, intenta conectarse a la red especificada y muestra información de la conexión.
+
+\begin{DoxyReturn}{Devuelve}
+true si la conexión fue exitosa, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_wi_fi_connector_a8c46de435339833c97c5604c4398af07}\index{WiFiConnector@{WiFiConnector}!getChannel@{getChannel}}
+\index{getChannel@{getChannel}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{getChannel()}{getChannel()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_a8c46de435339833c97c5604c4398af07} 
+int Wi\+Fi\+Connector\+::get\+Channel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el canal de la red Wi\+Fi conectada. 
+
+\begin{DoxyReturn}{Devuelve}
+Número del canal de la red Wi\+Fi. 
+\end{DoxyReturn}
+\Hypertarget{class_wi_fi_connector_aab80aa21370252026d4e907d0a244ffa}\index{WiFiConnector@{WiFiConnector}!getIP@{getIP}}
+\index{getIP@{getIP}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{getIP()}{getIP()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_aab80aa21370252026d4e907d0a244ffa} 
+IPAddress Wi\+Fi\+Connector\+::get\+IP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la dirección IP local asignada al dispositivo. 
+
+\begin{DoxyReturn}{Devuelve}
+Dirección IP local. 
+\end{DoxyReturn}
+\Hypertarget{class_wi_fi_connector_af47bb128405ae1d186e11a1e01667cb0}\index{WiFiConnector@{WiFiConnector}!getRSSI@{getRSSI}}
+\index{getRSSI@{getRSSI}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{getRSSI()}{getRSSI()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_af47bb128405ae1d186e11a1e01667cb0} 
+int Wi\+Fi\+Connector\+::get\+RSSI (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la intensidad de la señal Wi\+Fi (RSSI). 
+
+\begin{DoxyReturn}{Devuelve}
+Intensidad de la señal en d\+Bm. 
+\end{DoxyReturn}
+\Hypertarget{class_wi_fi_connector_a50b37feaea6ef019ef5be0dcc6092fb2}\index{WiFiConnector@{WiFiConnector}!getSSID@{getSSID}}
+\index{getSSID@{getSSID}!WiFiConnector@{WiFiConnector}}
+\doxysubsubsection{\texorpdfstring{getSSID()}{getSSID()}}
+{\footnotesize\ttfamily \label{class_wi_fi_connector_a50b37feaea6ef019ef5be0dcc6092fb2} 
+String Wi\+Fi\+Connector\+::get\+SSID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el SSID de la red Wi\+Fi conectada. 
+
+\begin{DoxyReturn}{Devuelve}
+SSID de la red Wi\+Fi. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Edge/include/\mbox{\hyperlink{_wifi_connector_8h}{Wifi\+Connector.\+h}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 
 El ecosistema **VerdeVital** está compuesto por los siguientes módulos:
 
-1. **PF-Sensores:** Captura datos ambientales (temperatura, humedad, luz, CO₂, etc.) y los envía a PF-Edge mediante ESP-NOW.
+1. **PF-Sensores:** Captura datos ambientales (temperatura, humedad, luz, CO2, etc.) y los envía a PF-Edge mediante ESP-NOW.
 2. **PF-Actuadores:** Recibe comandos de PF-Edge para controlar dispositivos como bombas, ventiladores y LEDs.
 3. **PF-Edge:** Centraliza la información, procesa los datos, genera alertas y controla la interacción con los usuarios.
 

@@ -1,0 +1,67 @@
+\doxysection{Referencia de la clase Voltage\+Sensor}
+\hypertarget{class_voltage_sensor}{}\label{class_voltage_sensor}\index{VoltageSensor@{VoltageSensor}}
+
+
+Clase para manejar sensores de voltaje. Esta clase permite leer el voltaje de un divisor de voltaje conectado a un pin analógico.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+\+Voltage.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_voltage_sensor_aa737191de09ad9790503ba0787589bf4}{Voltage\+Sensor}} (int adc\+Pin, float R1=30000.\+0f, float R2=7500.\+0f, float v\+Ref=3.\+3f, int adc\+Max=4095)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_voltage_sensor}{Voltage\+Sensor}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_voltage_sensor_ae995eed43cee2b1feebfad6134e09cbe}{read\+Voltage}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el sensor de voltaje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar sensores de voltaje. Esta clase permite leer el voltaje de un divisor de voltaje conectado a un pin analógico. 
+
+La clase \doxylink{class_voltage_sensor}{Voltage\+Sensor} encapsula la funcionalidad de un sensor de voltaje, permitiendo inicializar el sensor, leer el voltaje y manejar los valores leídos. Los valores de resistencia y voltaje de referencia se pueden ajustar en el constructor. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_voltage_sensor_aa737191de09ad9790503ba0787589bf4}\index{VoltageSensor@{VoltageSensor}!VoltageSensor@{VoltageSensor}}
+\index{VoltageSensor@{VoltageSensor}!VoltageSensor@{VoltageSensor}}
+\doxysubsubsection{\texorpdfstring{VoltageSensor()}{VoltageSensor()}}
+{\footnotesize\ttfamily \label{class_voltage_sensor_aa737191de09ad9790503ba0787589bf4} 
+Voltage\+Sensor\+::\+Voltage\+Sensor (\begin{DoxyParamCaption}\item[{int}]{adc\+Pin}{, }\item[{float}]{R1}{ = {\ttfamily 30000.0f}, }\item[{float}]{R2}{ = {\ttfamily 7500.0f}, }\item[{float}]{v\+Ref}{ = {\ttfamily 3.3f}, }\item[{int}]{adc\+Max}{ = {\ttfamily 4095}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_voltage_sensor}{Voltage\+Sensor}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em adc\+Pin} & Pin al que está conectado el sensor de voltaje. \\
+\hline
+{\em R1} & Resistencia superior del divisor de voltaje (ohmios). \\
+\hline
+{\em R2} & Resistencia inferior del divisor de voltaje (ohmios). \\
+\hline
+{\em v\+Ref} & Voltaje de referencia del ADC (e.\+g. 3.\+3V). \\
+\hline
+{\em adc\+Max} & Valor máximo del ADC (e.\+g. 4095 para 12 bits). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_voltage_sensor_ae995eed43cee2b1feebfad6134e09cbe}\index{VoltageSensor@{VoltageSensor}!readVoltage@{readVoltage}}
+\index{readVoltage@{readVoltage}!VoltageSensor@{VoltageSensor}}
+\doxysubsubsection{\texorpdfstring{readVoltage()}{readVoltage()}}
+{\footnotesize\ttfamily \label{class_voltage_sensor_ae995eed43cee2b1feebfad6134e09cbe} 
+float Voltage\+Sensor\+::read\+Voltage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el sensor de voltaje. 
+
+Debe ser llamado antes de leer datos del sensor. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor___voltage_8h}{sensor\+\_\+\+Voltage.\+h}}\end{DoxyCompactItemize}

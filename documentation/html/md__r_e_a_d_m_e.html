@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: VerdeVital - Sistema Integral de Monitoreo y Control Ambiental</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">VerdeVital - Sistema Integral de Monitoreo y Control Ambiental</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md31"></a></p>
+<p><b>VerdeVital</b> es un ecosistema modular diseñado para la gestión inteligente de invernaderos y entornos agrícolas. Este sistema combina tecnologías avanzadas de adquisición de datos, procesamiento, comunicación inalámbrica y control de actuadores para ofrecer una solución integral de monitoreo y automatización ambiental.</p>
+<h1><a class="anchor" id="autotoc_md32"></a>
+Arquitectura del Sistema</h1>
+<p>El ecosistema <b>VerdeVital</b> está compuesto por tres módulos principales que trabajan de manera coordinada:</p>
+<ol type="1">
+<li><b>PF-Sensores:</b> Captura datos ambientales (temperatura, humedad, luz, CO2, humedad del suelo, voltaje) y los transmite al módulo central mediante ESP-NOW.</li>
+<li><b>PF-Edge:</b> Actúa como el núcleo del sistema, procesando los datos recibidos, evaluando umbrales, generando alertas, registrando información y enviando comandos a los actuadores.</li>
+<li><b>PF-Actuadores:</b> Recibe comandos del módulo central y controla dispositivos como bombas de agua, ventiladores y LEDs RGB.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md33"></a>
+Características Principales</h1>
+<h2><a class="anchor" id="autotoc_md34"></a>
+PF-Sensores</h2>
+<ul>
+<li><b>Adquisición de Datos:</b> <br  />
+ Captura información de sensores como:<ul>
+<li><b>DHT11:</b> Temperatura y humedad.</li>
+<li><b>LDR:</b> Intensidad lumínica.</li>
+<li><b>MQ135:</b> Calidad del aire (CO2 en ppm).</li>
+<li><b>YL-69:</b> Humedad del suelo.</li>
+<li><b>Divisor de Voltaje:</b> Voltaje de entrada.</li>
+</ul>
+</li>
+<li><b>Comunicación Inalámbrica:</b> <br  />
+ Transmite los datos al módulo <b>PF-Edge</b> mediante ESP-NOW.</li>
+<li><b>Multitarea con FreeRTOS:</b> <br  />
+ Ejecuta tareas concurrentes para la lectura de sensores y envío de datos.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md35"></a>
+PF-Edge</h2>
+<ul>
+<li><b>Procesamiento Centralizado:</b> <br  />
+ Recibe datos de <b>PF-Sensores</b>, evalúa umbrales configurados y genera alertas.</li>
+<li><b>Control de Actuadores:</b> <br  />
+ Envía comandos a <b>PF-Actuadores</b> para activar o desactivar dispositivos según las condiciones ambientales.</li>
+<li><b>Registro de Datos:</b> <br  />
+ Almacena información en una tarjeta SD en formato CSV para análisis histórico.</li>
+<li><b>Interacción con Telegram:</b> <br  />
+ Permite a los usuarios consultar el estado del sistema y controlar actuadores mediante un bot de Telegram.</li>
+<li><b>Visualización en Pantalla OLED:</b> <br  />
+ Muestra datos en tiempo real, alertas y estado del sistema.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md36"></a>
+PF-Actuadores</h2>
+<ul>
+<li><b>Control de Dispositivos:</b> <br  />
+ Maneja actuadores como:<ul>
+<li>Bomba de agua.</li>
+<li>Ventilador.</li>
+<li>LEDs RGB.</li>
+</ul>
+</li>
+<li><b>Recepción de Comandos:</b> <br  />
+ Escucha las instrucciones enviadas por <b>PF-Edge</b> mediante ESP-NOW.</li>
+<li><b>Configuración Modular:</b> <br  />
+ Permite la expansión para incluir más actuadores según las necesidades del sistema.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md37"></a>
+Tecnologías Utilizadas</h1>
+<ul>
+<li><b>Microcontrolador:</b> ESP32.</li>
+<li><b>Protocolos de Comunicación:</b> ESP-NOW, WiFi.</li>
+<li><b>Sistema Operativo en Tiempo Real:</b> FreeRTOS.</li>
+<li><b>Almacenamiento:</b> Tarjeta SD.</li>
+<li><b>Interfaz de Usuario:</b> Pantalla OLED y bot de Telegram.</li>
+<li><b>Lenguaje de Programación:</b> C/C++.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md38"></a>
+Configuración del Hardware</h1>
+<h2><a class="anchor" id="autotoc_md39"></a>
+PF-Sensores</h2>
+<ul>
+<li><b>DHT11:</b> Pin <code>4</code>.</li>
+<li><b>LDR:</b> Pin <code>34</code>.</li>
+<li><b>MQ135:</b> Pin <code>35</code>.</li>
+<li><b>YL-69:</b> Pin <code>32</code>.</li>
+<li><b>Divisor de Voltaje:</b> Pin <code>33</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md40"></a>
+PF-Edge</h2>
+<ul>
+<li><b>Pantalla OLED:</b> Pines SDA y SCL conectados al ESP32.</li>
+<li><b>Tarjeta SD:</b> Pin CS <code>5</code>.</li>
+<li><b>RTC DS1302:</b> Pines IO, SCLK, CE conectados al ESP32.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md41"></a>
+PF-Actuadores</h2>
+<ul>
+<li><b>Bomba de Agua:</b> Pin <code>25</code>.</li>
+<li><b>Ventilador:</b> Pin <code>26</code>.</li>
+<li><b>LEDs RGB:</b> Pines <code>14</code>, <code>27</code>, <code>33</code>, <code>32</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md42"></a>
+Instalación y Configuración</h1>
+<h2><a class="anchor" id="autotoc_md43"></a>
+Requisitos Previos</h2>
+<ol type="1">
+<li><b>Hardware Necesario:</b><ul>
+<li>ESP32.</li>
+<li>Sensores (DHT11, LDR, MQ135, YL-69, divisor de voltaje).</li>
+<li>Actuadores (bomba de agua, ventilador, LEDs RGB).</li>
+<li>Pantalla OLED, tarjeta SD y módulo RTC DS1302.</li>
+</ul>
+</li>
+<li><b>Software Necesario:</b><ul>
+<li><a href="https://platformio.org/">PlatformIO</a> o Arduino IDE con soporte para ESP32.</li>
+<li>Librerías requeridas:<ul>
+<li>Adafruit_GFX</li>
+<li>Adafruit_SSD1306</li>
+<li>RtcDS1302</li>
+<li>SD</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md44"></a>
+Pasos de Configuración</h2>
+<ol type="1">
+<li><b>Clonar el Repositorio:</b> <div class="fragment"><div class="line">git clone https://github.com/usuario/VerdeVital.git</div>
+</div><!-- fragment --></li>
+<li><b>Configurar el Entorno de Desarrollo:</b><ul>
+<li>Instalar las dependencias necesarias.</li>
+<li>Configurar credenciales WiFi y token del bot de Telegram en los archivos correspondientes.</li>
+</ul>
+</li>
+<li><b>Conectar el Hardware:</b><ul>
+<li>Realizar las conexiones físicas según los pines especificados.</li>
+</ul>
+</li>
+<li><b>Compilar y Subir el Código:</b><ul>
+<li>Compilar el firmware de cada módulo y subirlo al ESP32 correspondiente.</li>
+</ul>
+</li>
+<li><b>Verificar la Comunicación:</b><ul>
+<li>Asegurarse de que los canales ESP-NOW coincidan entre los módulos.</li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md45"></a>
+Uso del Sistema</h1>
+<ul>
+<li><b>Inicio del Sistema:</b> <br  />
+ Al encender los módulos, PF-Sensores comenzará a capturar datos y enviarlos a PF-Edge. PF-Edge procesará los datos, evaluará umbrales y enviará comandos a PF-Actuadores.</li>
+<li><b>Interacción con Telegram:</b> <br  />
+ Consultar datos y estado del sistema mediante comandos como <code>/datos</code>, <code>/estado</code>, <code>/umbrales</code>, etc.</li>
+<li><b>Visualización en Pantalla OLED:</b> <br  />
+ Monitorear datos en tiempo real y alertas directamente en la pantalla OLED.</li>
+<li><b>Registro de Datos:</b> <br  />
+ Los datos se almacenarán automáticamente en la tarjeta SD para análisis posterior.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md46"></a>
+Integración del Ecosistema</h1>
+<ul>
+<li><b>PF-Sensores:</b> Captura datos ambientales y los transmite a PF-Edge.</li>
+<li><b>PF-Edge:</b> Procesa los datos, genera alertas y controla actuadores.</li>
+<li><b>PF-Actuadores:</b> Ejecuta las acciones necesarias para mantener las condiciones óptimas.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md47"></a>
+Próximos Pasos y Mejoras Futuras</h1>
+<ul>
+<li>Ampliar la compatibilidad con más sensores y actuadores.</li>
+<li>Implementar control de LEDs RGB con variaciones de color y brillo.</li>
+<li>Integrar servicios en la nube para análisis avanzado de datos.</li>
+<li>Desarrollar una interfaz web para monitoreo y control remoto.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md48"></a>
+Contribuciones</h1>
+<p>Las contribuciones son bienvenidas. Si deseas proponer mejoras, reportar problemas o colaborar en el desarrollo, abre un issue o envía un pull request en el repositorio oficial.</p>
+<h1><a class="anchor" id="autotoc_md49"></a>
+Licencia</h1>
+<p>Este proyecto se distribuye bajo la Licencia MIT.</p>
+<p>Desarrollado con pasión por el equipo de VerdeVital. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

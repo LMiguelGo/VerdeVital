@@ -1,0 +1,86 @@
+\doxysection{SDLogger.\+h}
+\hypertarget{_s_d_logger_8h_source}{}\label{_s_d_logger_8h_source}\index{PF-\/Edge/include/SDLogger.h@{PF-\/Edge/include/SDLogger.h}}
+\mbox{\hyperlink{_s_d_logger_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SDLOGGER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SDLOGGER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <FS.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <SD.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data_sensor_8h}{dataSensor.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_d_logger_aa289079fd3a06e9b1d667b093deeeba2}{SDLogger}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_s_d_logger_aa289079fd3a06e9b1d667b093deeeba2}{SDLogger}}(\textcolor{keywordtype}{int}\ csPin\ =\ 5)\ :\ \_csPin(csPin)\ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_s_d_logger_adc6d4e15e1ba3fde996762098976451c}{begin}}()\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ SD.begin(\_csPin);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_s_d_logger_adeca9ceda6127d490dce2db8942394b3}{logSensorData}}(\textcolor{keyword}{const}\ String\&\ timestamp,\ \textcolor{keyword}{const}\ String\&\ nodeId,\ \textcolor{keywordtype}{int}\ rssi,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sensor_data}{SensorData}}\&\ data,\ \textcolor{keywordtype}{int}\ systemState)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ String\ folderPath\ =\ getFolderPath(timestamp);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ String\ filePath\ =\ getFilePath(timestamp);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ ensureDirectoriesExist(folderPath);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ File\ file\ =\ SD.open(filePath,\ FILE\_APPEND);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}❌\ No\ se\ pudo\ abrir\ el\ archivo\ para\ escritura."{}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ el\ archivo\ estaba\ vacío,\ escribe\ encabezados}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ file.println(\textcolor{stringliteral}{"{}timestamp,nodeId,rssi,temp,hum,light,co2ppm,soilMoisture,voltage,state"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ String\ csvLine\ =\ timestamp\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ nodeId\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ String(rssi)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.temperature,\ 2)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.humidity,\ 2)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.light)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.co2ppm)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.soilMoisture)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(data.voltage,\ 2)\ +\ \textcolor{stringliteral}{"{},"{}}\ +}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String(systemState);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ file.println(csvLine);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ \_csPin;\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00091\ \ \ \ \ String\ getFolderPath(\textcolor{keyword}{const}\ String\&\ timestamp)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ String\ date\ =\ timestamp.substring(0,\ 10);\ \ \ \ \textcolor{comment}{//\ YYYY-\/MM-\/DD}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ String\ hour\ =\ timestamp.substring(11,\ 13);\ \ \ \textcolor{comment}{//\ HH}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}/"{}}\ +\ date\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ hour;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00103\ \ \ \ \ String\ getFilePath(\textcolor{keyword}{const}\ String\&\ timestamp)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getFolderPath(timestamp)\ +\ \textcolor{stringliteral}{"{}/data.csv"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ ensureDirectoriesExist(\textcolor{keyword}{const}\ String\&\ folderPath)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ secondSlash\ =\ folderPath.indexOf(\textcolor{charliteral}{'/'},\ 1);\ \textcolor{comment}{//\ omitimos\ el\ primer\ '/'}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (secondSlash\ ==\ -\/1)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ String\ firstLevel\ =\ folderPath.substring(0,\ secondSlash);\ \textcolor{comment}{//\ /YYYY-\/MM-\/DD}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ String\ secondLevel\ =\ folderPath;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ /YYYY-\/MM-\/DD/HH}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!SD.exists(firstLevel))\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ SD.mkdir(firstLevel);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!SD.exists(secondLevel))\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ SD.mkdir(secondLevel);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

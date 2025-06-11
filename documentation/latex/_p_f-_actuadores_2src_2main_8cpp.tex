@@ -1,0 +1,185 @@
+\doxysection{Referencia del archivo PF-\/\+Actuadores/src/main.cpp}
+\hypertarget{_p_f-_actuadores_2src_2main_8cpp}{}\label{_p_f-_actuadores_2src_2main_8cpp}\index{PF-\/Actuadores/src/main.cpp@{PF-\/Actuadores/src/main.cpp}}
+
+
+Sistema de automatización Verde\+Vital usando ESP32 y actuadores.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}ESPNow\+Receiver.\+h"{}}\newline
+{\ttfamily \#include "{}Rele.\+h"{}}\newline
+{\ttfamily \#include "{}Led\+RGB.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68}{PIN\+\_\+\+BOMBA}}~25
+\begin{DoxyCompactList}\small\item\em Librerías. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_ad8ff202ed1966d6db435a234f7e53204}\label{_p_f-_actuadores_2src_2main_8cpp_ad8ff202ed1966d6db435a234f7e53204} 
+\#define {\bfseries PIN\+\_\+\+VENTILADOR}~26
+\begin{DoxyCompactList}\small\item\em Pin para el ventilador. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_af1ab79f4742613cc2f7f472d9d6c6570}\label{_p_f-_actuadores_2src_2main_8cpp_af1ab79f4742613cc2f7f472d9d6c6570} 
+\#define {\bfseries PIN\+\_\+\+LED\+\_\+1}~14
+\begin{DoxyCompactList}\small\item\em Pin para el LED 1. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc}\label{_p_f-_actuadores_2src_2main_8cpp_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc} 
+\#define {\bfseries PIN\+\_\+\+LED\+\_\+2}~27
+\begin{DoxyCompactList}\small\item\em Pin para el LED 2. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_afac55df431f2832acd5b0afa6f56cbc1}\label{_p_f-_actuadores_2src_2main_8cpp_afac55df431f2832acd5b0afa6f56cbc1} 
+\#define {\bfseries PIN\+\_\+\+LED\+\_\+3}~33
+\begin{DoxyCompactList}\small\item\em Pin para el LED 3. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a1fffd93d20b6fe777713bd58125e3e0b}\label{_p_f-_actuadores_2src_2main_8cpp_a1fffd93d20b6fe777713bd58125e3e0b} 
+\#define {\bfseries PIN\+\_\+\+LED\+\_\+4}~32
+\begin{DoxyCompactList}\small\item\em Pin para el LED 4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_acb1249cfa52e0ab1f621f096dbe050a3}{set\+All\+Leds}} (bool state)
+\begin{DoxyCompactList}\small\item\em Configura el estado de todos los LEDs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_aba84061f5e5c3cc8edca69cfe52f02a2}{on\+Actuator\+State\+Received}} (const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Función principal para el sistema de actuadores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Función principal del ESP-\/\+Edge. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{_p_f-_actuadores_2src_2main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_s_p_now_actuator_receiver}{ESPNow\+Actuator\+Receiver}} \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a399f2f016c8b7203c05bbc7f634f7389}{receiver}} (1)
+\begin{DoxyCompactList}\small\item\em Instancia del receptor ESP-\/\+NOW para recibir estados de actuadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_rele}{Rele}} \mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a2e642c56778aaa6f8ea6065d89492dfa}{bomba}} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68}{PIN\+\_\+\+BOMBA}})
+\begin{DoxyCompactList}\small\item\em Instancias de los actuadores. \end{DoxyCompactList}\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_ace684b8d25014d3c1df2c3e5651985a2}\label{_p_f-_actuadores_2src_2main_8cpp_ace684b8d25014d3c1df2c3e5651985a2} 
+\mbox{\hyperlink{class_rele}{Rele}} {\bfseries ventilador} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_ad8ff202ed1966d6db435a234f7e53204}{PIN\+\_\+\+VENTILADOR}})
+\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_af1d258bf7ecf0463cae54a21a5baae18}\label{_p_f-_actuadores_2src_2main_8cpp_af1d258bf7ecf0463cae54a21a5baae18} 
+\mbox{\hyperlink{class_led_r_g_b}{Led\+RGB}} {\bfseries led1} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_af1ab79f4742613cc2f7f472d9d6c6570}{PIN\+\_\+\+LED\+\_\+1}})
+\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_aa516c34e9cbaffc129aa5f4f5f40c5b6}\label{_p_f-_actuadores_2src_2main_8cpp_aa516c34e9cbaffc129aa5f4f5f40c5b6} 
+\mbox{\hyperlink{class_led_r_g_b}{Led\+RGB}} {\bfseries led2} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc}{PIN\+\_\+\+LED\+\_\+2}})
+\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a3b955be745eb83a1e6bb8198dea9f5d2}\label{_p_f-_actuadores_2src_2main_8cpp_a3b955be745eb83a1e6bb8198dea9f5d2} 
+\mbox{\hyperlink{class_led_r_g_b}{Led\+RGB}} {\bfseries led3} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_afac55df431f2832acd5b0afa6f56cbc1}{PIN\+\_\+\+LED\+\_\+3}})
+\item 
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a8f1a83b87ca326c22a70bf335ad56cbe}\label{_p_f-_actuadores_2src_2main_8cpp_a8f1a83b87ca326c22a70bf335ad56cbe} 
+\mbox{\hyperlink{class_led_r_g_b}{Led\+RGB}} {\bfseries led4} (\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a1fffd93d20b6fe777713bd58125e3e0b}{PIN\+\_\+\+LED\+\_\+4}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Sistema de automatización Verde\+Vital usando ESP32 y actuadores. 
+
+Este archivo contiene la implementación del sistema de automatización Verde\+Vital, que utiliza un ESP32 para controlar diversos actuadores como bombas, ventiladores y LEDs. El sistema recibe comandos a través de ESP-\/\+NOW y controla los actuadores.
+
+Los actuadores y sus pines respectivos son\+:
+\begin{DoxyItemize}
+\item Bomba de agua\+: Pin 25
+\item Ventilador\+: Pin 26
+\item LEDs RGB\+: Pines 14, 27, 33, 32
+\end{DoxyItemize}
+
+También se implementa ESP-\/\+NOW para la comunicación entre dispositivos (Edge y Actuadores).
+
+\begin{DoxyAuthor}{Autor}
+Valentina Muñoz Arcos Luis Miguel Gómez Muñoz David Alejandro Ortega Flórez
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+4.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2025-\/06-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68}\index{main.cpp@{main.cpp}!PIN\_BOMBA@{PIN\_BOMBA}}
+\index{PIN\_BOMBA@{PIN\_BOMBA}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PIN\_BOMBA}{PIN\_BOMBA}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68} 
+\#define PIN\+\_\+\+BOMBA~25}
+
+
+
+Librerías. 
+
+Pin para la bomba de agua 
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_aba84061f5e5c3cc8edca69cfe52f02a2}\index{main.cpp@{main.cpp}!onActuatorStateReceived@{onActuatorStateReceived}}
+\index{onActuatorStateReceived@{onActuatorStateReceived}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{onActuatorStateReceived()}{onActuatorStateReceived()}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_aba84061f5e5c3cc8edca69cfe52f02a2} 
+void on\+Actuator\+State\+Received (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Función principal para el sistema de actuadores. 
+
+Dependiendo de el parametro recibido activa o desactiva un actuador en especifico 
+\begin{DoxyParams}{Parámetros}
+{\em state} & Actuador\+State \texorpdfstring{$\vert$}{|} Contiene información sobre el estado de los actuadores \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_acb1249cfa52e0ab1f621f096dbe050a3}\index{main.cpp@{main.cpp}!setAllLeds@{setAllLeds}}
+\index{setAllLeds@{setAllLeds}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setAllLeds()}{setAllLeds()}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_acb1249cfa52e0ab1f621f096dbe050a3} 
+void set\+All\+Leds (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Configura el estado de todos los LEDs. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em state} & Estado lógico para encender los LEDs con 1 o apagarlos con 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Este es un proceso sin retorno 
+\end{DoxyReturn}
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función principal del ESP-\/\+Edge. 
+
+Se encarga de incializar todos los actuadores y el sistema ESP-\/\+NPW \begin{DoxyReturn}{Devuelve}
+Es un proceso sin retorno 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a2e642c56778aaa6f8ea6065d89492dfa}\index{main.cpp@{main.cpp}!bomba@{bomba}}
+\index{bomba@{bomba}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{bomba}{bomba}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_a2e642c56778aaa6f8ea6065d89492dfa} 
+\mbox{\hyperlink{class_rele}{Rele}} bomba(\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68}{PIN\+\_\+\+BOMBA}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_f-_actuadores_2src_2main_8cpp_a04c091f47b05cd33db87cbb066492c68}{PIN\+\_\+\+BOMBA}}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Instancias de los actuadores. 
+
+
+\begin{DoxyItemize}
+\item Bomba de agua\+: Controlada por un relé en el pin 25
+\item Ventilador\+: Controlado por un relé en el pin 26
+\item LEDs RGB\+: Cuatro instancias para controlar los LEDs en los pines 14, 27, 33 y 32 
+\end{DoxyItemize}\Hypertarget{_p_f-_actuadores_2src_2main_8cpp_a399f2f016c8b7203c05bbc7f634f7389}\index{main.cpp@{main.cpp}!receiver@{receiver}}
+\index{receiver@{receiver}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{receiver}{receiver}}
+{\footnotesize\ttfamily \label{_p_f-_actuadores_2src_2main_8cpp_a399f2f016c8b7203c05bbc7f634f7389} 
+\mbox{\hyperlink{class_e_s_p_now_actuator_receiver}{ESPNow\+Actuator\+Receiver}} receiver(1) (\begin{DoxyParamCaption}\item[{1}]{}{}\end{DoxyParamCaption})}
+
+
+
+Instancia del receptor ESP-\/\+NOW para recibir estados de actuadores. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em canal} & Canal de comunicación ESP-\/\+NOW \\
+\hline
+\end{DoxyParams}

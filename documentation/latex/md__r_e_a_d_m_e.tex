@@ -1,0 +1,165 @@
+\chapter{Verde\+Vital -\/ Sistema Integral de Monitoreo y Control Ambiental}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{VerdeVital -\/ Sistema Integral de Monitoreo y Control Ambiental@{VerdeVital -\/ Sistema Integral de Monitoreo y Control Ambiental}}
+\label{md__r_e_a_d_m_e_autotoc_md31}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md31}%
+
+
+{\bfseries{Verde\+Vital}} es un ecosistema modular diseñado para la gestión inteligente de invernaderos y entornos agrícolas. Este sistema combina tecnologías avanzadas de adquisición de datos, procesamiento, comunicación inalámbrica y control de actuadores para ofrecer una solución integral de monitoreo y automatización ambiental.\hypertarget{md__r_e_a_d_m_e_autotoc_md32}{}\doxysection{\texorpdfstring{Arquitectura del Sistema}{Arquitectura del Sistema}}\label{md__r_e_a_d_m_e_autotoc_md32}
+El ecosistema {\bfseries{Verde\+Vital}} está compuesto por tres módulos principales que trabajan de manera coordinada\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{PF-\/\+Sensores\+:}} Captura datos ambientales (temperatura, humedad, luz, CO2, humedad del suelo, voltaje) y los transmite al módulo central mediante ESP-\/\+NOW.
+\item {\bfseries{PF-\/\+Edge\+:}} Actúa como el núcleo del sistema, procesando los datos recibidos, evaluando umbrales, generando alertas, registrando información y enviando comandos a los actuadores.
+\item {\bfseries{PF-\/\+Actuadores\+:}} Recibe comandos del módulo central y controla dispositivos como bombas de agua, ventiladores y LEDs RGB.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysection{\texorpdfstring{Características Principales}{Características Principales}}\label{md__r_e_a_d_m_e_autotoc_md33}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md34}{}\doxysubsection{\texorpdfstring{PF-\/\+Sensores}{PF-\/\+Sensores}}\label{md__r_e_a_d_m_e_autotoc_md34}
+
+\begin{DoxyItemize}
+\item {\bfseries{Adquisición de Datos\+:}} ~\newline
+ Captura información de sensores como\+:
+\begin{DoxyItemize}
+\item {\bfseries{DHT11\+:}} Temperatura y humedad.
+\item {\bfseries{LDR\+:}} Intensidad lumínica.
+\item {\bfseries{MQ135\+:}} Calidad del aire (CO2 en ppm).
+\item {\bfseries{YL-\/69\+:}} Humedad del suelo.
+\item {\bfseries{Divisor de Voltaje\+:}} Voltaje de entrada.
+\end{DoxyItemize}
+\item {\bfseries{Comunicación Inalámbrica\+:}} ~\newline
+ Transmite los datos al módulo {\bfseries{PF-\/\+Edge}} mediante ESP-\/\+NOW.
+\item {\bfseries{Multitarea con Free\+RTOS\+:}} ~\newline
+ Ejecuta tareas concurrentes para la lectura de sensores y envío de datos.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysubsection{\texorpdfstring{PF-\/\+Edge}{PF-\/\+Edge}}\label{md__r_e_a_d_m_e_autotoc_md35}
+
+\begin{DoxyItemize}
+\item {\bfseries{Procesamiento Centralizado\+:}} ~\newline
+ Recibe datos de {\bfseries{PF-\/\+Sensores}}, evalúa umbrales configurados y genera alertas.
+\item {\bfseries{Control de Actuadores\+:}} ~\newline
+ Envía comandos a {\bfseries{PF-\/\+Actuadores}} para activar o desactivar dispositivos según las condiciones ambientales.
+\item {\bfseries{Registro de Datos\+:}} ~\newline
+ Almacena información en una tarjeta SD en formato CSV para análisis histórico.
+\item {\bfseries{Interacción con Telegram\+:}} ~\newline
+ Permite a los usuarios consultar el estado del sistema y controlar actuadores mediante un bot de Telegram.
+\item {\bfseries{Visualización en Pantalla OLED\+:}} ~\newline
+ Muestra datos en tiempo real, alertas y estado del sistema.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md36}{}\doxysubsection{\texorpdfstring{PF-\/\+Actuadores}{PF-\/\+Actuadores}}\label{md__r_e_a_d_m_e_autotoc_md36}
+
+\begin{DoxyItemize}
+\item {\bfseries{Control de Dispositivos\+:}} ~\newline
+ Maneja actuadores como\+:
+\begin{DoxyItemize}
+\item Bomba de agua.
+\item Ventilador.
+\item LEDs RGB.
+\end{DoxyItemize}
+\item {\bfseries{Recepción de Comandos\+:}} ~\newline
+ Escucha las instrucciones enviadas por {\bfseries{PF-\/\+Edge}} mediante ESP-\/\+NOW.
+\item {\bfseries{Configuración Modular\+:}} ~\newline
+ Permite la expansión para incluir más actuadores según las necesidades del sistema.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxysection{\texorpdfstring{Tecnologías Utilizadas}{Tecnologías Utilizadas}}\label{md__r_e_a_d_m_e_autotoc_md37}
+
+\begin{DoxyItemize}
+\item {\bfseries{Microcontrolador\+:}} ESP32.
+\item {\bfseries{Protocolos de Comunicación\+:}} ESP-\/\+NOW, Wi\+Fi.
+\item {\bfseries{Sistema Operativo en Tiempo Real\+:}} Free\+RTOS.
+\item {\bfseries{Almacenamiento\+:}} Tarjeta SD.
+\item {\bfseries{Interfaz de Usuario\+:}} Pantalla OLED y bot de Telegram.
+\item {\bfseries{Lenguaje de Programación\+:}} C/\+C++.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md38}{}\doxysection{\texorpdfstring{Configuración del Hardware}{Configuración del Hardware}}\label{md__r_e_a_d_m_e_autotoc_md38}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysubsection{\texorpdfstring{PF-\/\+Sensores}{PF-\/\+Sensores}}\label{md__r_e_a_d_m_e_autotoc_md39}
+
+\begin{DoxyItemize}
+\item {\bfseries{DHT11\+:}} Pin {\ttfamily 4}.
+\item {\bfseries{LDR\+:}} Pin {\ttfamily 34}.
+\item {\bfseries{MQ135\+:}} Pin {\ttfamily 35}.
+\item {\bfseries{YL-\/69\+:}} Pin {\ttfamily 32}.
+\item {\bfseries{Divisor de Voltaje\+:}} Pin {\ttfamily 33}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md40}{}\doxysubsection{\texorpdfstring{PF-\/\+Edge}{PF-\/\+Edge}}\label{md__r_e_a_d_m_e_autotoc_md40}
+
+\begin{DoxyItemize}
+\item {\bfseries{Pantalla OLED\+:}} Pines SDA y SCL conectados al ESP32.
+\item {\bfseries{Tarjeta SD\+:}} Pin CS {\ttfamily 5}.
+\item {\bfseries{RTC DS1302\+:}} Pines IO, SCLK, CE conectados al ESP32.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxysubsection{\texorpdfstring{PF-\/\+Actuadores}{PF-\/\+Actuadores}}\label{md__r_e_a_d_m_e_autotoc_md41}
+
+\begin{DoxyItemize}
+\item {\bfseries{Bomba de Agua\+:}} Pin {\ttfamily 25}.
+\item {\bfseries{Ventilador\+:}} Pin {\ttfamily 26}.
+\item {\bfseries{LEDs RGB\+:}} Pines {\ttfamily 14}, {\ttfamily 27}, {\ttfamily 33}, {\ttfamily 32}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md42}{}\doxysection{\texorpdfstring{Instalación y Configuración}{Instalación y Configuración}}\label{md__r_e_a_d_m_e_autotoc_md42}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md43}{}\doxysubsection{\texorpdfstring{Requisitos Previos}{Requisitos Previos}}\label{md__r_e_a_d_m_e_autotoc_md43}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Hardware Necesario\+:}}
+\begin{DoxyItemize}
+\item ESP32.
+\item Sensores (DHT11, LDR, MQ135, YL-\/69, divisor de voltaje).
+\item Actuadores (bomba de agua, ventilador, LEDs RGB).
+\item Pantalla OLED, tarjeta SD y módulo RTC DS1302.
+\end{DoxyItemize}
+\item {\bfseries{Software Necesario\+:}}
+\begin{DoxyItemize}
+\item \href{https://platformio.org/}{\texttt{ Platform\+IO}} o Arduino IDE con soporte para ESP32.
+\item Librerías requeridas\+:
+\begin{DoxyItemize}
+\item Adafruit\+\_\+\+GFX
+\item Adafruit\+\_\+\+SSD1306
+\item Rtc\+DS1302
+\item SD
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md44}{}\doxysubsection{\texorpdfstring{Pasos de Configuración}{Pasos de Configuración}}\label{md__r_e_a_d_m_e_autotoc_md44}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Clonar el Repositorio\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/usuario/VerdeVital.git}
+
+\end{DoxyCode}
+
+\item {\bfseries{Configurar el Entorno de Desarrollo\+:}}
+\begin{DoxyItemize}
+\item Instalar las dependencias necesarias.
+\item Configurar credenciales Wi\+Fi y token del bot de Telegram en los archivos correspondientes.
+\end{DoxyItemize}
+\item {\bfseries{Conectar el Hardware\+:}}
+\begin{DoxyItemize}
+\item Realizar las conexiones físicas según los pines especificados.
+\end{DoxyItemize}
+\item {\bfseries{Compilar y Subir el Código\+:}}
+\begin{DoxyItemize}
+\item Compilar el firmware de cada módulo y subirlo al ESP32 correspondiente.
+\end{DoxyItemize}
+\item {\bfseries{Verificar la Comunicación\+:}}
+\begin{DoxyItemize}
+\item Asegurarse de que los canales ESP-\/\+NOW coincidan entre los módulos.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md45}{}\doxysection{\texorpdfstring{Uso del Sistema}{Uso del Sistema}}\label{md__r_e_a_d_m_e_autotoc_md45}
+
+\begin{DoxyItemize}
+\item {\bfseries{Inicio del Sistema\+:}} ~\newline
+ Al encender los módulos, PF-\/\+Sensores comenzará a capturar datos y enviarlos a PF-\/\+Edge. PF-\/\+Edge procesará los datos, evaluará umbrales y enviará comandos a PF-\/\+Actuadores.
+\item {\bfseries{Interacción con Telegram\+:}} ~\newline
+ Consultar datos y estado del sistema mediante comandos como {\ttfamily /datos}, {\ttfamily /estado}, {\ttfamily /umbrales}, etc.
+\item {\bfseries{Visualización en Pantalla OLED\+:}} ~\newline
+ Monitorear datos en tiempo real y alertas directamente en la pantalla OLED.
+\item {\bfseries{Registro de Datos\+:}} ~\newline
+ Los datos se almacenarán automáticamente en la tarjeta SD para análisis posterior.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md46}{}\doxysection{\texorpdfstring{Integración del Ecosistema}{Integración del Ecosistema}}\label{md__r_e_a_d_m_e_autotoc_md46}
+
+\begin{DoxyItemize}
+\item {\bfseries{PF-\/\+Sensores\+:}} Captura datos ambientales y los transmite a PF-\/\+Edge.
+\item {\bfseries{PF-\/\+Edge\+:}} Procesa los datos, genera alertas y controla actuadores.
+\item {\bfseries{PF-\/\+Actuadores\+:}} Ejecuta las acciones necesarias para mantener las condiciones óptimas.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md47}{}\doxysection{\texorpdfstring{Próximos Pasos y Mejoras Futuras}{Próximos Pasos y Mejoras Futuras}}\label{md__r_e_a_d_m_e_autotoc_md47}
+
+\begin{DoxyItemize}
+\item Ampliar la compatibilidad con más sensores y actuadores.
+\item Implementar control de LEDs RGB con variaciones de color y brillo.
+\item Integrar servicios en la nube para análisis avanzado de datos.
+\item Desarrollar una interfaz web para monitoreo y control remoto.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md48}{}\doxysection{\texorpdfstring{Contribuciones}{Contribuciones}}\label{md__r_e_a_d_m_e_autotoc_md48}
+Las contribuciones son bienvenidas. Si deseas proponer mejoras, reportar problemas o colaborar en el desarrollo, abre un issue o envía un pull request en el repositorio oficial.\hypertarget{md__r_e_a_d_m_e_autotoc_md49}{}\doxysection{\texorpdfstring{Licencia}{Licencia}}\label{md__r_e_a_d_m_e_autotoc_md49}
+Este proyecto se distribuye bajo la Licencia MIT.
+
+Desarrollado con pasión por el equipo de Verde\+Vital. 

@@ -1,0 +1,74 @@
+\doxysection{Referencia de la clase Sensor\+MQ135}
+\hypertarget{class_sensor_m_q135}{}\label{class_sensor_m_q135}\index{SensorMQ135@{SensorMQ135}}
+
+
+Clase para manejar el sensor MQ135 (calidad del aire). Esta clase permite leer el valor de CO2 del sensor MQ135 conectado a un pin analógico.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+\+MQ135.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_m_q135_a04024d5aedb195784a5fb38aab6659ac}{Sensor\+MQ135}} (uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_sensor_m_q135}{Sensor\+MQ135}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_m_q135_a90d7abc2a62b84dd6683a0e32e6afc6b}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el sensor MQ135. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_m_q135_ab2bcfb39343d76aab6a870f4586c0481}{read\+CO2}} ()
+\begin{DoxyCompactList}\small\item\em Lee el valor de CO2 del sensor MQ135. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase para manejar el sensor MQ135 (calidad del aire). Esta clase permite leer el valor de CO2 del sensor MQ135 conectado a un pin analógico. 
+
+La clase \doxylink{class_sensor_m_q135}{Sensor\+MQ135} encapsula la funcionalidad de un sensor MQ135, permitiendo inicializar el sensor y leer el valor de CO2 en partes por millón (ppm). 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_sensor_m_q135_a04024d5aedb195784a5fb38aab6659ac}\index{SensorMQ135@{SensorMQ135}!SensorMQ135@{SensorMQ135}}
+\index{SensorMQ135@{SensorMQ135}!SensorMQ135@{SensorMQ135}}
+\doxysubsubsection{\texorpdfstring{SensorMQ135()}{SensorMQ135()}}
+{\footnotesize\ttfamily \label{class_sensor_m_q135_a04024d5aedb195784a5fb38aab6659ac} 
+Sensor\+MQ135\+::\+Sensor\+MQ135 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_sensor_m_q135}{Sensor\+MQ135}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & Pin al que está conectado el sensor MQ135. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_sensor_m_q135_a90d7abc2a62b84dd6683a0e32e6afc6b}\index{SensorMQ135@{SensorMQ135}!begin@{begin}}
+\index{begin@{begin}!SensorMQ135@{SensorMQ135}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_sensor_m_q135_a90d7abc2a62b84dd6683a0e32e6afc6b} 
+void Sensor\+MQ135\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa el sensor MQ135. 
+
+Debe ser llamado antes de leer datos del sensor. En este modo simple, no se realiza calibración ni ajustes adicionales. \Hypertarget{class_sensor_m_q135_ab2bcfb39343d76aab6a870f4586c0481}\index{SensorMQ135@{SensorMQ135}!readCO2@{readCO2}}
+\index{readCO2@{readCO2}!SensorMQ135@{SensorMQ135}}
+\doxysubsubsection{\texorpdfstring{readCO2()}{readCO2()}}
+{\footnotesize\ttfamily \label{class_sensor_m_q135_ab2bcfb39343d76aab6a870f4586c0481} 
+float Sensor\+MQ135\+::read\+CO2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee el valor de CO2 del sensor MQ135. 
+
+\begin{DoxyReturn}{Devuelve}
+Valor de CO2 en partes por millón (ppm).
+\end{DoxyReturn}
+La lectura se realiza directamente desde el pin analógico. El valor se interpreta como un valor "{}ppm"{} sin calibración adicional. 
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Sensores/include/\mbox{\hyperlink{sensor___m_q135_8h}{sensor\+\_\+\+MQ135.\+h}}\end{DoxyCompactItemize}

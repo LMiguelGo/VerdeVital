@@ -1,0 +1,69 @@
+\doxysection{Referencia de la clase ESPNow\+Actuator\+Receiver}
+\hypertarget{class_e_s_p_now_actuator_receiver}{}\label{class_e_s_p_now_actuator_receiver}\index{ESPNowActuatorReceiver@{ESPNowActuatorReceiver}}
+
+
+Librerías.  
+
+
+
+
+{\ttfamily \#include $<$ESPNow\+Receiver.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_s_p_now_actuator_receiver_a62f64d354e305582b67e699b17607ef5}{ESPNow\+Actuator\+Receiver}} (uint8\+\_\+t channel=1)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_e_s_p_now_actuator_receiver}{ESPNow\+Actuator\+Receiver}. \end{DoxyCompactList}\item 
+\Hypertarget{class_e_s_p_now_actuator_receiver_af98df623bc8be62fd60e72d1620d4caa}\label{class_e_s_p_now_actuator_receiver_af98df623bc8be62fd60e72d1620d4caa} 
+void {\bfseries begin} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el receptor ESP-\/\+NOW. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_s_p_now_actuator_receiver_af047114a7c26fb9738b82978ecb8f13e}{on\+Receive}} (void(\texorpdfstring{$\ast$}{*}callback)(const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&))
+\begin{DoxyCompactList}\small\item\em Registra un callback para manejar los datos recibidos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Librerías. 
+
+Clase para recibir estados de actuadores a través de ESP-\/\+NOW
+
+Esta clase permite recibir estados de actuadores (bomba de agua, ventilador y LEDs) a través de ESP-\/\+NOW. Utiliza una estructura {\ttfamily \doxylink{struct_actuator_state}{Actuator\+State}} para representar el estado de los actuadores. El receptor se inicializa en un canal específico y permite registrar un callback para manejar los datos recibidos. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_e_s_p_now_actuator_receiver_a62f64d354e305582b67e699b17607ef5}\index{ESPNowActuatorReceiver@{ESPNowActuatorReceiver}!ESPNowActuatorReceiver@{ESPNowActuatorReceiver}}
+\index{ESPNowActuatorReceiver@{ESPNowActuatorReceiver}!ESPNowActuatorReceiver@{ESPNowActuatorReceiver}}
+\doxysubsubsection{\texorpdfstring{ESPNowActuatorReceiver()}{ESPNowActuatorReceiver()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_receiver_a62f64d354e305582b67e699b17607ef5} 
+ESPNow\+Actuator\+Receiver\+::\+ESPNow\+Actuator\+Receiver (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{class_e_s_p_now_actuator_receiver}{ESPNow\+Actuator\+Receiver}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Canal de comunicación ESP-\/\+NOW (por defecto es 1) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_e_s_p_now_actuator_receiver_af047114a7c26fb9738b82978ecb8f13e}\index{ESPNowActuatorReceiver@{ESPNowActuatorReceiver}!onReceive@{onReceive}}
+\index{onReceive@{onReceive}!ESPNowActuatorReceiver@{ESPNowActuatorReceiver}}
+\doxysubsubsection{\texorpdfstring{onReceive()}{onReceive()}}
+{\footnotesize\ttfamily \label{class_e_s_p_now_actuator_receiver_af047114a7c26fb9738b82978ecb8f13e} 
+void ESPNow\+Actuator\+Receiver\+::on\+Receive (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(const \mbox{\hyperlink{struct_actuator_state}{Actuator\+State}} \&)}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registra un callback para manejar los datos recibidos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em callback} & Función que se llamará cuando se reciban datos \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+PF-\/\+Actuadores/include/ESPNow\+Receiver.\+h\end{DoxyCompactItemize}

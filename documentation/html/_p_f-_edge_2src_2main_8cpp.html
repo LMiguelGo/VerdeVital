@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>doxygen Doxyfile: Referencia del archivo PF-Edge/src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">doxygen Doxyfile<span id="projectnumber">&#160;4.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Integral de Monitoreo y Control Ambiental</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_p_f-_edge_2src_2main_8cpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programa principal para el sistema de monitoreo y control de invernadero.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_wifi_connector_8h_source.html">WiFiConnector.h</a>&quot;</code><br />
+<code>#include &quot;ESPNowReceiver.h&quot;</code><br />
+<code>#include &quot;ESPNowSender.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_telegram_bot_8h_source.html">TelegramBot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_thresholds_controller_8h_source.html">ThresholdsController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data_sensor_8h_source.html">dataSensor.h</a>&quot;</code><br />
+<code>#include &quot;dataActuator.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_d_logger_8h_source.html">SDLogger.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_rtc_d_s1302_helper_8h_source.html">RtcDS1302Helper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_display_manager_8h_source.html">DisplayManager.h</a>&quot;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:abc2ad14f0789907024ac765711ffd3da" id="r_abc2ad14f0789907024ac765711ffd3da"><td class="memItemLeft" align="right" valign="top"><a id="abc2ad14f0789907024ac765711ffd3da" name="abc2ad14f0789907024ac765711ffd3da"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BUTTON_PIN</b>&#160;&#160;&#160;27</td></tr>
+<tr class="memdesc:abc2ad14f0789907024ac765711ffd3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin del botón para cambiar páginas. <br /></td></tr>
+<tr class="separator:abc2ad14f0789907024ac765711ffd3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a4a27c94e7a82a5fcc558a79dc503edcc" id="r_a4a27c94e7a82a5fcc558a79dc503edcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a27c94e7a82a5fcc558a79dc503edcc">syncRtcWithNTP</a> ()</td></tr>
+<tr class="memdesc:a4a27c94e7a82a5fcc558a79dc503edcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sincroniza el RTC con un servidor NTP.  <br /></td></tr>
+<tr class="separator:a4a27c94e7a82a5fcc558a79dc503edcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b3b47bb517f5686df6c7145ed2e347" id="r_a04b3b47bb517f5686df6c7145ed2e347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04b3b47bb517f5686df6c7145ed2e347">actualizarDisplay</a> ()</td></tr>
+<tr class="memdesc:a04b3b47bb517f5686df6c7145ed2e347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la pantalla OLED con los datos más recientes.  <br /></td></tr>
+<tr class="separator:a04b3b47bb517f5686df6c7145ed2e347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56422a448357254a6ac3240b674d7e9e" id="r_a56422a448357254a6ac3240b674d7e9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56422a448357254a6ac3240b674d7e9e">onSensorDataReceived</a> (const <a class="el" href="struct_sensor_data.html">SensorData</a> &amp;data)</td></tr>
+<tr class="memdesc:a56422a448357254a6ac3240b674d7e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback para recibir datos de sensores.  <br /></td></tr>
+<tr class="separator:a56422a448357254a6ac3240b674d7e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd67c5124a4dbeb4a331851431a351b8" id="r_abd67c5124a4dbeb4a331851431a351b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd67c5124a4dbeb4a331851431a351b8">ReceiveDataTask</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:abd67c5124a4dbeb4a331851431a351b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para recibir datos de sensores a través de ESP-NOW.  <br /></td></tr>
+<tr class="separator:abd67c5124a4dbeb4a331851431a351b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7538caa9c4fc0c29585be7432a1b3b19" id="r_a7538caa9c4fc0c29585be7432a1b3b19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7538caa9c4fc0c29585be7432a1b3b19">TelegramReceiverTask</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:a7538caa9c4fc0c29585be7432a1b3b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para manejar el bot de Telegram.  <br /></td></tr>
+<tr class="separator:a7538caa9c4fc0c29585be7432a1b3b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4762f67866ef1a40eafc34ddcf740420" id="r_a4762f67866ef1a40eafc34ddcf740420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4762f67866ef1a40eafc34ddcf740420">SDLoggerTask</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:a4762f67866ef1a40eafc34ddcf740420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para registrar datos en la tarjeta SD.  <br /></td></tr>
+<tr class="separator:a4762f67866ef1a40eafc34ddcf740420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee23d7efd0ecf6c8705ba8166cdba419" id="r_aee23d7efd0ecf6c8705ba8166cdba419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee23d7efd0ecf6c8705ba8166cdba419">RTCUpdateTask</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:aee23d7efd0ecf6c8705ba8166cdba419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para actualizar el RTC con NTP cada 30 minutos.  <br /></td></tr>
+<tr class="separator:aee23d7efd0ecf6c8705ba8166cdba419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af876f714a02f228542ef96a4ed95a185" id="r_af876f714a02f228542ef96a4ed95a185"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af876f714a02f228542ef96a4ed95a185">checkRtcTime</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:af876f714a02f228542ef96a4ed95a185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para verificar la hora del RTC y sincronizarla si es inválida.  <br /></td></tr>
+<tr class="separator:af876f714a02f228542ef96a4ed95a185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7e73a57ebf85a6ffa2ab663419812b" id="r_acb7e73a57ebf85a6ffa2ab663419812b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb7e73a57ebf85a6ffa2ab663419812b">DisplayTask</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:acb7e73a57ebf85a6ffa2ab663419812b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para manejar la pantalla OLED.  <br /></td></tr>
+<tr class="separator:acb7e73a57ebf85a6ffa2ab663419812b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuración inicial del sistema.  <br /></td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top"><a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a587ba0cb07f02913598610049a3bbb79" id="r_a587ba0cb07f02913598610049a3bbb79"><td class="memItemLeft" align="right" valign="top"><a id="a587ba0cb07f02913598610049a3bbb79" name="a587ba0cb07f02913598610049a3bbb79"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ssid</b> = &quot;Jose&quot;</td></tr>
+<tr class="memdesc:a587ba0cb07f02913598610049a3bbb79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de la red WiFi. <br /></td></tr>
+<tr class="separator:a587ba0cb07f02913598610049a3bbb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a2ebcb494493f648ae1e6975672575" id="r_aa4a2ebcb494493f648ae1e6975672575"><td class="memItemLeft" align="right" valign="top"><a id="aa4a2ebcb494493f648ae1e6975672575" name="aa4a2ebcb494493f648ae1e6975672575"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>password</b> = &quot;Viani1992&quot;</td></tr>
+<tr class="memdesc:aa4a2ebcb494493f648ae1e6975672575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contraseña de la red WiFi. <br /></td></tr>
+<tr class="separator:aa4a2ebcb494493f648ae1e6975672575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f65cc2514010ba6c826d3ea8ec6ed9e" id="r_a3f65cc2514010ba6c826d3ea8ec6ed9e"><td class="memItemLeft" align="right" valign="top"><a id="a3f65cc2514010ba6c826d3ea8ec6ed9e" name="a3f65cc2514010ba6c826d3ea8ec6ed9e"></a>
+<a class="el" href="class_wi_fi_connector.html">WiFiConnector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>wifi</b> (<a class="el" href="#a587ba0cb07f02913598610049a3bbb79">ssid</a>, <a class="el" href="#aa4a2ebcb494493f648ae1e6975672575">password</a>)</td></tr>
+<tr class="memdesc:a3f65cc2514010ba6c826d3ea8ec6ed9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conexión WiFi. <br /></td></tr>
+<tr class="separator:a3f65cc2514010ba6c826d3ea8ec6ed9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de3f35a43119f21e26e35c28f005bdd" id="r_a7de3f35a43119f21e26e35c28f005bdd"><td class="memItemLeft" align="right" valign="top"><a id="a7de3f35a43119f21e26e35c28f005bdd" name="a7de3f35a43119f21e26e35c28f005bdd"></a>
+const String&#160;</td><td class="memItemRight" valign="bottom"><b>botToken</b> = &quot;7801122874:AAFSDyTc5P3iAw8Z5msvaTbN2O_DJXYEAlw&quot;</td></tr>
+<tr class="memdesc:a7de3f35a43119f21e26e35c28f005bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Token del bot de Telegram. <br /></td></tr>
+<tr class="separator:a7de3f35a43119f21e26e35c28f005bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d419226c7a853ee04680b73fbf9ec0a" id="r_a3d419226c7a853ee04680b73fbf9ec0a"><td class="memItemLeft" align="right" valign="top"><a id="a3d419226c7a853ee04680b73fbf9ec0a" name="a3d419226c7a853ee04680b73fbf9ec0a"></a>
+const String&#160;</td><td class="memItemRight" valign="bottom"><b>chatId</b> = &quot;5152788448&quot;</td></tr>
+<tr class="memdesc:a3d419226c7a853ee04680b73fbf9ec0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID del chat de Telegram. <br /></td></tr>
+<tr class="separator:a3d419226c7a853ee04680b73fbf9ec0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64e588e5eba3d3dd1a524440d0bc138" id="r_aa64e588e5eba3d3dd1a524440d0bc138"><td class="memItemLeft" align="right" valign="top"><a id="aa64e588e5eba3d3dd1a524440d0bc138" name="aa64e588e5eba3d3dd1a524440d0bc138"></a>
+<a class="el" href="class_telegram_bot.html">TelegramBot</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bot</b> (<a class="el" href="#a7de3f35a43119f21e26e35c28f005bdd">botToken</a>, <a class="el" href="#a3d419226c7a853ee04680b73fbf9ec0a">chatId</a>)</td></tr>
+<tr class="memdesc:aa64e588e5eba3d3dd1a524440d0bc138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del bot de Telegram. <br /></td></tr>
+<tr class="separator:aa64e588e5eba3d3dd1a524440d0bc138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ce90163aa9da616b752295dd074d56" id="r_af4ce90163aa9da616b752295dd074d56"><td class="memItemLeft" align="right" valign="top"><a id="af4ce90163aa9da616b752295dd074d56" name="af4ce90163aa9da616b752295dd074d56"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastUpdateId</b> = 0</td></tr>
+<tr class="memdesc:af4ce90163aa9da616b752295dd074d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID de la última actualización del bot. <br /></td></tr>
+<tr class="separator:af4ce90163aa9da616b752295dd074d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aee5db68b4f669974b7fc8627be78a1" id="r_a0aee5db68b4f669974b7fc8627be78a1"><td class="memItemLeft" align="right" valign="top"><a id="a0aee5db68b4f669974b7fc8627be78a1" name="a0aee5db68b4f669974b7fc8627be78a1"></a>
+<a class="el" href="class_rtc_d_s1302_helper.html">RtcDS1302Helper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> (15, 14, 2)</td></tr>
+<tr class="memdesc:a0aee5db68b4f669974b7fc8627be78a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del RTC DS1302. <br /></td></tr>
+<tr class="separator:a0aee5db68b4f669974b7fc8627be78a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6572fa3d20e8c2e67bfe9dd53aad0a" id="r_aff6572fa3d20e8c2e67bfe9dd53aad0a"><td class="memItemLeft" align="right" valign="top"><a id="aff6572fa3d20e8c2e67bfe9dd53aad0a" name="aff6572fa3d20e8c2e67bfe9dd53aad0a"></a>
+<a class="el" href="class_s_d_logger.html">SDLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> (5)</td></tr>
+<tr class="memdesc:aff6572fa3d20e8c2e67bfe9dd53aad0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del logger de SD. <br /></td></tr>
+<tr class="separator:aff6572fa3d20e8c2e67bfe9dd53aad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7a276d75f5a923bfaac3000c1444e8" id="r_a6c7a276d75f5a923bfaac3000c1444e8"><td class="memItemLeft" align="right" valign="top"><a id="a6c7a276d75f5a923bfaac3000c1444e8" name="a6c7a276d75f5a923bfaac3000c1444e8"></a>
+<a class="el" href="struct_sensor_data.html">SensorData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastReceivedData</b></td></tr>
+<tr class="memdesc:a6c7a276d75f5a923bfaac3000c1444e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Últimos datos recibidos de sensores. <br /></td></tr>
+<tr class="separator:a6c7a276d75f5a923bfaac3000c1444e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ddd9feadd301eaaed0579bae694b97" id="r_a59ddd9feadd301eaaed0579bae694b97"><td class="memItemLeft" align="right" valign="top"><a id="a59ddd9feadd301eaaed0579bae694b97" name="a59ddd9feadd301eaaed0579bae694b97"></a>
+<a class="el" href="struct_actuator_state.html">ActuatorState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>actuatorState</b></td></tr>
+<tr class="memdesc:a59ddd9feadd301eaaed0579bae694b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado de los actuadores. <br /></td></tr>
+<tr class="separator:a59ddd9feadd301eaaed0579bae694b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a0b0bc43fc961fca46b36695489f0e" id="r_ac1a0b0bc43fc961fca46b36695489f0e"><td class="memItemLeft" align="right" valign="top"><a id="ac1a0b0bc43fc961fca46b36695489f0e" name="ac1a0b0bc43fc961fca46b36695489f0e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasData</b> = false</td></tr>
+<tr class="memdesc:ac1a0b0bc43fc961fca46b36695489f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si se han recibido datos. <br /></td></tr>
+<tr class="separator:ac1a0b0bc43fc961fca46b36695489f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2830762f29f949ecdda8220f224878" id="r_a9c2830762f29f949ecdda8220f224878"><td class="memItemLeft" align="right" valign="top"><a id="a9c2830762f29f949ecdda8220f224878" name="a9c2830762f29f949ecdda8220f224878"></a>
+portMUX_TYPE&#160;</td><td class="memItemRight" valign="bottom"><b>dataMux</b> = portMUX_INITIALIZER_UNLOCKED</td></tr>
+<tr class="memdesc:a9c2830762f29f949ecdda8220f224878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex para proteger acceso a datos compartidos. <br /></td></tr>
+<tr class="separator:a9c2830762f29f949ecdda8220f224878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e483dcbe3b416a0b36ecf4976e2189" id="r_a60e483dcbe3b416a0b36ecf4976e2189"><td class="memItemLeft" align="right" valign="top"><a id="a60e483dcbe3b416a0b36ecf4976e2189" name="a60e483dcbe3b416a0b36ecf4976e2189"></a>
+<a class="el" href="class_e_s_p_now_receiver.html">ESPNowReceiver</a>&#160;</td><td class="memItemRight" valign="bottom"><b>receiver</b> (2)</td></tr>
+<tr class="memdesc:a60e483dcbe3b416a0b36ecf4976e2189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receptor ESP-NOW en el canal 2. <br /></td></tr>
+<tr class="separator:a60e483dcbe3b416a0b36ecf4976e2189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1419e04c5a55c0383db71bf82958a0ab" id="r_a1419e04c5a55c0383db71bf82958a0ab"><td class="memItemLeft" align="right" valign="top"><a id="a1419e04c5a55c0383db71bf82958a0ab" name="a1419e04c5a55c0383db71bf82958a0ab"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>actuatorMAC</b> [] = {0xEC, 0xE3, 0x34, 0x8A, 0x55, 0xA0}</td></tr>
+<tr class="memdesc:a1419e04c5a55c0383db71bf82958a0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección MAC del actuador. <br /></td></tr>
+<tr class="separator:a1419e04c5a55c0383db71bf82958a0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3743d46492d7c3a4359182f90ff217" id="r_abc3743d46492d7c3a4359182f90ff217"><td class="memItemLeft" align="right" valign="top"><a id="abc3743d46492d7c3a4359182f90ff217" name="abc3743d46492d7c3a4359182f90ff217"></a>
+<a class="el" href="class_e_s_p_now_actuator_sender.html">ESPNowActuatorSender</a>&#160;</td><td class="memItemRight" valign="bottom"><b>actuatorSender</b> (<a class="el" href="#a1419e04c5a55c0383db71bf82958a0ab">actuatorMAC</a>, 2)</td></tr>
+<tr class="memdesc:abc3743d46492d7c3a4359182f90ff217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del sender ESP-NOW para actuadores. <br /></td></tr>
+<tr class="separator:abc3743d46492d7c3a4359182f90ff217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3d4bf17681f0d9db10686e39cd5050" id="r_aab3d4bf17681f0d9db10686e39cd5050"><td class="memItemLeft" align="right" valign="top"><a id="aab3d4bf17681f0d9db10686e39cd5050" name="aab3d4bf17681f0d9db10686e39cd5050"></a>
+<a class="el" href="class_display_manager.html">DisplayManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>display</b> (false)</td></tr>
+<tr class="memdesc:aab3d4bf17681f0d9db10686e39cd5050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del manejador de pantalla. <br /></td></tr>
+<tr class="separator:aab3d4bf17681f0d9db10686e39cd5050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20aaf93d95ea62fcd41c710c7a8391fe" id="r_a20aaf93d95ea62fcd41c710c7a8391fe"><td class="memItemLeft" align="right" valign="top"><a id="a20aaf93d95ea62fcd41c710c7a8391fe" name="a20aaf93d95ea62fcd41c710c7a8391fe"></a>
+<a class="el" href="class_thresholds.html">Thresholds</a>&#160;</td><td class="memItemRight" valign="bottom"><b>thresholds</b></td></tr>
+<tr class="memdesc:a20aaf93d95ea62fcd41c710c7a8391fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del controlador de umbrales. <br /></td></tr>
+<tr class="separator:a20aaf93d95ea62fcd41c710c7a8391fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Programa principal para el sistema de monitoreo y control de invernadero. </p>
+<p>Este programa utiliza ESP-NOW para recibir datos de sensores, controla actuadores, se comunica con un bot de Telegram y registra datos en una tarjeta SD. Utiliza FreeRTOS para manejar múltiples tareas concurrentes. </p><dl class="section author"><dt>Autor</dt><dd>Valentina Muñoz Arcos Luis Miguel Gómez Muñoz David Alejandro Ortega Flórez</dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>4.0 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2025-06-16 </dd></dl>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="a04b3b47bb517f5686df6c7145ed2e347" name="a04b3b47bb517f5686df6c7145ed2e347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b3b47bb517f5686df6c7145ed2e347">&#9670;&#160;</a></span>actualizarDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void actualizarDisplay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza la pantalla OLED con los datos más recientes. </p>
+<p>Muestra los datos de los sensores y el estado de los actuadores en la pantalla OLED. </p>
+
+</div>
+</div>
+<a id="af876f714a02f228542ef96a4ed95a185" name="af876f714a02f228542ef96a4ed95a185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af876f714a02f228542ef96a4ed95a185">&#9670;&#160;</a></span>checkRtcTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkRtcTime </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para verificar la hora del RTC y sincronizarla si es inválida. </p>
+<p>Esta tarea comprueba la hora del RTC cada minuto y la sincroniza con NTP si es inválida. </p>
+
+</div>
+</div>
+<a id="acb7e73a57ebf85a6ffa2ab663419812b" name="acb7e73a57ebf85a6ffa2ab663419812b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb7e73a57ebf85a6ffa2ab663419812b">&#9670;&#160;</a></span>DisplayTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayTask </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para manejar la pantalla OLED. </p>
+<p>Esta tarea actualiza la pantalla OLED y permite cambiar de página con un botón. </p>
+
+</div>
+</div>
+<a id="a56422a448357254a6ac3240b674d7e9e" name="a56422a448357254a6ac3240b674d7e9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56422a448357254a6ac3240b674d7e9e">&#9670;&#160;</a></span>onSensorDataReceived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onSensorDataReceived </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sensor_data.html">SensorData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback para recibir datos de sensores. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Datos del sensor recibidos </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd67c5124a4dbeb4a331851431a351b8" name="abd67c5124a4dbeb4a331851431a351b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd67c5124a4dbeb4a331851431a351b8">&#9670;&#160;</a></span>ReceiveDataTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ReceiveDataTask </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para recibir datos de sensores a través de ESP-NOW. </p>
+<p>Callback para manejar la recepción de datos de sensores. </p>
+
+</div>
+</div>
+<a id="aee23d7efd0ecf6c8705ba8166cdba419" name="aee23d7efd0ecf6c8705ba8166cdba419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee23d7efd0ecf6c8705ba8166cdba419">&#9670;&#160;</a></span>RTCUpdateTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTCUpdateTask </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para actualizar el RTC con NTP cada 30 minutos. </p>
+<p>Esta tarea sincroniza el RTC con un servidor NTP cada 30 minutos. </p>
+
+</div>
+</div>
+<a id="a4762f67866ef1a40eafc34ddcf740420" name="a4762f67866ef1a40eafc34ddcf740420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4762f67866ef1a40eafc34ddcf740420">&#9670;&#160;</a></span>SDLoggerTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SDLoggerTask </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para registrar datos en la tarjeta SD. </p>
+<p>Esta tarea registra los datos de sensores y el estado del sistema en la tarjeta SD cada 10 segundos. </p>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuración inicial del sistema. </p>
+<p>Inicializa la conexión WiFi, el RTC, el logger de SD, los receptores y emisores ESP-NOW y las tareas de FreeRTOS. </p>
+
+</div>
+</div>
+<a id="a4a27c94e7a82a5fcc558a79dc503edcc" name="a4a27c94e7a82a5fcc558a79dc503edcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a27c94e7a82a5fcc558a79dc503edcc">&#9670;&#160;</a></span>syncRtcWithNTP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void syncRtcWithNTP </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sincroniza el RTC con un servidor NTP. </p>
+<p>Configura la hora del RTC utilizando un servidor NTP (Reloj Global). </p>
+
+</div>
+</div>
+<a id="a7538caa9c4fc0c29585be7432a1b3b19" name="a7538caa9c4fc0c29585be7432a1b3b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7538caa9c4fc0c29585be7432a1b3b19">&#9670;&#160;</a></span>TelegramReceiverTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TelegramReceiverTask </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para manejar el bot de Telegram. </p>
+<p>Esta tarea se encarga de recibir comandos del bot de Telegram y enviar respuestas. También verifica los umbrales y envía alertas si es necesario. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_dad86263abbbad7f4658eaca3d71a85e.html">PF-Edge</a></li><li class="navelem"><a class="el" href="dir_f1c4c42e7300c83f64f579515ca2d822.html">src</a></li><li class="navelem"><a class="el" href="_p_f-_edge_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

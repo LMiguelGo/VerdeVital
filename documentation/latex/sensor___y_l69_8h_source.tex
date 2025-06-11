@@ -1,0 +1,39 @@
+\doxysection{sensor\+\_\+\+YL69.\+h}
+\hypertarget{sensor___y_l69_8h_source}{}\label{sensor___y_l69_8h_source}\index{PF-\/Sensores/include/sensor\_YL69.h@{PF-\/Sensores/include/sensor\_YL69.h}}
+\mbox{\hyperlink{sensor___y_l69_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_YL69\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SENSOR\_YL69\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Librerías}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sensor_y_l69_aec64babd45574a009e2f7f32bd3eed14}{SensorYL69}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ pin;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ valorSeco\ =\ 4095;\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ valorHumedo\ =\ 2200;\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_sensor_y_l69_aec64babd45574a009e2f7f32bd3eed14}{SensorYL69}}(\textcolor{keywordtype}{int}\ pinSensor)\ :\ pin(pinSensor)\ \{\}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sensor_y_l69_a3d825235f6b574c7f16e8df47dee639c}{begin}}()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ pinMode(pin,\ INPUT);}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_sensor_y_l69_a9ee3b17296bc78b223467bc32e102ec6}{readPercentage}}()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lectura\ =\ analogRead(pin);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Limitar\ lectura\ al\ rango\ esperado}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ lectura\ =\ constrain(lectura,\ valorHumedo,\ valorSeco);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convertir\ a\ porcentaje:\ 0\%\ seco,\ 100\%\ húmedo}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ porcentaje\ =\ (float)(valorSeco\ -\/\ lectura)\ *\ 100.0\ /\ (valorSeco\ -\/\ valorHumedo);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ porcentaje;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SENSOR\_YL69\_H}}
+
+\end{DoxyCode}
