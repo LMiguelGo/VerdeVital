@@ -1,0 +1,2 @@
+timestamp,nodeId,rssi,temp,hum,light,co2ppm,soilMoisture,voltage
+2025-06-08 08:133:00,NODE_1,-40,27.10,51.00,1138,397.00,0.00,0.00

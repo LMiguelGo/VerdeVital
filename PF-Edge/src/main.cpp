@@ -41,7 +41,7 @@ TelegramBot bot(botToken, chatId); ///< Instancia del bot de Telegram
 int lastUpdateId = 0; ///< ID de la última actualización del bot
 
 // 🧠 RTC y SD
-RtcDS1302Helper rtc(15, 14, 2); ///< Instancia del RTC DS1302
+RtcDS1302Helper rtc(15, 14, 2); ///< Instancia del RTC DS1302 RtcDS1302Helper(uint8_t ioPin, uint8_t sclkPin, uint8_t cePin)
 SDLogger logger(5); ///< Instancia del logger de SD
 
 // 🌡️ Datos compartidos
